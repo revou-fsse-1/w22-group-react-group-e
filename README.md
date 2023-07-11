@@ -1,4 +1,4 @@
-# wareg
+# Wareg
 
 
 To get started, run:
