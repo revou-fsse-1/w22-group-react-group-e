@@ -1,4 +1,4 @@
-# wareg
+# Wareg Web
 
 
 To get started, run:
