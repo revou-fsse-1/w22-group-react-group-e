@@ -5,7 +5,6 @@ import React from 'react';
 export default function Contact() {
   return (
     <div>
-      <Header />
       <div className=" bg-[#EEF6F4]">
         <h1 className="p-5 font-bold text-3xl">Hubungi kami</h1>
       </div>
@@ -83,7 +82,6 @@ export default function Contact() {
           </div>
         </div>
       </div>
-      <Footer />
     </div>
   );
 }
