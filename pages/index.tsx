@@ -1,6 +1,6 @@
 import { NextPage } from 'next';
 import Head from 'next/head';
-import LandingPage from '../components/LandingPage';
+
 
 const Index: NextPage = () => {
   return (
@@ -9,7 +9,6 @@ const Index: NextPage = () => {
         <title>wareg</title>
         <meta name="description" content="Wareg." />
       </Head>
-      <LandingPage />
     </>
   );
 };

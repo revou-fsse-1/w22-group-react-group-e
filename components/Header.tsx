@@ -1,4 +1,5 @@
 import React from 'react';
+import Link from 'next/link';
 
 export default function Header() {
   return (
@@ -29,36 +30,36 @@ export default function Header() {
         </div>
         <ul className="flex items-center gap-5">
           <li>
-            <a
+            <Link
+              href="/"
               className="hover:underline underline-offset-8  transition-colors"
-              href=""
             >
               Home
-            </a>
+            </Link>
           </li>
           <li>
-            <a
+            <Link
+              href="/menu"
               className="hover:underline underline-offset-8  transition-colors"
-              href=""
             >
               Menu
-            </a>
+            </Link>
           </li>
           <li>
-            <a
-              className="hover:underline underline-offset-8  transition-colors"
+            <Link
               href="/contact"
+              className="hover:underline underline-offset-8  transition-colors"
             >
               Contact
-            </a>
+            </Link>
           </li>
           <li>
-            <a
+            <Link
+              href="/blog"
               className="hover:underline underline-offset-8 transition-colors"
-              href=""
             >
               Blog
-            </a>
+            </Link>
           </li>
           <li>
             <button

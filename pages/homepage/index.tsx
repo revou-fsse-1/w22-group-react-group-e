@@ -1,7 +1,6 @@
-import Footer from '@/components/Footer';
-import Header from '@/components/Header';
 import Image from 'next/image';
 import React from 'react';
+import Link from 'next/link';
 
 export default function Contact() {
   return (
@@ -19,45 +18,20 @@ export default function Contact() {
               untuk dicoba.
             </p>
             <div className="relative flex mt-4">
-              <a
+              <Link 
                 href="#_"
-                className="flex items-center self-start justify-center px-5 py-3 mt-5 text-base font-medium leading-tight text-white transition duration-150 ease-in-out bg-wintergreen-dream-800 border border-transparent rounded-full shadow hover:bg-wintergreen-dream-600 focus:outline-none focus:shadow-outline-purple md:py-4 md:text-lg xl:text-xl md:px-10 text-white-500"
+                className="flex items-center self-start justify-center px-5 py-3 mt-5 text-base font-medium leading-tight text-white transition duration-150 ease-in-out bg-emerald-600 border border-transparent rounded-full shadow hover:bg-emerald-500 focus:outline-none focus:shadow-outline-purple md:py-4 md:text-lg xl:text-xl md:px-10 text-white-500"
               >
                 Lihat Menu
-              </a>
+              </Link>
             </div>
           </div>
-          <div className="relative w-full px-5 rounded-lg cursor-pointer md:w-2/3 lg:w-1/2 group xl:px-0">
-            <div className="absolute top-0 left-0 w-11/12 -mt-20 opacity-50">
-              <svg
-                className="w-full h-full ml-4 text-purple-100"
-                viewBox="0 0 200 200"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  fill="currentColor"
-                  d="M45,-78C58.3,-70.3,69,-58.2,75.2,-44.4C81.3,-30.7,82.9,-15.3,83.5,0.4C84.2,16,83.8,32.1,76.5,43.9C69.2,55.7,55.1,63.3,41.2,69.4C27.3,75.4,13.6,80,-0.7,81.2C-15.1,82.5,-30.1,80.3,-41.2,72.6C-52.2,64.9,-59.2,51.6,-67.1,38.5C-75.1,25.5,-83.9,12.8,-83.8,0C-83.8,-12.7,-74.9,-25.4,-65.8,-36.4C-56.7,-47.4,-47.4,-56.7,-36.4,-65.7C-25.4,-74.7,-12.7,-83.5,1.6,-86.2C15.9,-89,31.8,-85.7,45,-78Z"
-                  transform="translate(100 100)"
-                />
-              </svg>
-            </div>
-            <div className="relative overflow-hidden rounded-md shadow-2xl cursor-pointer group">
-              <div className="absolute flex items-center justify-center w-full h-full">
-                <span className="flex items-center justify-center w-20 h-20 bg-purple-500 rounded-full shadow-2xl">
-                  <svg
-                    className="w-auto h-8 ml-1 text-white fill-current"
-                    viewBox="0 0 52 66"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M50 30.7L4.1.6C2.6-.4.8.9.8 2.9v60.3c0 2 1.8 3.3 3.3 2.3L50 35.3c1.5-1 1.5-3.6 0-4.6z"
-                      fillRule="nonzero"
-                    />
-                  </svg>
-                </span>
-              </div>
+          <div className="relative w-full px-5 rounded-lg md:w-2/3 lg:w-1/2 group xl:px-0">
+            <div className="absolute top-0 left-0 w-11/12 -mt-20 opacity-50"></div>
+            <div className="relative overflow-hidden group">
+              <div className="absolute flex items-center justify-center w-full h-full"></div>
               <Image
-                src=""
+                src="https://res.cloudinary.com/djudfrj8s/image/upload/v1689347915/wareg-assets/Replace_Image_motme4.png"
                 className="z-10 object-cover w-full h-full"
                 alt=""
                 width={2850}
