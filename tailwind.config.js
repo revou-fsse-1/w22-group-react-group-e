@@ -10,17 +10,6 @@ const config = {
         poppins: ['Poppins', 'sans-serif'],
       },
       colors: {
-        'white': {
-          100: '#FFFFFF',
-          200: '#FFFFFF',
-          300: '#FFFFFF',
-          400: '#FFFFFF',
-          500: '#FFFFFF',
-          600: '#FFFFFF',
-          700: '#FFFFFF',
-          800: '#FFFFFF',
-          900: '#FFFFFF',
-        },
         'sonic-silver': {
           100: '#E8E8E8',
           200: '#D1D1D1',
