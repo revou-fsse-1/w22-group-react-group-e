@@ -1,13 +1,10 @@
-# wareg
-
+# Wareg Web
 
 To get started, run:
 
 ```bash
 pnpm dev
 ```
-
-
 
 ## Scripts
 
