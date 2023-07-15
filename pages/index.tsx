@@ -37,6 +37,21 @@ const Index: NextPage = () => {
                   className="flex items-center self-start justify-center px-5 py-3 mt-5 text-base font-medium leading-tight text-white transition duration-150 ease-in-out bg-emerald-600 border border-transparent rounded-full shadow hover:bg-emerald-500 focus:outline-none focus:shadow-outline-purple md:py-4 md:text-lg xl:text-xl md:px-10 text-white-500"
                 >
                   Lihat Menu
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="33"
+                    height="8"
+                    viewBox="0 0 33 8"
+                    fill="none"
+                    className="ml-2"
+                  >
+                    <path
+                      d="M32.3536 4.35306C32.5488 4.1578 32.5488 3.84122 32.3536 3.64596L29.1716 0.463975C28.9763 0.268713 28.6597 0.268713 28.4645 0.463975C28.2692 0.659238 28.2692 0.97582 28.4645 1.17108L31.2929 3.99951L28.4645 6.82794C28.2692 7.0232 28.2692 7.33978 28.4645 7.53504C28.6597 7.73031 28.9763 7.73031 29.1716 7.53504L32.3536 4.35306ZM4.37114e-08 4.49951L32 4.49951L32 3.49951L-4.37114e-08 3.49951L4.37114e-08 4.49951Z"
+                      fill="white"
+                      stroke="white"
+                      stroke-width="0.5"
+                    />
+                  </svg>
                 </Link>
               </div>
             </div>
