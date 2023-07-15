@@ -13,12 +13,19 @@ const Index: NextPage = () => {
       </Head>
       <div>
         <div className="relative flex flex-col items-center justify-center min-h-screen bg-white bg-cover min-w-screen">
-          <div className="flex flex-col items-center justify-center p-10 mx-auto lg:flex-row lg:max-w-6xl lg:p-0">
-            <div className="container relative z-20 flex flex-col w-full px-5 pb-1 pr-12 mb-16 text-2xl  lg:w-1/2 sm:px-0 md:px-10 sm:items-center lg:items-start lg:mb-0">
-              <h1 className="relative z-20 text-5xl font-extrabold leading-none text-bg-emerald-600  xl:text-6xl sm:text-center lg:text-left font-poppins text-dark-green">
+          <div className="flex flex-col items-center justify-center p-10 mx-auto lg:flex-row lg:max-w-7xl lg:p-0 ">
+            <div className="container relative z-20 flex flex-col w-full px-5 pb-1 pr-12 mb-20 text-2xl lg:mr-10  lg:w-1/2 sm:px-0 md:px-10 sm:items-center lg:items-start lg:mb-0 ">
+              <h1
+                style={{ lineHeight: '1.5' }}
+                className="relative z-20 text-5xl font-semibold text-bg-emerald-600 xl:text-6xl sm:text-center lg:text-left font-poppins text-dark-green "
+              >
                 Makanan Rumah Cepat Saji
               </h1>
-              <p className="relative z-20 block mt-6 text-base text-gray-500 xl:text-xl sm:text-center lg:text-left">
+
+              <p
+                style={{ lineHeight: '1.6' }}
+                className="relative z-20 block mt-6 text-base text-gray-500 xl:text-xl sm:text-center lg:text-left mb-4 "
+              >
                 Selamat datang di Wareg, tempat kami menyajikan masakan rumahan
                 yang lezat dengan harga terjangkau dan segar. Dengan menu yang
                 berubah setiap minggu, selalu ada sesuatu yang baru dan menarik

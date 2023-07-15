@@ -3,9 +3,9 @@ import Link from 'next/link';
 
 export default function Header() {
   return (
-    <div className="  bg-[#EEF6F4]">
+    <div className="  bg-[#EEF6F4] py-0">
       <div className="h-24 mx-auto px-5 flex items-center justify-between">
-        <div className="flex flex-row">
+        <div className="flex flex-row mx-7">
           <div>
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -65,7 +65,7 @@ export default function Header() {
             <button
               data-modal-target="authentication-modal"
               data-modal-toggle="authentication-modal"
-              className="middle none center rounded-full bg-emerald-600 py-3 px-6 font-sans text-xs font-bold uppercase text-white shadow-md  transition-all hover:shadow-lg  focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
+              className="middle none center rounded-full bg-emerald-600 py-3 px-7 mx-8 font-sans text-xs font-bold uppercase text-white shadow-md  transition-all hover:shadow-lg  focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
             >
               Sign in
             </button>
