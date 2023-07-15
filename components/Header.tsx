@@ -28,11 +28,11 @@ export default function Header() {
             <h1 className="px-3 text-3xl font-bold">WAREG</h1>
           </div>
         </div>
-        <ul className="flex items-center gap-5">
+        <ul className="flex items-center gap-5 font-poppins font-normal ">
           <li>
             <Link
               href="/"
-              className="hover:underline underline-offset-8  transition-colors"
+              className="border-b-2 border-transparent hover:border-current transition-colors"
             >
               Home
             </Link>
@@ -40,7 +40,7 @@ export default function Header() {
           <li>
             <Link
               href="/menu"
-              className="hover:underline underline-offset-8  transition-colors"
+              className="border-b-2 border-transparent hover:border-current transition-colors"
             >
               Menu
             </Link>
@@ -48,7 +48,7 @@ export default function Header() {
           <li>
             <Link
               href="/contact"
-              className="hover:underline underline-offset-8  transition-colors"
+              className="border-b-2 border-transparent hover:border-current transition-colors"
             >
               Contact
             </Link>
@@ -56,7 +56,7 @@ export default function Header() {
           <li>
             <Link
               href="/blog"
-              className="hover:underline underline-offset-8 transition-colors"
+              className="border-b-2 border-transparent hover:border-current transition-colors"
             >
               Blog
             </Link>
