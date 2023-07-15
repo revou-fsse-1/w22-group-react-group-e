@@ -1,9 +1,12 @@
 import React from 'react';
+import { useRouter } from 'next/router';
 import Link from 'next/link';
 
 export default function Header() {
+  const router = useRouter();
+
   return (
-    <div className="  bg-[#EEF6F4] py-0">
+    <div className="bg-[#EEF6F4] py-0">
       <div className="h-24 mx-auto px-5 flex items-center justify-between">
         <div className="flex flex-row mx-7">
           <div>
@@ -28,11 +31,19 @@ export default function Header() {
             <h1 className="px-3 text-3xl font-bold">WAREG</h1>
           </div>
         </div>
-        <ul className="flex items-center gap-5 font-poppins font-normal ">
+        <ul className="flex items-center gap-5 font-poppins font-normal">
           <li>
             <Link
               href="/"
-              className="border-b-2 border-transparent hover:border-current transition-colors"
+              className={`border-b-2 ${
+                router.pathname === '/'
+                  ? 'border-current'
+                  : 'border-transparent'
+              } transition-colors ${
+                router.pathname === '/'
+                  ? 'opacity-100'
+                  : 'opacity-60 hover:opacity-100'
+              }`}
             >
               Home
             </Link>
@@ -40,7 +51,15 @@ export default function Header() {
           <li>
             <Link
               href="/menu"
-              className="border-b-2 border-transparent hover:border-current transition-colors"
+              className={`border-b-2 ${
+                router.pathname === '/menu'
+                  ? 'border-current'
+                  : 'border-transparent'
+              } transition-colors ${
+                router.pathname === '/menu'
+                  ? 'opacity-100'
+                  : 'opacity-60 hover:opacity-100'
+              }`}
             >
               Menu
             </Link>
@@ -48,7 +67,15 @@ export default function Header() {
           <li>
             <Link
               href="/contact"
-              className="border-b-2 border-transparent hover:border-current transition-colors"
+              className={`border-b-2 ${
+                router.pathname === '/contact'
+                  ? 'border-current'
+                  : 'border-transparent'
+              } transition-colors ${
+                router.pathname === '/contact'
+                  ? 'opacity-100'
+                  : 'opacity-60 hover:opacity-100'
+              }`}
             >
               Contact
             </Link>
@@ -56,7 +83,15 @@ export default function Header() {
           <li>
             <Link
               href="/blog"
-              className="border-b-2 border-transparent hover:border-current transition-colors"
+              className={`border-b-2 ${
+                router.pathname === '/blog'
+                  ? 'border-current'
+                  : 'border-transparent'
+              } transition-colors ${
+                router.pathname === '/blog'
+                  ? 'opacity-100'
+                  : 'opacity-60 hover:opacity-100'
+              }`}
             >
               Blog
             </Link>
