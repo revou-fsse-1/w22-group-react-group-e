@@ -35,13 +35,9 @@ export default function Header() {
           <li>
             <Link
               href="/"
-              className={`border-b-2 ${
+              className={`transition-colors hover:border-b-2 hover:border-current hover:opacity-60 ${
                 router.pathname === '/'
-                  ? 'border-current'
-                  : 'border-transparent'
-              } transition-colors ${
-                router.pathname === '/'
-                  ? 'opacity-100'
+                  ? 'opacity-100 font-medium'
                   : 'opacity-60 hover:opacity-100'
               }`}
             >
@@ -51,13 +47,9 @@ export default function Header() {
           <li>
             <Link
               href="/menu"
-              className={`border-b-2 ${
+              className={`transition-colors hover:border-b-2 hover:border-current hover:opacity-60 ${
                 router.pathname === '/menu'
-                  ? 'border-current'
-                  : 'border-transparent'
-              } transition-colors ${
-                router.pathname === '/menu'
-                  ? 'opacity-100'
+                  ? 'opacity-100 font-medium'
                   : 'opacity-60 hover:opacity-100'
               }`}
             >
@@ -67,13 +59,9 @@ export default function Header() {
           <li>
             <Link
               href="/contact"
-              className={`border-b-2 ${
+              className={`transition-colors hover:border-b-2 hover:border-current hover:opacity-60 ${
                 router.pathname === '/contact'
-                  ? 'border-current'
-                  : 'border-transparent'
-              } transition-colors ${
-                router.pathname === '/contact'
-                  ? 'opacity-100'
+                  ? 'opacity-100 font-medium'
                   : 'opacity-60 hover:opacity-100'
               }`}
             >
@@ -83,13 +71,9 @@ export default function Header() {
           <li>
             <Link
               href="/blog"
-              className={`border-b-2 ${
+              className={`transition-colors hover:border-b-2 hover:border-current hover:opacity-60 ${
                 router.pathname === '/blog'
-                  ? 'border-current'
-                  : 'border-transparent'
-              } transition-colors ${
-                router.pathname === '/blog'
-                  ? 'opacity-100'
+                  ? 'opacity-100 font-medium'
                   : 'opacity-60 hover:opacity-100'
               }`}
             >
