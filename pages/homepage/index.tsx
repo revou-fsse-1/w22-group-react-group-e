@@ -1,67 +1,67 @@
-import Image from 'next/image';
-import React from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 
-export default function homepage() {
+export default function HomePage() {
   return (
-    <div className="relative bg-white">
-      <div className="container m-auto px-6 pt-32 md:px-12 lg:pt-[4.8rem] lg:px-7">
-        <div className="flex items-center flex-wrap px-2 md:px-0">
-          <div className="relative lg:w-6/12 lg:py-24 xl:py-32">
-            <h1 className="font-bold text-4xl text-yellow-900 md:text-5xl lg:w-10/12">
-              Your favorite dishes, right at your door
-            </h1>
-            <form action="" className="w-full mt-12">
-              <div className="relative flex p-1 rounded-full bg-white border border-yellow-200 shadow-md md:p-2">
-                <select
-                  className="hidden p-3 rounded-full bg-transparent md:block md:p-4"
-                  name="domain"
-                  id="domain"
-                >
-                  <option value="design">FastFood</option>
-                  <option value="development">Restaurant</option>
-                  <option value="marketing">Marketing</option>
-                </select>
-                <input
-                  placeholder="Your favorite food"
-                  className="w-full p-4 rounded-full"
-                  type="text"
-                />
-                <button
-                  type="submit"
-                  title="Start buying"
-                  className="ml-auto py-3 px-6 rounded-full text-center transition bg-gradient-to-b from-yellow-200 to-yellow-300 hover:to-red-300 active:from-yellow-400 focus:from-red-400 md:px-12"
-                >
-                  <span className="hidden text-yellow-900 font-semibold md:block">
-                    Search
-                  </span>
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="currentColor"
-                    className="w-5 mx-auto text-yellow-900 md:hidden"
-                    viewBox="0 0 16 16"
-                  >
-                    <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
-                  </svg>
-                </button>
-              </div>
-            </form>
-            <p className="mt-8 text-gray-700 lg:w-10/12">
-              Sit amet consectetur adipisicing elit.{' '}
-              <Link href="#" className="text-yellow-700">
-                connection
-              </Link>{' '}
-              tenetur nihil quaerat suscipit, sunt dignissimos.
-            </p>
+    <div className="h-1/2 mx-auto">
+      <div className="relative flex flex-col items-center justify-center min-h-screen bg-white bg-cover min-w-screen">
+        <div className="flex flex-col items-center justify-center p-10 mx-auto lg:flex-row lg:max-w-7xl lg:p-0 ">
+          <div className="relative  px-5 rounded-lg md:w-2/3 lg:w-1/2 group xl:px-0">
+            <div className="absolute top-0 left-0 w-11/12 -mt-20 opacity-50"></div>
+            <div className="relative overflow-hidden group">
+              <div className="absolute flex items-center justify-center w-full h-full"></div>
+              <Image
+                src="https://res.cloudinary.com/djudfrj8s/image/upload/v1689410662/wareg-assets/Replace_Image_czohdt.png"
+                className="z-10 object-cover w-full h-full"
+                alt=""
+                width={2850}
+                height={1603}
+              />
+            </div>
           </div>
-          <div className="ml-auto -mb-24 lg:-mb-56 lg:w-6/12">
-            <Image
-              src=""
-              alt="food illustration"
-              width={4500}
-              height={4500}
-              className="relative"
-            />
+
+          <div className="container relative z-20 flex flex-col w-full px-5 pb-1 pr-12 mb-20 text-2xl lg:mr-10  lg:w-1/2 sm:px-0 md:px-10 sm:items-center lg:items-start lg:mb-0 ">
+            <h2 className="font-poppins text-emerald-600 text-lg ">
+              Tentang Kami
+            </h2>
+            <h1
+              style={{ lineHeight: '1.5' }}
+              className="relative z-20 text-5xl font-semibold text-bg-emerald-600 xl:text-6xl sm:text-center lg:text-left font-poppins text-dark-green "
+            >
+              Antar Makanan Ke Rumahmu
+            </h1>
+
+            <p
+              style={{ lineHeight: '1.6' }}
+              className="relative z-20 block mt-6 text-base text-gray-500 xl:text-xl sm:text-center lg:text-left mb-4 "
+            >
+              Wareg adalah sebuah restoran yang menyajikan masakan rumahan
+              dengan harga terjangkau. Kami bertekad untuk memberikan pengalaman
+              makan yang luar biasa bagi setiap pelanggan kami.
+            </p>
+            <div className="relative flex mt-4">
+              <Link
+                href="#_"
+                className="flex items-center self-start justify-center px-5 py-3 mt-5 text-base font-medium leading-tight text-white transition duration-150 ease-in-out bg-emerald-600 border border-transparent rounded-full shadow hover:bg-emerald-500 focus:outline-none focus:shadow-outline-purple md:py-4 md:text-lg xl:text-xl md:px-10 text-white-500"
+              >
+                Selengkapnya
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="33"
+                  height="8"
+                  viewBox="0 0 33 8"
+                  fill="none"
+                  className="ml-2"
+                >
+                  <path
+                    d="M32.3536 4.35306C32.5488 4.1578 32.5488 3.84122 32.3536 3.64596L29.1716 0.463975C28.9763 0.268713 28.6597 0.268713 28.4645 0.463975C28.2692 0.659238 28.2692 0.97582 28.4645 1.17108L31.2929 3.99951L28.4645 6.82794C28.2692 7.0232 28.2692 7.33978 28.4645 7.53504C28.6597 7.73031 28.9763 7.73031 29.1716 7.53504L32.3536 4.35306ZM4.37114e-08 4.49951L32 4.49951L32 3.49951L-4.37114e-08 3.49951L4.37114e-08 4.49951Z"
+                    fill="white"
+                    stroke="white"
+                    stroke-width="0.5"
+                  />
+                </svg>
+              </Link>
+            </div>
           </div>
         </div>
       </div>
