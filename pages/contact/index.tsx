@@ -1,15 +1,15 @@
-import Footer from '@/components/Footer';
-import Header from '@/components/Header';
+//import Footer from '@/components/Footer';
+//import Header from '@/components/Header';
 import React from 'react';
 
 export default function Contact() {
   return (
     <div>
       <div className=" bg-[#EEF6F4]">
-        <h1 className="p-5 font-bold text-3xl">Hubungi kami</h1>
+        <h1 className="p-5 text-3xl font-bold">Hubungi kami</h1>
       </div>
 
-      <div className="m-5 max-w-full justify-center mx-auto flex">
+      <div className="flex justify-center max-w-full m-5 mx-auto">
         <div>
           <img
             className="object-fit: cover"
@@ -20,8 +20,8 @@ export default function Contact() {
           />
         </div>
 
-        <div className="px-8 flex-col">
-          <h1 className="text-2xl font-bold block mb-2 ">Contact</h1>
+        <div className="flex-col px-8">
+          <h1 className="block mb-2 text-2xl font-bold ">Contact</h1>
           <p>Hallo@wareg.com</p>
           <p>Pesan Dalam Jumlah Banyak? Isi disini</p>
           <p>Kami Akan Segera Menghubungi anda</p>
@@ -74,7 +74,7 @@ export default function Contact() {
                 placeholder="Your message..."
               ></textarea>
             </form>
-            <div className="col card-header text-right">
+            <div className="text-right col card-header">
               <button className="middle none center rounded-lg bg-emerald-600 py-3 px-6 font-sans text-xs font-bold uppercase text-white shadow-md  transition-all hover:shadow-lg  focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none">
                 Kirim
               </button>

@@ -3,7 +3,7 @@ import React from 'react';
 export default function Header() {
   return (
     <div className="  bg-[#EEF6F4]">
-      <div className="h-24 mx-auto px-5 flex items-center justify-between">
+      <div className="flex items-center justify-between h-24 px-5 mx-auto">
         <div className="flex flex-row">
           <div>
             <svg
@@ -30,7 +30,7 @@ export default function Header() {
         <ul className="flex items-center gap-5">
           <li>
             <a
-              className="hover:underline underline-offset-8  transition-colors"
+              className="transition-colors hover:underline underline-offset-8"
               href=""
             >
               Home
@@ -38,15 +38,15 @@ export default function Header() {
           </li>
           <li>
             <a
-              className="hover:underline underline-offset-8  transition-colors"
+              className="transition-colors hover:underline underline-offset-8"
               href=""
             >
               Menu
             </a>
           </li>
           <li>
-            <a
-              className="hover:underline underline-offset-8  transition-colors"
+            <a 
+            className="transition-colors hover:underline underline-offset-8"
               href="/contact"
             >
               Contact
@@ -54,8 +54,8 @@ export default function Header() {
           </li>
           <li>
             <a
-              className="hover:underline underline-offset-8 transition-colors"
-              href=""
+              className="transition-colors hover:underline underline-offset-8"
+              href="/blog"
             >
               Blog
             </a>
