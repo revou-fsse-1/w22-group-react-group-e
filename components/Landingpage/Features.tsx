@@ -1,15 +1,18 @@
 import Image from 'next/image';
 import Link from 'next/link';
 
-export default function Mock() {
+export default function Features() {
   return (
     <div>
       <section
-        className="items-center w-full lg:h-64 lg:mb-14"
+        className="flex items-center w-full lg:h-64 lg:mb-14 py-60"
         style={{ backgroundColor: '#EEF6F4' }}
       >
         <div className="px-5 pt-6 mx-auto lg:max-w-6xl lg:px-0">
-          <dl className="grid grid-cols-1 gap-6 space-y-0 lg:gap-24 lg:grid-cols-3">
+          <h2 className=" font-poppins text-5xl font-medium text-center mb-9  pb-2">
+            Kami Menawarkan Pelayanan <br /> Terbaik
+          </h2>
+          <div className="grid grid-cols-1 gap-6 space-y-0 lg:gap-24 lg:grid-cols-3">
             <div>
               <div>
                 <svg
@@ -113,7 +116,7 @@ export default function Mock() {
                 Nikmati masakan Wareg kapan saja, di mana saja.
               </div>
             </div>
-          </dl>
+          </div>
         </div>
       </section>
     </div>
