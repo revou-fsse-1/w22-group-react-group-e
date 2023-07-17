@@ -50,7 +50,7 @@ export default function Footer() {
                   </li>
                   <li className="mt-3">
                     <a className="text-[#005B33] cursor-pointer hover:text-gray-900">
-                      FAQ'S
+                      FAQ
                     </a>
                   </li>
                   <li className="mt-3">

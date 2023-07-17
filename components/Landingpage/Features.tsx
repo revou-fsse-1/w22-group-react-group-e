@@ -19,7 +19,7 @@ export default function Mock() {
                   viewBox="0 0 64 64"
                   fill="none"
                 >
-                  <g clip-path="url(#clip0_23_93)"> 
+                  <g clipPath="url(#clip0_23_93)">
                     <path
                       fill-rule="evenodd"
                       clip-rule="evenodd"
@@ -50,7 +50,7 @@ export default function Mock() {
                   viewBox="0 0 64 64"
                   fill="none"
                 >
-                  <g clip-path="url(#clip0_23_84)">
+                  <g clipPath="url(#clip0_23_84)">
                     <path
                       d="M9.33325 5.33301L10.3798 8.28649L13.3333 9.33301L10.3798 10.3795L9.33325 13.333L8.28673 10.3795L5.33325 9.33301L8.28673 8.28649L9.33325 5.33301Z"
                       fill="#295C4B"
@@ -91,7 +91,7 @@ export default function Mock() {
                   viewBox="0 0 64 64"
                   fill="none"
                 >
-                  <g clip-path="url(#clip0_23_65)">
+                  <g clipPath="url(#clip0_23_65)">
                     <path
                       fill-rule="evenodd"
                       clip-rule="evenodd"
