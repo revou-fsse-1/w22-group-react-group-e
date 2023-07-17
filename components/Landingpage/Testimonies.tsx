@@ -62,11 +62,14 @@ export default function Testimonies() {
               Testimonial
             </p>
 
-            <h1 className="text-2xl font-semibold text-gray-800 dark:text-white lg:text-5xl lg:w-96">
+            <h1 className="text-2xl font-semibold text-gray-800 dark:text-white lg:text-4xl lg:w-96">
               {testimonials[current].quote}
             </h1>
 
-            <p className="max-w-lg mt-6 text-gray-500 dark:text-gray-400 ">
+            <p
+              style={{ lineHeight: '1.8' }}
+              className="max-w-lg mt-6 text-gray-500 dark:text-gray-400 "
+            >
               {testimonials[current].description}
             </p>
 

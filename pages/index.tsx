@@ -13,7 +13,10 @@ const Index: NextPage = () => {
         <title>Wareg</title>
         <meta name="description" content="Wareg." />
       </Head>
-      <div style={{ backgroundColor: '#FFFEFC' }} className="dark:bg-gray-900">
+      <div
+        style={{ backgroundColor: '#FFFEFC' }}
+        className="dark:bg-gray-900 font-poppins"
+      >
         <Landingpage />
         <AboutUs />
         <Testimonies />
