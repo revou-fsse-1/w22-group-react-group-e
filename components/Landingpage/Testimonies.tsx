@@ -58,11 +58,11 @@ export default function Testimonies() {
           </div>
 
           <div className="mt-8 lg:w-1/2 lg:px-6 lg:mt-0">
-            <p className="text-l font-semibold text-emerald-600 ">
+            <p className="text-lg font-semibold text-emerald-600 mb-2 ">
               Testimonial
             </p>
 
-            <h1 className="text-2xl font-semibold text-gray-800 dark:text-white lg:text-3xl lg:w-96">
+            <h1 className="text-2xl font-semibold text-gray-800 dark:text-white lg:text-5xl lg:w-96">
               {testimonials[current].quote}
             </h1>
 
