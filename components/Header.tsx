@@ -1,5 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
+import LoginModal from './LoginRegisterModal';
 export default function Header() {
   return (
     <div className="  bg-[#EEF6F4]">
@@ -45,8 +46,8 @@ export default function Header() {
             </Link>
           </li>
           <li>
-            <Link 
-            className="transition-colors hover:underline underline-offset-8"
+            <Link
+              className="transition-colors hover:underline underline-offset-8"
               href="/contact"
             >
               Contact
@@ -60,15 +61,7 @@ export default function Header() {
               Blog
             </Link>
           </li>
-          <li>
-            <button
-              data-modal-target="authentication-modal"
-              data-modal-toggle="authentication-modal"
-              className="middle none center rounded-full bg-emerald-600 py-3 px-6 font-sans text-xs font-bold uppercase text-white shadow-md  transition-all hover:shadow-lg  focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
-            >
-              Sign in
-            </button>
-          </li>
+          <LoginModal />
         </ul>
       </div>
     </div>
