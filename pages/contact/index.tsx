@@ -1,6 +1,5 @@
-import Footer from '@/components/Footer';
-import Header from '@/components/Header';
 import React from 'react';
+import Image from 'next/image';
 
 export default function Contact() {
   return (
@@ -11,12 +10,12 @@ export default function Contact() {
 
       <div className="m-5 max-w-full justify-center mx-auto flex">
         <div>
-          <img
-            className="object-fit: cover"
-            src="contact.jpg"
+          <Image
+            src="https://res.cloudinary.com/djudfrj8s/image/upload/v1689581799/wareg-assets/Rectangle_153_bxw0j7.png"
+            alt=""
             width={552.15}
             height={824.22}
-            alt=""
+            objectFit="cover"
           />
         </div>
 

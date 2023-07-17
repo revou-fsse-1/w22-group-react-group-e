@@ -81,6 +81,18 @@ export default function Header() {
             </Link>
           </li>
           <li>
+            <Link
+              href="/blog"
+              className={`transition-colors hover:border-b-2 hover:border-current hover:opacity-60 ${
+                router.pathname === '/blog'
+                  ? 'opacity-100 font-medium'
+                  : 'opacity-60 hover:opacity-100'
+              }`}
+            >
+              About Us
+            </Link>
+          </li>
+          <li>
             <button
               data-modal-target="authentication-modal"
               data-modal-toggle="authentication-modal"

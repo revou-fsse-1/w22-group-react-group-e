@@ -19,7 +19,7 @@ export default function Mock() {
                   viewBox="0 0 64 64"
                   fill="none"
                 >
-                  <g clip-path="url(#clip0_23_93)">
+                  <g clip-path="url(#clip0_23_93)"> 
                     <path
                       fill-rule="evenodd"
                       clip-rule="evenodd"
