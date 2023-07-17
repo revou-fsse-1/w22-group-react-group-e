@@ -5,7 +5,7 @@ import { GetStaticProps } from "next";
 import { SanityDocument } from "@sanity/client";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {urlForImage} from '../../sanity/lib/image'
-
+import Link from 'next/link';
 export const getStaticProps: GetStaticProps = async () => {
   const client = getClient();
   const postsQuery = groq`*[_type == "post"]{
@@ -45,11 +45,11 @@ export default function BlogPage({ data }: { data: SanityDocument[] }) {
               })}   {" | "}
             </time></a><a> {''} {post.author?.name} {" | "} </a> <a> 0 Comment </a>
               </p>
-            <a href={`/blog/${post.slug.current}`}>
+            <Link href={`/blog/${post.slug.current}`}>
               <h3 className="mt-0.5 text-blue-950 text-2xl font-semibold capitalize">{post.title}</h3>
-            </a>
+            </Link>
             <p className="py-3 mt-2 text-gray-500 line-clamp-3 text-sm/relaxed">{post.overview}</p>
-          <a className='text-[#548776] py-[24px] text-base font-bold capitalize leading-loose' href={`/blog/${post.slug.current}`}>Read More {'>'} </a>
+          <Link className='text-[#548776] py-[24px] text-base font-bold capitalize leading-loose' href={`/blog/${post.slug.current}`}>Read More {'>'} </Link>
           </div>
         </article>
       ))}

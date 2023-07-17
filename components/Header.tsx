@@ -1,5 +1,5 @@
 import React from 'react';
-
+import Link from 'next/link';
 export default function Header() {
   return (
     <div className="  bg-[#EEF6F4]">
@@ -37,28 +37,28 @@ export default function Header() {
             </a>
           </li>
           <li>
-            <a
+            <Link
               className="transition-colors hover:underline underline-offset-8"
-              href=""
+              href="/menu"
             >
               Menu
-            </a>
+            </Link>
           </li>
           <li>
-            <a 
+            <Link 
             className="transition-colors hover:underline underline-offset-8"
               href="/contact"
             >
               Contact
-            </a>
+            </Link>
           </li>
           <li>
-            <a
+            <Link
               className="transition-colors hover:underline underline-offset-8"
               href="/blog"
             >
               Blog
-            </a>
+            </Link>
           </li>
           <li>
             <button
