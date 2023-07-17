@@ -4,6 +4,7 @@ import Head from 'next/head';
 import Testimonies from '../components/Landingpage/Testimonies';
 import AboutUs from '@/components/Landingpage/AboutUs';
 import Landingpage from '@/components/Landingpage/Landingpage';
+import DownloadPage from '@/components/Landingpage/DownloadPage';
 
 const Index: NextPage = () => {
   return (
@@ -12,9 +13,12 @@ const Index: NextPage = () => {
         <title>Wareg</title>
         <meta name="description" content="Wareg." />
       </Head>
-      <Landingpage />
-      <AboutUs />
-      <Testimonies />
+      <div style={{ backgroundColor: '#FFFEFC' }} className="dark:bg-gray-900">
+        <Landingpage />
+        <AboutUs />
+        <Testimonies />
+        <DownloadPage />
+      </div>
     </>
   );
 };

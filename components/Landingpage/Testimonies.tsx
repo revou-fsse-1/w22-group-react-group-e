@@ -37,7 +37,7 @@ export default function Testimonies() {
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrent((current + 1) % testimonials.length);
-    }, 5000);
+    }, 6000);
     return () => clearInterval(timer);
   }, [current]);
 
