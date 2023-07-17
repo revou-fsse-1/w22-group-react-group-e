@@ -1,6 +1,7 @@
 import React from 'react';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
+import LoginModal from './LoginRegisterModal';
 
 export default function Header() {
   const router = useRouter();
@@ -92,7 +93,7 @@ export default function Header() {
               About Us
             </Link>
           </li>
-          <li>
+          {/* <li>
             <button
               data-modal-target="authentication-modal"
               data-modal-toggle="authentication-modal"
@@ -100,7 +101,8 @@ export default function Header() {
             >
               Sign in
             </button>
-          </li>
+          </li> */}
+          <LoginModal />
         </ul>
       </div>
     </div>
