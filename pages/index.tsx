@@ -5,6 +5,7 @@ import Testimonies from '../components/Landingpage/Testimonies';
 import AboutUs from '@/components/Landingpage/AboutUs';
 import Landingpage from '@/components/Landingpage/Landingpage';
 import DownloadPage from '@/components/Landingpage/DownloadPage';
+import Features from '@/components/Landingpage/Features';
 
 const Index: NextPage = () => {
   return (
@@ -19,6 +20,7 @@ const Index: NextPage = () => {
       >
         <Landingpage />
         <AboutUs />
+        <Features />
         <Testimonies />
         <DownloadPage />
       </div>
