@@ -3,6 +3,7 @@ import { NextPage } from 'next';
 import Head from 'next/head';
 import Image from 'next/image';
 import Link from 'next/link';
+import Testimonies from '../components/Testimonies';
 
 const Index: NextPage = () => {
   return (
@@ -71,7 +72,7 @@ const Index: NextPage = () => {
           </div>
         </div>
       </div>
-       {/* about us container  */}
+      {/* about us container  */}
       <div className="h-1/2 mx-auto">
         <div className="relative flex flex-col items-center justify-center min-h-screen bg-white bg-cover min-w-screen">
           <div className="flex flex-col items-center justify-center p-10 mx-auto lg:flex-row lg:max-w-7xl lg:p-0 ">
@@ -135,6 +136,7 @@ const Index: NextPage = () => {
           </div>
         </div>
       </div>
+      <Testimonies />
     </>
   );
 };
