@@ -82,7 +82,7 @@ export default function Header() {
           </li>
           <li>
             <Link
-              href="/blog"
+              href="/about-us"
               className={`transition-colors hover:border-b-2 hover:border-current hover:opacity-60 ${
                 router.pathname === '/blog'
                   ? 'opacity-100 font-medium'
