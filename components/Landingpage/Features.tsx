@@ -13,7 +13,7 @@ export default function Features() {
             Kami Menawarkan Pelayanan <br /> Terbaik
           </h2>
           <div className="grid grid-cols-1 gap-6 space-y-0 lg:gap-24 lg:grid-cols-3">
-            <div>
+            <div className="item-center">
               <div>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
