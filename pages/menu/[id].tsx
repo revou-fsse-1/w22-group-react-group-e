@@ -94,13 +94,13 @@ const DetailMenu: NextComponentType<any, any, ResGetProps> = (props: any) => {
   };
   return (
     <div>
-      <div className="max-w-5xl mx-auto p-8">
-        <div className="flex flex-col justify-between lg:flex-row gap-16 lg:items-center">
+      <div className="max-w-5xl p-8 mx-auto">
+        <div className="flex flex-col justify-between gap-16 lg:flex-row lg:items-center">
           <div className="flex flex-col gap-6 lg:w-2/4">
             <img
               src={activeImg}
               alt=""
-              className="w-full h-full aspect-square object-cover rounded-xl"
+              className="object-cover w-full h-full aspect-square rounded-xl"
             />
             <div className="flex flex-row justify-between h-24">
               <img
@@ -134,7 +134,7 @@ const DetailMenu: NextComponentType<any, any, ResGetProps> = (props: any) => {
               <h1 className="text-4xl font-bold">{name || ''}</h1>
             </div>
 
-            <h6 className="text-emerald-600 text-2xl font-semibold">
+            <h6 className="text-2xl font-semibold text-emerald-600">
               Rp. {price || ''}
             </h6>
             <div className="flex flex-row gap-2">
@@ -151,22 +151,22 @@ const DetailMenu: NextComponentType<any, any, ResGetProps> = (props: any) => {
             <div className="flex flex-row items-center gap-12">
               <div className="flex flex-row items-center">
                 <button
-                  className="bg-gray-200 py-2 px-4 rounded-lg text-emerald-800 text-3xl"
+                  className="px-4 py-2 text-3xl bg-gray-200 rounded-lg text-emerald-800"
                   onClick={removeCountHandler}
                 >
                   -
                 </button>
-                <span className="py-4 px-6 rounded-lg"> {count}</span>
+                <span className="px-6 py-4 rounded-lg"> {count}</span>
 
                 <button
-                  className="bg-gray-200 py-2 px-4 rounded-lg text-emerald-600 text-3xl"
+                  className="px-4 py-2 text-3xl bg-gray-200 rounded-lg text-emerald-600"
                   onClick={addCountHandler}
                 >
                   +
                 </button>
               </div>
             </div>
-            <button className="bg-emerald-600 text-white font-semibold py-3 px-16 rounded-xl h-full">
+            <button className="h-full px-16 py-3 font-semibold text-white bg-emerald-600 rounded-xl">
               Add to Cart
             </button>
           </div>
@@ -178,15 +178,15 @@ const DetailMenu: NextComponentType<any, any, ResGetProps> = (props: any) => {
           <p>{description || ''}</p>
         </div>
 
-        <div className=" my-5 flex flex-row justify-between">
+        <div className="flex flex-row justify-between my-5 ">
           <h1 className="text-4xl font-bold">Anda Mungkin Menyukai</h1>
 
-          <button className="bg-emerald-600 text-white font-semibold py-3 px-16 rounded-xl">
+          <button className="px-16 py-3 font-semibold text-white bg-emerald-600 rounded-xl">
             View More
           </button>
         </div>
 
-        <div className="flex flex-wrap justify-center  gap-6">
+        <div className="flex flex-wrap justify-center gap-6">
           {menus.map((menu) => (
             <MenuCard
               key={menu.id}

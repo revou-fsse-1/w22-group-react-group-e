@@ -10,7 +10,7 @@ import {defineType, defineArrayMember} from 'sanity'
  *    type: 'blockContent'
  *  }
  */
-
+ 
 export default defineType({
   title: 'Block Content',
   name: 'blockContent',
@@ -68,8 +68,8 @@ export default defineType({
           name: 'alt',
           type: 'string',
           title: 'Alternative Text',
-        },
-      ],
+        }
+      ]
     }),
   ],
 })
