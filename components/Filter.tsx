@@ -6,6 +6,7 @@ interface FilterProps {
   onCategoryChange: (category: string) => void;
   onRatingChange: (rating: number | null) => void;
   selectedRating: number | null;
+  onFilterByQuery: (query: string) => void;
 }
 
 const Filter: React.FC<FilterProps> = ({
@@ -14,6 +15,7 @@ const Filter: React.FC<FilterProps> = ({
   onCategoryChange,
   onRatingChange,
   selectedRating,
+  onFilterByQuery,
 }) => {
   const handleCategoryChange = (category: string) => {
     onCategoryChange(category);
@@ -25,11 +27,27 @@ const Filter: React.FC<FilterProps> = ({
     onRatingChange(rating);
   };
 
+  const handleQueryChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const query = event.target.value;
+    onFilterByQuery(query);
+  };
+
   const isAllChecked = selectedCategory.length === 0;
 
   return (
     <div className="flex flex-col">
       <h2 className="mb-4 text-2xl font-bold">Filter</h2>
+      <div className="space-y-2">
+        <h3 className="pt-5 text-xs font-bold uppercase text-zinc-800">
+          Search:
+        </h3>
+        <input
+          type="text"
+          className="block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500"
+          placeholder="Search by name"
+          onChange={handleQueryChange}
+        />
+      </div>
       <div className="space-y-2">
         <h3 className="text-lg font-semibold">Sort by Rating:</h3>
         <select
@@ -46,7 +64,9 @@ const Filter: React.FC<FilterProps> = ({
         </select>
       </div>
       <div className="space-y-2">
-        <h3 className="text-lg font-semibold">Sort by Category:</h3>
+        <h3 className="pt-5 text-xs font-bold uppercase text-zinc-800">
+          Categories:
+        </h3>
         <label key="all" className="flex items-center space-x-2">
           <input
             type="checkbox"

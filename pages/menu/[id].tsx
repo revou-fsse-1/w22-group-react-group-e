@@ -3,7 +3,6 @@ import { GetServerSideProps, NextComponentType } from 'next';
 import React, { useEffect, useState } from 'react';
 import { checkLogin } from '@/libs/checkLogin';
 import MenuCard from '@/components/MenuCard';
-import Image from 'next/image';
 
 interface ResGetProps {
   id: number;
@@ -98,31 +97,31 @@ const DetailMenu: NextComponentType<any, any, ResGetProps> = (props: any) => {
       <div className="max-w-5xl mx-auto p-8">
         <div className="flex flex-col justify-between lg:flex-row gap-16 lg:items-center">
           <div className="flex flex-col gap-6 lg:w-2/4">
-            <Image
+            <img
               src={activeImg}
               alt=""
               className="w-full h-full aspect-square object-cover rounded-xl"
             />
             <div className="flex flex-row justify-between h-24">
-              <Image
+              <img
                 src={images.img1}
                 alt=""
                 className="w-24 h-24 rounded-md cursor-pointer"
                 onClick={() => setActiveImage(images.img1)}
               />
-              <Image
+              <img
                 src={images.img2}
                 alt=""
                 className="w-24 h-24 rounded-md cursor-pointer"
                 onClick={() => setActiveImage(images.img2)}
               />
-              <Image
+              <img
                 src={images.img3}
                 alt=""
                 className="w-24 h-24 rounded-md cursor-pointer"
                 onClick={() => setActiveImage(images.img3)}
               />
-              <Image
+              <img
                 src={images.img4}
                 alt=""
                 className="w-24 h-24 rounded-md cursor-pointer"

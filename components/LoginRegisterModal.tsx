@@ -1,5 +1,6 @@
 import React, { SyntheticEvent, useState } from 'react';
 import { useRouter } from 'next/router';
+import { setCookie } from '@/libs/cookies';
 
 export default function LoginModal() {
   const [isOpen, setIsOpen] = useState(false);
@@ -14,18 +15,52 @@ export default function LoginModal() {
 
   const router = useRouter();
 
-  const submit = async (e: SyntheticEvent) => {
+  const submitLogin = async (e: SyntheticEvent) => {
     e.preventDefault();
 
-    await fetch('http://localhost:4001/auth/login', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        username,
-        password,
-      }),
+    console.log('submitRegister called');
+
+    console.log('Making fetch call with the following details:');
+    console.log('Endpoint:', 'http://localhost:4001/auth/login');
+    console.log('Method:', 'POST');
+    console.log('Headers:', { 'Content-Type': 'application/json' });
+    console.log('Body:', {
+      password: password,
+      email: email,
     });
-    await router.push('/contact');
+
+    try {
+      const response = await fetch(
+        `${process.env.NEXT_PUBLIC_SERVICE_BASE}/auth/login`,
+        {
+          method: 'POST',
+          body: JSON.stringify({
+            password: password,
+            email: email,
+          }),
+          headers: { 'Content-Type': 'application/json' },
+        },
+      );
+
+      if (!response.ok) {
+        const errorData = await response.json();
+        console.error(
+          'HTTP error',
+          response.status,
+          'Error message:',
+          errorData.message,
+        );
+      } else {
+        const data = await response.json();
+        setCookie('token', data.token, 1);
+        console.log('Response data: ', data.token);
+        console.log('Response data: ', data);
+      }
+    } catch (error) {
+      console.error('Error during fetch: ', error);
+    }
+
+    router.reload();
   };
 
   const submitRegister = async (e: SyntheticEvent) => {
@@ -43,22 +78,25 @@ export default function LoginModal() {
       role: role,
       address: address,
       email: email,
-      phone: phone,
+      phoneNumber: phone,
     });
 
     try {
-      const response = await fetch('http://localhost:4001/auth/register', {
-        method: 'POST',
-        body: JSON.stringify({
-          username: username,
-          password: password,
-          role: role,
-          address: address,
-          email: email,
-          phoneNumber: phone,
-        }),
-        headers: { 'Content-Type': 'application/json' },
-      });
+      const response = await fetch(
+        `${process.env.NEXT_PUBLIC_SERVICE_BASE}/auth/register`,
+        {
+          method: 'POST',
+          body: JSON.stringify({
+            username: username,
+            password: password,
+            role: role,
+            address: address,
+            email: email,
+            phoneNumber: phone,
+          }),
+          headers: { 'Content-Type': 'application/json' },
+        },
+      );
 
       if (!response.ok) {
         const errorData = await response.json();
@@ -96,13 +134,13 @@ export default function LoginModal() {
 
   return (
     <div>
-      {' '}
       <button
         onClick={openModal}
         className="middle none center rounded-full bg-emerald-600 py-3 px-6 font-sans text-xs font-bold uppercase text-white shadow-md  transition-all hover:shadow-lg  focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
       >
         Sign in
       </button>
+
       {/* Login */}
       {isOpen && (
         <div className="fixed inset-0 flex items-center justify-center z-50">
@@ -127,13 +165,13 @@ export default function LoginModal() {
               </p>
             </div>
             <div className="pt-5">
-              <form>
+              <form onSubmit={submitLogin}>
                 <div>
-                  <label htmlFor="username">Username or Email</label>
+                  <label htmlFor="username">Email</label>
                   <input
                     id="username"
                     name="username"
-                    onChange={(e) => setUsername(e.target.value)}
+                    onChange={(e) => setEmail(e.target.value)}
                     type="text"
                     placeholder="jhondoe@example.com"
                     required

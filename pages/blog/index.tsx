@@ -6,8 +6,6 @@ import { SanityDocument } from '@sanity/client';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { urlForImage } from '../../sanity/lib/image';
 import Link from 'next/link';
-import Image from 'next/image';
-
 export const getStaticProps: GetStaticProps = async () => {
   const client = getClient();
   const postsQuery = groq`*[_type == "post"]{
@@ -37,12 +35,11 @@ export default function BlogPage({ data }: { data: SanityDocument[] }) {
             key={post._id}
             className="justify-center m-3 w-[400px] overflow-hidden transition rounded-lg shadow hover:shadow-lg"
           >
-            <Image
+            <img
               alt={post.mainImage.alt}
-              src={urlForImage(post.mainImage).url()}
+              src={urlForImage(post.mainImage)}
               className="object-cover w-full h-[217px]"
             />
-
             <div className="w-full p-4 bg-white sm:p-6">
               <p className="items-center inline text-xs text-center text-gray-500">
                 <a>
