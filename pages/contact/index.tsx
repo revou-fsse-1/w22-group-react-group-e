@@ -1,6 +1,7 @@
 //import Footer from '@/components/Footer';
 //import Header from '@/components/Header';
 import React from 'react';
+import Image from 'next/image';
 
 export default function Contact() {
   return (
@@ -11,7 +12,7 @@ export default function Contact() {
 
       <div className="flex justify-center max-w-full m-5 mx-auto">
         <div>
-          <img
+          <Image
             className="object-fit: cover"
             src="contact.jpg"
             width={552.15}

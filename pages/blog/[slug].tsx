@@ -3,6 +3,7 @@ import { getClient } from '../../sanity/lib/getClient';
 import { GetStaticPaths, GetStaticProps } from 'next';
 import { SanityDocument } from '@sanity/client';
 import { urlForImage } from '../../sanity/lib/image';
+import Image from 'next/image';
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const client = getClient();
@@ -45,7 +46,7 @@ export default function BlogPostPage({ data }: { data: SanityDocument }) {
         })}
       </p>
       {mainImage && (
-        <img
+        <Image
           src={urlForImage(mainImage).url()}
           alt={mainImage?.alt}
           className="w-full"
