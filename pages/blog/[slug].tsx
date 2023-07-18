@@ -1,8 +1,8 @@
-import { groq } from "next-sanity";
-import { getClient } from "../../sanity/lib/getClient";
-import { GetStaticPaths, GetStaticProps } from "next";
-import { SanityDocument } from "@sanity/client";
-import { urlForImage } from "../../sanity/lib/image";
+import { groq } from 'next-sanity';
+import { getClient } from '../../sanity/lib/getClient';
+import { GetStaticPaths, GetStaticProps } from 'next';
+import { SanityDocument } from '@sanity/client';
+import { urlForImage } from '../../sanity/lib/image';
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const client = getClient();
@@ -12,7 +12,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
   return { paths, fallback: false };
 };
 
-export const getStaticProps: GetStaticProps = async ({ params}) => {
+export const getStaticProps: GetStaticProps = async ({ params }) => {
   const { slug } = params || {};
   if (!slug) {
     return { notFound: true };
@@ -36,11 +36,14 @@ export default function BlogPostPage({ data }: { data: SanityDocument }) {
     <div>
       <h1>{title}</h1>
       <a>Author: {author?.name}</a>
-      <p>Published At: {new Date(publishedAt).toLocaleDateString("en-US", {
-        year: "numeric",
-        month: "long",
-        day: "numeric",
-      })}</p>
+      <p>
+        Published At:{' '}
+        {new Date(publishedAt).toLocaleDateString('en-US', {
+          year: 'numeric',
+          month: 'long',
+          day: 'numeric',
+        })}
+      </p>
       {mainImage && (
         <img
           src={urlForImage(mainImage).url()}
@@ -48,12 +51,12 @@ export default function BlogPostPage({ data }: { data: SanityDocument }) {
           className="w-full"
         />
       )}
-    {body && (
+      {body && (
         <div>
           {body.map((block: any, index: number) => {
-            if (block._type === "block" && block.style === "h2") {
+            if (block._type === 'block' && block.style === 'h2') {
               return <h2 key={index}>{block.children[0].text}</h2>;
-            } else if (block._type === "block") {
+            } else if (block._type === 'block') {
               return <p key={index}>{block.children[0].text}</p>;
             }
             return null;
@@ -63,4 +66,3 @@ export default function BlogPostPage({ data }: { data: SanityDocument }) {
     </div>
   );
 }
-

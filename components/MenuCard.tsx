@@ -16,7 +16,7 @@ interface MenuCardProps {
     img4: string;
   };
 }
-  
+
 const MenuCard: React.FC<MenuCardProps> = ({
   id,
   name,
@@ -25,21 +25,32 @@ const MenuCard: React.FC<MenuCardProps> = ({
   ratings,
   menuImages,
 }) => {
-  const averageRating = ratings.length > 0 ? ratings.reduce((sum, rating) => sum + rating, 0) / ratings.length : 0;
+  const averageRating =
+    ratings.length > 0
+      ? ratings.reduce((sum, rating) => sum + rating, 0) / ratings.length
+      : 0;
 
   return (
-      <div className="p-4 w-[270px] h-[320px] bg-neutral-100 rounded-xl">
+    <div className="p-4 w-[270px] h-[320px] bg-neutral-100 rounded-xl">
       {menuImages && menuImages.img1 ? (
-        <Image className="w-[270px] h-[160px] rounded-tl-xl rounded-tr-xl" src={menuImages.img1} alt={name} />
-        ) : (
-          <div className="w-[270px] h-[160px] rounded-tl-xl rounded-tr-xl flex items-center justify-center text-gray-500">
+        <Image
+          className="w-[270px] h-[160px] rounded-tl-xl rounded-tr-xl"
+          src={menuImages.img1}
+          alt={name}
+        />
+      ) : (
+        <div className="w-[270px] h-[160px] rounded-tl-xl rounded-tr-xl flex items-center justify-center text-gray-500">
           No Picture
         </div>
       )}
       <div className="">
-        <p className="text-[#333333] text-m font-normal leading-loose">{category}</p>
+        <p className="text-[#333333] text-m font-normal leading-loose">
+          {category}
+        </p>
         <Link href={`/menu/${id}`}>
-          <h3 className="text-[#333333] text-l font-bold leading-loose">{name}</h3>
+          <h3 className="text-[#333333] text-l font-bold leading-loose">
+            {name}
+          </h3>
         </Link>
         <StarRating
           name={`rating-${id}`}
@@ -48,17 +59,18 @@ const MenuCard: React.FC<MenuCardProps> = ({
           starColor="#FFC107"
           emptyStarColor="#E2E8F0"
           editing={false}
-          />
-           <div className="flex items-center justify-between">
-          <p className="font-normal text-black text-m">Price: Rp{price.toLocaleString()}</p>
-          <button className="w-[100px] h-[37px] bg-[#548776] text-white rounded-[18.50px]">Add to Cart</button>
-          </div>
+        />
+        <div className="flex items-center justify-between">
+          <p className="font-normal text-black text-m">
+            Price: Rp{price.toLocaleString()}
+          </p>
+          <button className="w-[100px] h-[37px] bg-[#548776] text-white rounded-[18.50px]">
+            Add to Cart
+          </button>
+        </div>
       </div>
     </div>
   );
 };
 
 export default MenuCard;
-
-
-

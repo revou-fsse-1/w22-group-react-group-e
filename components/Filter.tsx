@@ -20,7 +20,8 @@ const Filter: React.FC<FilterProps> = ({
   };
 
   const handleRatingChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
-    const rating = event.target.value === '' ? null : Number(event.target.value);
+    const rating =
+      event.target.value === '' ? null : Number(event.target.value);
     onRatingChange(rating);
   };
 
@@ -72,5 +73,3 @@ const Filter: React.FC<FilterProps> = ({
 };
 
 export default Filter;
-
-

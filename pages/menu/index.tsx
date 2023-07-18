@@ -73,7 +73,6 @@ const MenuPage: React.FC = () => {
     return categoryMatch && ratingMatch;
   });
 
-
   const indexOfLastMenu = currentPage * menusPerPage;
   const indexOfFirstMenu = indexOfLastMenu - menusPerPage;
   const currentMenus = filteredMenus.slice(indexOfFirstMenu, indexOfLastMenu);
