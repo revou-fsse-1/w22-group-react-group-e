@@ -1,9 +1,6 @@
 /** @type {import('tailwindcss/types').Config} */
 const config = {
-  content: [
-    './pages/**/*.{js,ts,jsx,tsx}',
-    './components/**/*.{js,ts,jsx,tsx}',
-  ],
+  content: ['./pages/**/*.{js,ts,jsx,tsx}', './components/**/*.{js,ts,jsx,tsx}'],
   theme: {
     extend: {
       fontFamily: {
@@ -69,6 +66,6 @@ const config = {
     },
   },
   plugins: [],
-};
+}
 
-module.exports = config;
+module.exports = config
