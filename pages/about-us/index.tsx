@@ -40,7 +40,9 @@ export default function AboutUs() {
                 src="https://res.cloudinary.com/djudfrj8s/image/upload/v1689582136/wareg-assets/chef-1_kldcob.png"
                 className="z-10 object-cover w-full h-full"
                 alt=""
-                layout="fill"
+                objectFit="cover"
+                width={500}
+                height={500}
               />
             </div>
           </div>
