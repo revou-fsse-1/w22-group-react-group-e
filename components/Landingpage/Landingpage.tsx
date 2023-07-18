@@ -57,6 +57,7 @@ export default function Landingpage() {
                 alt=""
                 width={2850}
                 height={1603}
+                priority
               />
             </div>
           </div>
