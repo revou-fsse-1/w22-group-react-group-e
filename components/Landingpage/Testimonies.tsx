@@ -53,7 +53,8 @@ export default function Testimonies() {
               className="absolute top-0 left-0 w-full h-full object-cover"
               src={testimonials[current].image}
               alt=""
-              layout="fill"
+              width={500}
+              height={500}
             />
           </div>
 

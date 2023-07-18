@@ -14,7 +14,7 @@ export default function Contact() {
         <div>
           <Image
             className="object-fit: cover"
-            src="contact.jpg"
+            src="https://res.cloudinary.com/djudfrj8s/image/upload/v1689581799/wareg-assets/Rectangle_153_bxw0j7.png"
             width={552.15}
             height={824.22}
             alt=""
