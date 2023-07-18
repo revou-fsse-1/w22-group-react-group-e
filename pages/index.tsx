@@ -21,7 +21,7 @@ const Index: NextPage = () => {
         className="dark:bg-gray-900 font-poppins"
       >
         <Landingpage />
-        
+        <WeeklyMenu/>
         <AboutUs />
         <Features />
         <Testimonies />

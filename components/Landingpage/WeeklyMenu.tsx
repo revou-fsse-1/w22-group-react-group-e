@@ -78,7 +78,7 @@ const WeeklyMenu: React.FC = () => {
   }, []);
 
   const settings = {
-    dots: true,
+    dots: false,
     infinite: true,
     speed: 500,
     slidesToShow: 3,
@@ -89,18 +89,18 @@ const WeeklyMenu: React.FC = () => {
 
   return (
     <section
-      className="flex items-center w-full h-64 py-10 lg:py-60 lg:h-64 lg:mb-14"
       style={{ backgroundColor: '#EEF6F4' }}
+      className="dark:bg-gray-900"
     >
-      <div className="px-5 pt-6 mx-auto lg:max-w-6xl lg:px-0">
-        <div className="lg:max-w-6xl lg:px-0 ">
+      <div className="container items-center px-6 py-10 mx-auto">
+        <div className="lg:max-w-6xl lg:px-0 mx-auto w-full sm:w-11/12 md:w-3/4 lg:w-1/2">
           <h2 className="text-xl font-bold mb-4">Menu Minggu Ini</h2>
           <Slider
             {...settings}
-            className="grid grid-cols-1 gap-6 space-y-0 lg:gap-24 lg:grid-cols-3"
+            className="mx-[-8rem] grid grid-cols-1 gap-6 space-y-0 lg:gap-24 lg:grid-cols-3"
           >
             {menus.map((menu) => (
-              <div key={menu.id} className="p-1 mx-auto">
+              <div key={menu.id} className="p-1 mx-4">
                 <MenuCard
                   id={menu.id}
                   name={menu.name}
