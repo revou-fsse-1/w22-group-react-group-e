@@ -57,6 +57,7 @@
     "sanity-plugin-iframe-pane": "^2.3.1",
     "slick-carousel": "^1.8.1",
     "styled-components": "5.2",
+    "swiper": "^7.4.1",
     "typescript": "5.1.6"
   },
   "devDependencies": {
