@@ -1,11 +1,15 @@
 import React from 'react';
+import { useRouter } from 'next/router';
 import Link from 'next/link';
 import LoginModal from './LoginRegisterModal';
+
 export default function Header() {
+  const router = useRouter();
+
   return (
-    <div className="  bg-[#EEF6F4]">
-      <div className="flex items-center justify-between h-24 px-5 mx-auto">
-        <div className="flex flex-row">
+    <div className="bg-[#EEF6F4] py-0">
+      <div className="h-24 mx-auto px-5 flex items-center justify-between">
+        <div className="flex flex-row mx-7">
           <div>
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -28,39 +32,76 @@ export default function Header() {
             <h1 className="px-3 text-3xl font-bold">WAREG</h1>
           </div>
         </div>
-        <ul className="flex items-center gap-5">
+        <ul className="flex items-center gap-5 font-poppins font-normal">
           <li>
-            <a
-              className="transition-colors hover:underline underline-offset-8"
-              href=""
+            <Link
+              href="/"
+              className={`transition-colors hover:border-b-2 hover:border-current hover:opacity-60 ${
+                router.pathname === '/'
+                  ? 'opacity-100 font-medium'
+                  : 'opacity-60 hover:opacity-100'
+              }`}
             >
               Home
-            </a>
+            </Link>
           </li>
           <li>
             <Link
-              className="transition-colors hover:underline underline-offset-8"
               href="/menu"
+              className={`transition-colors hover:border-b-2 hover:border-current hover:opacity-60 ${
+                router.pathname === '/menu'
+                  ? 'opacity-100 font-medium'
+                  : 'opacity-60 hover:opacity-100'
+              }`}
             >
               Menu
             </Link>
           </li>
           <li>
             <Link
-              className="transition-colors hover:underline underline-offset-8"
               href="/contact"
+              className={`transition-colors hover:border-b-2 hover:border-current hover:opacity-60 ${
+                router.pathname === '/contact'
+                  ? 'opacity-100 font-medium'
+                  : 'opacity-60 hover:opacity-100'
+              }`}
             >
               Contact
             </Link>
           </li>
           <li>
             <Link
-              className="transition-colors hover:underline underline-offset-8"
               href="/blog"
+              className={`transition-colors hover:border-b-2 hover:border-current hover:opacity-60 ${
+                router.pathname === '/blog'
+                  ? 'opacity-100 font-medium'
+                  : 'opacity-60 hover:opacity-100'
+              }`}
             >
               Blog
             </Link>
           </li>
+          <li>
+            <Link
+              href="/about-us"
+              className={`transition-colors hover:border-b-2 hover:border-current hover:opacity-60 ${
+                router.pathname === '/about-us'
+                  ? 'opacity-100 font-medium'
+                  : 'opacity-60 hover:opacity-100'
+              }`}
+            >
+              About Us
+            </Link>
+          </li>
+          {/* <li>
+            <button
+              data-modal-target="authentication-modal"
+              data-modal-toggle="authentication-modal"
+              className="middle none center rounded-full bg-emerald-600 py-3 px-7 mx-8 font-sans text-xs font-bold uppercase text-white shadow-md  transition-all hover:shadow-lg  focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
+            >
+              Sign in
+            </button>
+          </li> */}
           <LoginModal />
         </ul>
       </div>

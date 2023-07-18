@@ -1,4 +1,3 @@
-import Link from 'next/link';
 import React from 'react';
 
 export default function Footer() {
@@ -45,40 +44,25 @@ export default function Footer() {
                 </h2>
                 <nav className="mb-10 list-none">
                   <li className="mt-3">
-                    {' '}
-                    <Link
-                      className="text-[#005B33] cursor-pointer hover:text-gray-900"
-                      href={''}
-                    >
+                    <a className="text-[#005B33] cursor-pointer hover:text-gray-900">
                       Feature
-                    </Link>
+                    </a>
                   </li>
-
                   <li className="mt-3">
-                    <Link
-                      className="text-[#005B33] cursor-pointer hover:text-gray-900"
-                      href={''}
-                    >
-                      FAQ'S
-                    </Link>
+                    <a className="text-[#005B33] cursor-pointer hover:text-gray-900">
+                      {"FAQ'S"}
+                    </a>
                   </li>
-
                   <li className="mt-3">
-                    <Link
-                      className="text-[#005B33] cursor-pointer hover:text-gray-900"
-                      href={''}
-                    >
+                    <a className="text-[#005B33] cursor-pointer hover:text-gray-900">
                       News
-                    </Link>
+                    </a>
                   </li>
 
                   <li className="mt-3">
-                    <Link
-                      className="text-[#005B33] cursor-pointer hover:text-gray-900"
-                      href={''}
-                    >
+                    <a className="text-[#005B33] cursor-pointer hover:text-gray-900">
                       Pricing
-                    </Link>
+                    </a>
                   </li>
                 </nav>
               </div>
@@ -88,39 +72,24 @@ export default function Footer() {
                 </h2>
                 <nav className="mb-10 list-none">
                   <li className="mt-3">
-                    <Link
-                      className="text-[#005B33] cursor-pointer hover:text-gray-900"
-                      href={''}
-                    >
+                    <a className="text-[#005B33] cursor-pointer hover:text-gray-900">
                       Care Values
-                    </Link>
+                    </a>
                   </li>
-
                   <li className="mt-3">
-                    <Link
-                      className="text-[#005B33] cursor-pointer hover:text-gray-900"
-                      href={''}
-                    >
+                    <a className="text-[#005B33] cursor-pointer hover:text-gray-900">
                       Partner
-                    </Link>
+                    </a>
                   </li>
-
                   <li className="mt-3">
-                    <Link
-                      className="text-[#005B33] cursor-pointer hover:text-gray-900"
-                      href={''}
-                    >
+                    <a className="text-[#005B33] cursor-pointer hover:text-gray-900">
                       Blog
-                    </Link>
+                    </a>
                   </li>
-
                   <li className="mt-3">
-                    <Link
-                      className="text-[#005B33] cursor-pointer hover:text-gray-900"
-                      href={''}
-                    >
+                    <a className="text-[#005B33] cursor-pointer hover:text-gray-900">
                       Contact
-                    </Link>
+                    </a>
                   </li>
                 </nav>
               </div>
@@ -130,30 +99,19 @@ export default function Footer() {
                 </h2>
                 <nav className="mb-10 list-none">
                   <li className="mt-3">
-                    <Link
-                      className="text-[#005B33] cursor-pointer hover:text-gray-900"
-                      href={''}
-                    >
+                    <a className="text-[#005B33] cursor-pointer hover:text-gray-900">
                       Support Center
-                    </Link>
+                    </a>
                   </li>
-
                   <li className="mt-3">
-                    <Link
-                      className="text-[#005B33] cursor-pointer hover:text-gray-900"
-                      href={''}
-                    >
+                    <a className="text-[#005B33] cursor-pointer hover:text-gray-900">
                       Feedback
-                    </Link>
+                    </a>
                   </li>
-
                   <li className="mt-3">
-                    <Link
-                      className="text-[#005B33] cursor-pointer hover:text-gray-900"
-                      href={''}
-                    >
+                    <a className="text-[#005B33] cursor-pointer hover:text-gray-900">
                       Accessibility
-                    </Link>
+                    </a>
                   </li>
                 </nav>
               </div>
