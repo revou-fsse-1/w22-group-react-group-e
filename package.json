@@ -50,6 +50,7 @@
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-hook-form": "^7.0.0",
+    "react-responsive-carousel": "^3.2.23",
     "react-star-rating": "^1.4.2",
     "react-star-rating-component": "^1.4.1",
     "sanity": "^3.14.2",
