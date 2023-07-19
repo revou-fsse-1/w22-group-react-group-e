@@ -32,7 +32,7 @@ const MenuPage: React.FC = () => {
   const [selectedCategory, setSelectedCategory] = useState<string[]>([]);
   const [selectedRating, setSelectedRating] = useState<number | null>(null);
   const [currentPage, setCurrentPage] = useState(1);
-  const menusPerPage = 9;
+  const menusPerPage = 8;
 
   useEffect(() => {
     fetchMenus();
