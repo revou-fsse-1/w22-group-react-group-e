@@ -52,17 +52,20 @@ export default function LoginModal({ loginAuthCheck }: any) {
           response.status,
           'Error message:',
           errorData.message,
+          alert('email or password incorrect!'),
         );
       } else {
         const data = await response.json();
         setCookie('token', data.token, 1);
         console.log('Response data: ', data.token);
         console.log('Response data: ', data);
+        alert('User logged in successfully!');
+        closeModal();
       }
     } catch (error) {
       console.error('Error during fetch: ', error);
     }
-    closeModal();
+    // closeModal();
 
     // router.reload();
   };
