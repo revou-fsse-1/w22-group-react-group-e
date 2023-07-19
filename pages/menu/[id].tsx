@@ -4,6 +4,7 @@ import React, { useEffect, useState } from 'react';
 import { checkLogin } from '@/libs/checkLogin';
 import MenuCard from '@/components/MenuCard';
 import StarRating from 'react-star-rating-component';
+import AddToCartButton from '@/components/AddToCartButton';
 import Link from 'next/link';
 
 interface ResGetProps {
@@ -62,7 +63,6 @@ const DetailMenu: NextComponentType<any, any, ResGetProps> = (props: any) => {
   const [activeImg, setActiveImage] = useState(images.img1);
   const [amount, setAmount] = useState(1);
   const [count, setCount] = useState(0);
-
   const [menus, setMenus] = useState<ResGetProps[]>([]);
 
   const addCountHandler = () => {
@@ -81,7 +81,6 @@ const DetailMenu: NextComponentType<any, any, ResGetProps> = (props: any) => {
       return;
     }
 
-    // Logic untuk menambahkan menu ke keranjang belanja dan melakukan POST ke API
     checkLogin();
     const orderItem = {
       menuId: id,
@@ -204,14 +203,15 @@ const DetailMenu: NextComponentType<any, any, ResGetProps> = (props: any) => {
                   +
                 </button>
               </div>
-            </div>
-            <button
-              className="h-full px-16 py-3 font-semibold text-white bg-emerald-600 rounded-xl"
-              onClick={addToCart}
-            >
-              Add to Cart
-            </button>
+            <div>
+            <AddToCartButton
+              menuId={id}
+              quantity={count}
+              addToCart={addToCart}
+            />
           </div>
+            </div>
+            </div>
         </div>
         <div>
           <div className="py-5">
