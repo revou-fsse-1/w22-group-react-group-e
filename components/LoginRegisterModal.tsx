@@ -9,7 +9,7 @@ export default function LoginModal({ loginAuthCheck }: any) {
 
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
-  const [role, setRole] = useState('');
+  // const [role, setRole] = useState('');
   const [address, setAddress] = useState('');
   const [email, setEmail] = useState('');
   const [phone, setPhone] = useState('');
@@ -79,7 +79,7 @@ export default function LoginModal({ loginAuthCheck }: any) {
     console.log('Body:', {
       username: username,
       password: password,
-      role: role,
+      // role: role,
       address: address,
       email: email,
       phoneNumber: phone,
@@ -93,7 +93,7 @@ export default function LoginModal({ loginAuthCheck }: any) {
           body: JSON.stringify({
             username: username,
             password: password,
-            role: role,
+            // role: role,
             address: address,
             email: email,
             phoneNumber: phone,
@@ -267,7 +267,7 @@ export default function LoginModal({ loginAuthCheck }: any) {
                   />
                 </div>
 
-                <div>
+                {/* <div>
                   <label htmlFor="role">Role</label>
                   <select
                     id="role"
@@ -281,7 +281,7 @@ export default function LoginModal({ loginAuthCheck }: any) {
                     <option value="CUSTOMER">CUSTOMER</option>
                     <option value="ADMIN">ADMIN</option>
                   </select>
-                </div>
+                </div> */}
 
                 <div>
                   <label htmlFor="address">address</label>
