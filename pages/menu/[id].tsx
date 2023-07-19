@@ -103,13 +103,15 @@ const DetailMenu: NextComponentType<any, any, ResGetProps> = (props: any) => {
 
   return (
     <div>
+
       <div className="max-w-5xl py-8 mx-auto">
         <div className="flex flex-col justify-between gap-16 lg:flex-row lg:items-center">
+
           <div className="flex flex-col gap-6 lg:w-2/4">
             <img
               src={activeImg}
               alt=""
-              className="object-cover w-full h-full aspect-square rounded-xl"
+              className="w-full h-full aspect-square object-cover rounded-xl"
             />
             <div className="flex flex-row justify-between h-24">
               <img
@@ -171,22 +173,22 @@ const DetailMenu: NextComponentType<any, any, ResGetProps> = (props: any) => {
             <div className="flex flex-row items-center gap-12">
               <div className="flex flex-row items-center">
                 <button
-                  className="px-4 py-2 text-3xl bg-gray-200 rounded-lg text-emerald-800"
+                  className="bg-gray-200 py-2 px-4 rounded-lg text-emerald-800 text-3xl"
                   onClick={removeCountHandler}
                 >
                   -
                 </button>
-                <span className="px-6 py-4 rounded-lg"> {count}</span>
+                <span className="py-4 px-6 rounded-lg"> {count}</span>
 
                 <button
-                  className="px-4 py-2 text-3xl bg-gray-200 rounded-lg text-emerald-600"
+                  className="bg-gray-200 py-2 px-4 rounded-lg text-emerald-600 text-3xl"
                   onClick={addCountHandler}
                 >
                   +
                 </button>
               </div>
             </div>
-            <button className="h-full px-16 py-3 font-semibold text-white bg-emerald-600 rounded-xl">
+            <button className="bg-emerald-600 text-white font-semibold py-3 px-16 rounded-xl h-full">
               Add to Cart
             </button>
           </div>
@@ -198,13 +200,15 @@ const DetailMenu: NextComponentType<any, any, ResGetProps> = (props: any) => {
           <p>{description || ''}</p>
         </div>
 
-        <div className="flex flex-row justify-between my-5 ">
+        <div className=" my-5 flex flex-row justify-between">
           <h1 className="text-4xl font-bold">Anda Mungkin Menyukai</h1>
+
           <Link href={'/menu'}>
             <button className="px-16 py-3 font-semibold text-white bg-emerald-600 rounded-xl">
               View More
             </button>
           </Link>
+
         </div>
 
         <div className="flex flex-wrap justify-center gap-6">
