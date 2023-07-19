@@ -3,7 +3,6 @@ import { groq } from 'next-sanity';
 import { getClient } from '../../sanity/lib/getClient';
 import { GetStaticProps } from 'next';
 import { SanityDocument } from '@sanity/client';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { urlForImage } from '../../sanity/lib/image';
 import Link from 'next/link';
 export const getStaticProps: GetStaticProps = async () => {
@@ -37,7 +36,7 @@ export default function BlogPage({ data }: { data: SanityDocument[] }) {
           >
             <img
               alt={post.mainImage.alt}
-              src={urlForImage(post.mainImage)}
+              src={urlForImage(post.mainImage).url()}
               className="object-cover w-full h-[217px]"
             />
             <div className="w-full p-4 bg-white sm:p-6">

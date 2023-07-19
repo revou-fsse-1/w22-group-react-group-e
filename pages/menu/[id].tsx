@@ -134,7 +134,9 @@ const DetailMenu: NextComponentType<any, any, ResGetProps> = (props: any) => {
               <h1 className="text-4xl font-bold">{name || ''}</h1>
             </div>
 
-            <h6 className="text-emerald-600 text-2xl font-semibold">
+
+            <h6 className="text-2xl font-semibold text-emerald-600">
+
               Rp. {price || ''}
             </h6>
             <div className="flex flex-row gap-2">
@@ -186,7 +188,9 @@ const DetailMenu: NextComponentType<any, any, ResGetProps> = (props: any) => {
           </button>
         </div>
 
-        <div className="flex flex-wrap justify-center  gap-6">
+
+        <div className="flex flex-wrap justify-center gap-6">
+
           {menus.map((menu) => (
             <MenuCard
               key={menu.id}
