@@ -1,7 +1,7 @@
 import React from 'react';
 
 const AddToCartPage = () => {
-  // Simulasi data order dari pengguna
+ 
   const orderItems = [
     {
       id: '1',
