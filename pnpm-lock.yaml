@@ -1,4 +1,4 @@
-lockfileVersion: '6.0'
+lockfileVersion: '6.1'
 
 settings:
   autoInstallPeers: true
@@ -7358,6 +7358,7 @@ packages:
       {
         integrity: sha512-6QvTW9mrGeIegrFXdtQi9pk7O/nSK6lSdXW2eqUspN5LWD7UTji2Fqw5V2YLjBpHEoU9Xl/eUWNpDeZvoyOv2w==,
       }
+
     dev: false
 
   /dom7@4.0.6:
@@ -7367,6 +7368,7 @@ packages:
       }
     dependencies:
       ssr-window: 4.0.2
+
     dev: false
 
   /domexception@4.0.0:
@@ -10606,6 +10608,7 @@ packages:
         integrity: sha512-Bdboy+l7tA3OGW6FjyFHWkP5LuByj1Tk33Ljyq0axyzdk9//JSi2u3fP1QSmd1KNwq6VOKYGlAu87CisVir6Pw==,
       }
 
+
   /json2mq@0.2.0:
     resolution:
       {
@@ -10614,6 +10617,7 @@ packages:
     dependencies:
       string-convert: 0.2.1
     dev: false
+
 
   /json5@1.0.2:
     resolution:
@@ -10882,6 +10886,9 @@ packages:
       {
         integrity: sha512-FT1yDzDYEoYWhnSGnpE/4Kj1fLZkDFyqRb7fNt6FdYOSxlUWAtp42Eh6Wb0rGIv/m9Bgo7x4GhQbm5Ys4SG5ow==,
       }
+
+    dev: true
+
 
   /lodash.defaults@4.2.0:
     resolution:
@@ -13846,6 +13853,7 @@ packages:
       {
         integrity: sha512-KigOCHcocU3XODJxsu8i/j8T9tzT4adHiecwORRQ0ZZFcp7ahwXuRU1m+yuO90C5ZUyGeGfocHDI14M3L3yDAQ==,
       }
+
     dev: false
 
   /resize-observer-polyfill@1.5.1:
@@ -13853,6 +13861,7 @@ packages:
       {
         integrity: sha512-LwZrotdHOo12nQuZlHEmtuXdqGoOD0OhaxopaNFxWzInpEgaLWoVuAMbTzixuosCx2nEG58ngzW3vxdWoxIgdg==,
       }
+
     dev: false
 
   /resolve-alpn@1.2.1:
@@ -14700,6 +14709,7 @@ packages:
       {
         integrity: sha512-D9cPgkvLlV3t3IzL0D0YLvGA9Ahk4PcvVwUbN0dSGr1aP0Nrt4AEnTUbuGvquEC0mA64Gqt1fzirlRs5ibXx8g==,
       }
+
     dev: false
 
   /ssr-window@4.0.2:
@@ -15049,6 +15059,7 @@ packages:
       }
     engines: { node: '>= 0.4' }
 
+
   /swiper@7.4.1:
     resolution:
       {
@@ -15060,6 +15071,7 @@ packages:
       dom7: 4.0.6
       ssr-window: 4.0.2
     dev: false
+
 
   /symbol-tree@3.2.4:
     resolution:
