@@ -8,7 +8,6 @@ import DownloadPage from '@/components/Landingpage/DownloadPage';
 import Features from '@/components/Landingpage/Features';
 import WeeklyMenu from '@/components/Landingpage/WeeklyMenu';
 
-
 const Index: NextPage = () => {
   return (
     <>
@@ -21,7 +20,7 @@ const Index: NextPage = () => {
         className="dark:bg-gray-900 font-poppins"
       >
         <Landingpage />
-        <WeeklyMenu/>
+        <WeeklyMenu />
         <AboutUs />
         <Features />
         <Testimonies />
