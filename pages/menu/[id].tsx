@@ -5,6 +5,7 @@ import { checkLogin } from '@/libs/checkLogin';
 import MenuCard from '@/components/MenuCard';
 import StarRating from 'react-star-rating-component';
 import Link from 'next/link';
+import { getCookie } from '@/libs/cookies';
 
 interface ResGetProps {
   id: number;
@@ -60,8 +61,9 @@ const DetailMenu: NextComponentType<any, any, ResGetProps> = (props: any) => {
       };
 
   const [activeImg, setActiveImage] = useState(images.img1);
-  const [amount, setAmount] = useState(1);
+  const [quantity, setQuantity] = useState(1);
   const [count, setCount] = useState(0);
+  const [loading, setLoading] = useState(false);
 
   const [menus, setMenus] = useState<ResGetProps[]>([]);
 
@@ -75,8 +77,55 @@ const DetailMenu: NextComponentType<any, any, ResGetProps> = (props: any) => {
     setCount(count - 1);
   };
 
-  const addToCart = () => {
+  // const addToCart = () => {
+  //   checkLogin();
+  //   const OrderItem = {
+  //     menuid:id,
+  //     quantity: quantity,
+  //   }
+  //   try {
+  //     axios.post('https://w17-wareg.onrender.com/orders', {
+  //       orderItems: [
+  //         {
+  //           menuId: menuid,
+  //           quantity: quantity,
+  //         },
+  //       ],
+  //     });
+  //   } catch (error) {
+  //     console.error(error);
+  //   }
+  // };
+
+  const addToCart = async () => {
+    const token = getCookie('token');
     checkLogin();
+    // const orderItem = {
+    //   menuId: id,
+    //   quantity: quantity,
+    // };
+    if (!checkLogin()) {
+      return alert('Please login first!');
+    } else {
+      try {
+        axios.post('https://w17-wareg.onrender.com/orders', {
+          'Content-Type': 'application/json; charset=utf-8',
+          credentials: 'include',
+          Credentials: {
+            token: token,
+          },
+          headers: { Authentication: `Bearer ${token}` },
+          orderItems: [
+            {
+              menuId: id,
+              quantity: quantity,
+            },
+          ],
+        });
+      } catch (error) {
+        console.error(error);
+      }
+    }
   };
 
   useEffect(() => {
@@ -186,7 +235,10 @@ const DetailMenu: NextComponentType<any, any, ResGetProps> = (props: any) => {
                 </button>
               </div>
             </div>
-            <button className="bg-emerald-600 text-white font-semibold py-3 px-16 rounded-xl h-full">
+            <button
+              onClick={addToCart}
+              className="bg-emerald-600 text-white font-semibold py-3 px-16 rounded-xl h-full"
+            >
               Add to Cart
             </button>
           </div>
