@@ -9,7 +9,6 @@ import Features from '@/components/Landingpage/Features';
 import WeeklyMenu from '@/components/Landingpage/WeeklyMenu';
 import Blog from '../pages/blog/index';
 
-
 const Index: NextPage = () => {
   return (
     <>

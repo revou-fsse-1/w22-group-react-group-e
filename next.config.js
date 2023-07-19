@@ -25,7 +25,7 @@ module.exports = {
     return [
       {
         source: '/:path*',
-        destination: 'https://w17-wareg.onrender.com/:path*', 
+        destination: 'https://w17-wareg.onrender.com/:path*',
       },
     ];
   },
