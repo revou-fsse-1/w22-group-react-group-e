@@ -103,10 +103,8 @@ const DetailMenu: NextComponentType<any, any, ResGetProps> = (props: any) => {
 
   return (
     <div>
-
       <div className="max-w-5xl py-8 mx-auto">
         <div className="flex flex-col justify-between gap-16 lg:flex-row lg:items-center">
-
           <div className="flex flex-col gap-6 lg:w-2/4">
             <img
               src={activeImg}
@@ -208,7 +206,6 @@ const DetailMenu: NextComponentType<any, any, ResGetProps> = (props: any) => {
               View More
             </button>
           </Link>
-
         </div>
 
         <div className="flex flex-wrap justify-center gap-6">
