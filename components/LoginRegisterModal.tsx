@@ -70,21 +70,6 @@ export default function LoginModal({ loginAuthCheck }: any) {
   const submitRegister = async (e: SyntheticEvent) => {
     e.preventDefault();
 
-    console.log('submitRegister called');
-
-    console.log('Making fetch call with the following details:');
-    console.log('Endpoint:', 'http://localhost:4001/auth/register');
-    console.log('Method:', 'POST');
-    console.log('Headers:', { 'Content-Type': 'application/json' });
-    console.log('Body:', {
-      username: username,
-      password: password,
-      // role: role,
-      address: address,
-      email: email,
-      phoneNumber: phone,
-    });
-
     try {
       const response = await fetch(
         `${process.env.NEXT_PUBLIC_SERVICE_BASE}/auth/register`,
@@ -117,7 +102,14 @@ export default function LoginModal({ loginAuthCheck }: any) {
     } catch (error) {
       console.error('Error during fetch: ', error);
     }
+    alert('User registered successfully!');
     openModal();
+    setUsername('');
+    setPassword('');
+    // setRole("");
+    setAddress('');
+    setEmail('');
+    setPhone('');
   };
 
   const openModal = () => {
@@ -202,6 +194,7 @@ export default function LoginModal({ loginAuthCheck }: any) {
                     id="password"
                     name="password"
                     type="password"
+                    minLength={8}
                     placeholder="****************"
                     onChange={(e) => setPassword(e.target.value)}
                     required
@@ -240,14 +233,14 @@ export default function LoginModal({ loginAuthCheck }: any) {
             <div className="">
               <form onSubmit={submitRegister}>
                 <div>
-                  <label htmlFor="username">Usename</label>
+                  <label htmlFor="username">Username</label>
                   <input
                     id="username"
                     name="username"
                     value={username}
                     onChange={(e) => setUsername(e.target.value)}
                     type="text"
-                    placeholder="jhondoe@example.com"
+                    placeholder="Jhon doe"
                     required
                     className="mb-1 block p-2.5 w-full h-full  text-sm bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500  dark:focus:ring-blue-500 dark:focus:border-blue-500"
                   />
@@ -259,6 +252,7 @@ export default function LoginModal({ loginAuthCheck }: any) {
                     id="password"
                     name="password"
                     type="password"
+                    minLength={8}
                     value={password}
                     placeholder="****************"
                     onChange={(e) => setPassword(e.target.value)}
@@ -291,7 +285,7 @@ export default function LoginModal({ loginAuthCheck }: any) {
                     value={address}
                     onChange={(e) => setAddress(e.target.value)}
                     type="text"
-                    placeholder="Adress"
+                    placeholder="Address"
                     required
                     className="mb-1 block p-2.5 w-full text-sm bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500  dark:focus:ring-blue-500 dark:focus:border-blue-500"
                   />
@@ -304,7 +298,7 @@ export default function LoginModal({ loginAuthCheck }: any) {
                     name="email"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
-                    type="text"
+                    type="email"
                     placeholder="jhondoe@example.com"
                     required
                     className="mb-1 block p-2.5 w-full text-sm bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500  dark:focus:ring-blue-500 dark:focus:border-blue-500"
