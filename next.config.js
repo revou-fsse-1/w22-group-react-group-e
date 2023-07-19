@@ -10,24 +10,24 @@ const nextConfig = {
       'awsimages.detik.net.id',
       'global-uploads.webflow.com',
     ],
-  },
-  async rewrites() {
-    return [
-      {
-        source: '/:path*',
-        destination: 'https://w17-wareg.onrender.com/:path*',
-      },
-    ];
-  },
-};
-module.exports = {
-  async rewrites() {
-    return [
-      {
-        source: '/:path*',
-        destination: 'https://w17-wareg.onrender.com/:path*',
-      },
-    ];
+    async rewrites() {
+      return [
+        {
+          source: '/:path*',
+          destination: 'https://w17-wareg.onrender.com/:path*',
+        },
+      ];
+    },
   },
 };
+//module.exports = {
+  //async rewrites() {
+    //return [
+      //{
+        //source: '/:path*',
+        //destination: 'https://w17-wareg.onrender.com/:path*',
+      //},
+    //];
+  //},
+//};
 module.exports = nextConfig;

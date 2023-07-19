@@ -49,11 +49,8 @@
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-hook-form": "^7.0.0",
-<<<<<<< HEAD
     "react-responsive-carousel": "^3.2.23",
-=======
     "react-slick": "^0.29.0",
->>>>>>> 4cce4b830968683ca2dbabd76688c395d2e89b60
     "react-star-rating": "^1.4.2",
     "react-star-rating-component": "^1.4.1",
     "sanity": "^3.14.2",

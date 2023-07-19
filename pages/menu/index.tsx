@@ -172,10 +172,9 @@ const MenuPage: React.FC = () => {
             ))}
           </div>
         </div>
-      </div>
-      <div className="w-[1440px] h-[573px] relative">
-        <div className="w-[1440px] h-[566px] left-0 top-0 absolute bg-[#548776]" />
-        <div className="w-[591px] h-[312.85px] left-[120px] top-[115.57px] absolute">
+      <div className="w-full h-[573px] relative justify-center item-center">
+        <div className="w-full h-[566px] left-0 top-0 absolute bg-[#548776]" />
+        <div className="w-full h-[312.85px] left-[420px] top-[115.57px] absolute">
           <div className="w-[591px] h-[246.87px] left-0 top-0 absolute">
             <div className="w-[591px] h-[142.24px] left-0 top-0 absolute text-white text-5xl font-semibold capitalize">
               Diskon 30% dengan aplikasi Wareg
@@ -204,7 +203,7 @@ const MenuPage: React.FC = () => {
             </span>
           </div>
         </div>
-        <div className="w-[1440px] h-[573px] left-0 top-0 absolute">
+        <div className="w-full h-[573px] left-0 top-0 absolute">
           <div className="w-[76px] h-[75.07px] left-[554px] top-[425.73px] absolute flex-col justify-start items-start inline-flex">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -233,8 +232,8 @@ const MenuPage: React.FC = () => {
               />
             </svg>{' '}
           </div>
-          <div className="w-[1440px] h-[573px] left-0 top-0 absolute">
-            <div className="w-[215px] h-[215px] left-[-95px] top-[9px] absolute flex-col justify-start items-start inline-flex" />{' '}
+          <div className="w-full h-[573px] left-0 top-0 absolute">
+            <div className="w-[215px] h-[215px] left-[-120px] top-[9px] absolute flex-col justify-start items-start inline-flex" />{' '}
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="120"
@@ -247,7 +246,7 @@ const MenuPage: React.FC = () => {
                 fill="white"
               />
             </svg>
-            <div className="w-[215px] h-[215px] left-[1300px] top-[373px] absolute flex-col justify-start items-start inline-flex">
+            <div className="w-[215px] h-[215px] right-0 top-[373px] absolute flex-col justify-start items-start inline-flex">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="140"
@@ -263,6 +262,7 @@ const MenuPage: React.FC = () => {
             </div>
           </div>
         </div>
+      </div>
       </div>
     </>
   );
