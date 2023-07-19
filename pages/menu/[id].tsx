@@ -76,7 +76,26 @@ const DetailMenu: NextComponentType<any, any, ResGetProps> = (props: any) => {
   };
 
   const addToCart = () => {
+    if (count === 0) {
+      alert('Count must be greater than 0.');
+      return;
+    }
+
+    // Logic untuk menambahkan menu ke keranjang belanja dan melakukan POST ke API
     checkLogin();
+    const orderItem = {
+      menuId: id,
+      quantity: count,
+    };
+
+    axios
+      .post('https://w17-wareg.onrender.com/Orders', orderItem)
+      .then((response) => {
+        console.log('Order added to cart:', response.data);
+      })
+      .catch((error) => {
+        console.error('Error adding order to cart:', error);
+      });
   };
 
   useEffect(() => {
@@ -86,7 +105,7 @@ const DetailMenu: NextComponentType<any, any, ResGetProps> = (props: any) => {
   const fetchMenus = async () => {
     try {
       const response = await fetch(
-        `https://w17-wareg.onrender.com/menus?q=${category?.name}`,
+        `${process.env.NEXT_PUBLIC_SERVICE_BASE}/menus?q=${category?.name}`,
       );
       const data = await response.json();
       setMenus(data.menus.slice(0, 3));
@@ -109,7 +128,7 @@ const DetailMenu: NextComponentType<any, any, ResGetProps> = (props: any) => {
             <img
               src={activeImg}
               alt=""
-              className="w-full h-full aspect-square object-cover rounded-xl"
+              className="object-cover w-full h-full aspect-square rounded-xl"
             />
             <div className="flex flex-row justify-between h-24">
               <img
@@ -171,22 +190,25 @@ const DetailMenu: NextComponentType<any, any, ResGetProps> = (props: any) => {
             <div className="flex flex-row items-center gap-12">
               <div className="flex flex-row items-center">
                 <button
-                  className="bg-gray-200 py-2 px-4 rounded-lg text-emerald-800 text-3xl"
+                  className="px-4 py-2 text-3xl bg-gray-200 rounded-lg text-emerald-800"
                   onClick={removeCountHandler}
                 >
                   -
                 </button>
-                <span className="py-4 px-6 rounded-lg"> {count}</span>
+                <span className="px-6 py-4 rounded-lg"> {count}</span>
 
                 <button
-                  className="bg-gray-200 py-2 px-4 rounded-lg text-emerald-600 text-3xl"
+                  className="px-4 py-2 text-3xl bg-gray-200 rounded-lg text-emerald-600"
                   onClick={addCountHandler}
                 >
                   +
                 </button>
               </div>
             </div>
-            <button className="bg-emerald-600 text-white font-semibold py-3 px-16 rounded-xl h-full">
+            <button
+              className="h-full px-16 py-3 font-semibold text-white bg-emerald-600 rounded-xl"
+              onClick={addToCart}
+            >
               Add to Cart
             </button>
           </div>
@@ -198,7 +220,7 @@ const DetailMenu: NextComponentType<any, any, ResGetProps> = (props: any) => {
           <p>{description || ''}</p>
         </div>
 
-        <div className=" my-5 flex flex-row justify-between">
+        <div className="flex flex-row justify-between my-5 ">
           <h1 className="text-4xl font-bold">Anda Mungkin Menyukai</h1>
 
           <Link href={'/menu'}>
@@ -246,3 +268,5 @@ export const getServerSideProps: GetServerSideProps = async (
 };
 
 export default DetailMenu;
+
+
