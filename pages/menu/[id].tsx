@@ -77,53 +77,55 @@ const DetailMenu: NextComponentType<any, any, ResGetProps> = (props: any) => {
     setCount(count - 1);
   };
 
-  // const addToCart = () => {
-  //   checkLogin();
-  //   const OrderItem = {
-  //     menuid:id,
-  //     quantity: quantity,
-  //   }
-  //   try {
-  //     axios.post('https://w17-wareg.onrender.com/orders', {
-  //       orderItems: [
-  //         {
-  //           menuId: menuid,
-  //           quantity: quantity,
-  //         },
-  //       ],
-  //     });
-  //   } catch (error) {
-  //     console.error(error);
-  //   }
-  // };
-
   const addToCart = async () => {
     const token = getCookie('token');
+    console.log('Token:', token); 
+
     checkLogin();
-    // const orderItem = {
-    //   menuId: id,
-    //   quantity: quantity,
-    // };
     if (!checkLogin()) {
       return alert('Please login first!');
     } else {
       try {
-        axios.post('https://w17-wareg.onrender.com/orders', {
+        console.log('Request Headers:', {
+          
           'Content-Type': 'application/json; charset=utf-8',
-          credentials: 'include',
-          Credentials: {
-            token: token,
-          },
-          headers: { Authentication: `Bearer ${token}` },
-          orderItems: [
-            {
-              menuId: id,
-              quantity: quantity,
-            },
-          ],
+          Authorization: `Bearer ${token}`,
         });
-      } catch (error) {
-        console.error(error);
+
+        const response = await axios.post(
+          'https://w17-wareg.onrender.com/orders',
+          {
+            orderItems: [
+              {
+                menuId: id,
+                quantity: quantity,
+              },
+            ],
+          },
+          {
+            headers: {
+              'Content-Type': 'application/json; charset=utf-8',
+              Authorization: `Bearer ${token}`,
+            },
+            withCredentials: true,
+          },
+        );
+
+        console.log('Response:', response); 
+      } catch (error: any) {
+        console.error('Axios error:', error);
+        if (error instanceof Error) {
+          console.error('Error message:', error.message);
+        }
+        if (error.response) {
+          console.error(
+            'Server responded with status code',
+            error.response.status,
+          );
+          console.error('Response data:', error.response.data);
+        } else if (error.request) {
+          console.error('No response received, request was:', error.request);
+        }
       }
     }
   };
@@ -288,9 +290,11 @@ export const getServerSideProps: GetServerSideProps = async (
       `${process.env.NEXT_PUBLIC_SERVICE_BASE}/menus/${Number(id)}`,
     );
     resDataDetail = data;
-    // console.log(data);
   } catch (error) {
     console.error('Error during fetch: ', error);
+    return {
+      notFound: true,
+    };
   }
   return {
     props: resDataDetail,
