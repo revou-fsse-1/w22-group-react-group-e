@@ -10,7 +10,9 @@ export const CartContext = createContext<CartContextProps>({
   addToCart: () => {},
 });
 
-export const CartProvider: React.FC = ({ children }: React.PropsWithChildren<{}>) => {
+export const CartProvider: React.FC = ({
+  children,
+}: React.PropsWithChildren<{}>) => {
   const [cartItems, setCartItems] = useState(0);
 
   const addToCart = () => {

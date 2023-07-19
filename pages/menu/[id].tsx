@@ -1,11 +1,13 @@
 import axios from 'axios';
 import { GetServerSideProps, NextComponentType } from 'next';
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { checkLogin } from '@/libs/checkLogin';
 import MenuCard from '@/components/MenuCard';
 import StarRating from 'react-star-rating-component';
 import Link from 'next/link';
 import { getCookie } from '@/libs/cookies';
+import img from 'next/image';
+import { CartContext } from '../../context/CartContext';
 
 interface ResGetProps {
   id: number;
@@ -42,22 +44,23 @@ const DetailMenu: NextComponentType<any, any, ResGetProps> = (props: any) => {
     ratings,
     menuImages,
   } = props;
+  const { addToCart: incrementCartItems } = useContext(CartContext);
 
-  const images = menuImages?.lenght
+  const images = menuImages?.length
     ? menuImages
     : {
         img1:
           menuImages?.img1 ||
-          'https://upload.wikimedia.org/wikipedia/commons/1/14/No_Image_Available.jpg?20200913095930',
+          'https://upload.wikimedia.org/wikipedia/commons/1/14/No_Image_Available.jpg',
         img2:
           menuImages?.img2 ||
-          'https://upload.wikimedia.org/wikipedia/commons/1/14/No_Image_Available.jpg?20200913095930',
+          'https://upload.wikimedia.org/wikipedia/commons/1/14/No_Image_Available.jpg',
         img3:
           menuImages?.img3 ||
-          'https://upload.wikimedia.org/wikipedia/commons/1/14/No_Image_Available.jpg?20200913095930',
+          'https://upload.wikimedia.org/wikipedia/commons/1/14/No_Image_Available.jpg',
         img4:
           menuImages?.img4 ||
-          'https://upload.wikimedia.org/wikipedia/commons/1/14/No_Image_Available.jpg?20200913095930',
+          'https://upload.wikimedia.org/wikipedia/commons/1/14/No_Image_Available.jpg',
       };
 
   const [activeImg, setActiveImage] = useState(images.img1);
@@ -68,30 +71,24 @@ const DetailMenu: NextComponentType<any, any, ResGetProps> = (props: any) => {
   const [menus, setMenus] = useState<ResGetProps[]>([]);
 
   const addCountHandler = () => {
-    setCount(count + 1);
+    setQuantity(quantity + 1);
   };
+
   const removeCountHandler = () => {
-    if (count === 0) {
+    if (quantity === 1) {
       return;
     }
-    setCount(count - 1);
+    setQuantity(quantity - 1);
   };
 
   const addToCart = async () => {
     const token = getCookie('token');
-    console.log('Token:', token); 
 
     checkLogin();
     if (!checkLogin()) {
       return alert('Please login first!');
     } else {
       try {
-        console.log('Request Headers:', {
-          
-          'Content-Type': 'application/json; charset=utf-8',
-          Authorization: `Bearer ${token}`,
-        });
-
         const response = await axios.post(
           'https://w17-wareg.onrender.com/orders',
           {
@@ -110,22 +107,11 @@ const DetailMenu: NextComponentType<any, any, ResGetProps> = (props: any) => {
             withCredentials: true,
           },
         );
-
-        console.log('Response:', response); 
+        incrementCartItems();
+        alert('Item added to cart!');
       } catch (error: any) {
-        console.error('Axios error:', error);
-        if (error instanceof Error) {
-          console.error('Error message:', error.message);
-        }
-        if (error.response) {
-          console.error(
-            'Server responded with status code',
-            error.response.status,
-          );
-          console.error('Response data:', error.response.data);
-        } else if (error.request) {
-          console.error('No response received, request was:', error.request);
-        }
+        console.error('Error:', error);
+        alert('Failed to add item to cart.');
       }
     }
   };
@@ -166,24 +152,32 @@ const DetailMenu: NextComponentType<any, any, ResGetProps> = (props: any) => {
               <img
                 src={images.img1}
                 alt=""
+                width={500}
+                height={300}
                 className="w-24 h-24 rounded-md cursor-pointer"
                 onClick={() => setActiveImage(images.img1)}
               />
               <img
                 src={images.img2}
                 alt=""
+                width={500}
+                height={300}
                 className="w-24 h-24 rounded-md cursor-pointer"
                 onClick={() => setActiveImage(images.img2)}
               />
               <img
                 src={images.img3}
                 alt=""
+                width={500}
+                height={300}
                 className="w-24 h-24 rounded-md cursor-pointer"
                 onClick={() => setActiveImage(images.img3)}
               />
               <img
                 src={images.img4}
                 alt=""
+                width={500}
+                height={300}
                 className="w-24 h-24 rounded-md cursor-pointer"
                 onClick={() => setActiveImage(images.img4)}
               />
@@ -227,8 +221,8 @@ const DetailMenu: NextComponentType<any, any, ResGetProps> = (props: any) => {
                 >
                   -
                 </button>
-                <span className="py-4 px-6 rounded-lg"> {count}</span>
-
+                <span className="py-4 px-6 rounded-lg"> {quantity}</span>{' '}
+                {/* display quantity instead of count */}
                 <button
                   className="bg-gray-200 py-2 px-4 rounded-lg text-emerald-600 text-3xl"
                   onClick={addCountHandler}
