@@ -40,7 +40,6 @@
     "@types/react": "18.0.25",
     "@types/react-dom": "18.2.6",
     "@types/react-star-ratings": "^2.3.0",
-    "Star": "link:@mui/icons-material/Star",
     "axios": "^1.4.0",
     "cors": "^2.8.5",
     "eslint": "8.44.0",
@@ -50,18 +49,25 @@
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-hook-form": "^7.0.0",
+<<<<<<< HEAD
     "react-responsive-carousel": "^3.2.23",
+=======
+    "react-slick": "^0.29.0",
+>>>>>>> 4cce4b830968683ca2dbabd76688c395d2e89b60
     "react-star-rating": "^1.4.2",
     "react-star-rating-component": "^1.4.1",
     "sanity": "^3.14.2",
     "sanity-plugin-iframe-pane": "^2.3.1",
-    "styled-components": "~5.2.3",
+    "slick-carousel": "^1.8.1",
+    "styled-components": "5.2",
+    "swiper": "^7.4.1",
     "typescript": "5.1.6"
   },
   "devDependencies": {
     "@tanstack/react-query": "^4.0.0",
     "@tanstack/react-query-devtools": "^4.0.0",
     "@types/cors": "^2.8.13",
+    "@types/react-slick": "^0.23.10",
     "@types/react-star-rating-component": "^1.4.1",
     "autoprefixer": "^10.0.0",
     "eslint-config-prettier": "^8.0.0",

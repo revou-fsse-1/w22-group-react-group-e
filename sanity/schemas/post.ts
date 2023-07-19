@@ -37,8 +37,8 @@ export default defineType({
           name: 'alt',
           type: 'string',
           title: 'Alternative Text',
-        }
-      ]
+        },
+      ],
     }),
     defineField({
       name: 'categories',

@@ -3,6 +3,8 @@ import { GetServerSideProps, NextComponentType } from 'next';
 import React, { useEffect, useState } from 'react';
 import { checkLogin } from '@/libs/checkLogin';
 import MenuCard from '@/components/MenuCard';
+import StarRating from 'react-star-rating-component';
+import Link from 'next/link';
 
 interface ResGetProps {
   id: number;
@@ -87,20 +89,27 @@ const DetailMenu: NextComponentType<any, any, ResGetProps> = (props: any) => {
         `https://w17-wareg.onrender.com/menus?q=${category?.name}`,
       );
       const data = await response.json();
-      setMenus(data.menus);
+      setMenus(data.menus.slice(0, 3));
     } catch (error) {
       console.error('Error fetching menus:', error);
     }
   };
+
+  const averageRating =
+    ratings.length > 0
+      ? ratings.reduce((sum: number, value: any) => sum + value.rating, 0) /
+        ratings.length
+      : 0;
+
   return (
     <div>
-      <div className="max-w-5xl p-8 mx-auto">
+      <div className="max-w-5xl py-8 mx-auto">
         <div className="flex flex-col justify-between gap-16 lg:flex-row lg:items-center">
           <div className="flex flex-col gap-6 lg:w-2/4">
             <img
               src={activeImg}
               alt=""
-              className="object-cover w-full h-full aspect-square rounded-xl"
+              className="w-full h-full aspect-square object-cover rounded-xl"
             />
             <div className="flex flex-row justify-between h-24">
               <img
@@ -134,6 +143,17 @@ const DetailMenu: NextComponentType<any, any, ResGetProps> = (props: any) => {
               <h1 className="text-4xl font-bold">{name || ''}</h1>
             </div>
 
+            <div>
+              <StarRating
+                name={`rating-${id}`}
+                value={averageRating}
+                starCount={5}
+                starColor="#FFC107"
+                emptyStarColor="#E2E8F0"
+                editing={false}
+              />
+            </div>
+
             <h6 className="text-2xl font-semibold text-emerald-600">
               Rp. {price || ''}
             </h6>
@@ -151,22 +171,22 @@ const DetailMenu: NextComponentType<any, any, ResGetProps> = (props: any) => {
             <div className="flex flex-row items-center gap-12">
               <div className="flex flex-row items-center">
                 <button
-                  className="px-4 py-2 text-3xl bg-gray-200 rounded-lg text-emerald-800"
+                  className="bg-gray-200 py-2 px-4 rounded-lg text-emerald-800 text-3xl"
                   onClick={removeCountHandler}
                 >
                   -
                 </button>
-                <span className="px-6 py-4 rounded-lg"> {count}</span>
+                <span className="py-4 px-6 rounded-lg"> {count}</span>
 
                 <button
-                  className="px-4 py-2 text-3xl bg-gray-200 rounded-lg text-emerald-600"
+                  className="bg-gray-200 py-2 px-4 rounded-lg text-emerald-600 text-3xl"
                   onClick={addCountHandler}
                 >
                   +
                 </button>
               </div>
             </div>
-            <button className="h-full px-16 py-3 font-semibold text-white bg-emerald-600 rounded-xl">
+            <button className="bg-emerald-600 text-white font-semibold py-3 px-16 rounded-xl h-full">
               Add to Cart
             </button>
           </div>
@@ -178,12 +198,14 @@ const DetailMenu: NextComponentType<any, any, ResGetProps> = (props: any) => {
           <p>{description || ''}</p>
         </div>
 
-        <div className="flex flex-row justify-between my-5 ">
+        <div className=" my-5 flex flex-row justify-between">
           <h1 className="text-4xl font-bold">Anda Mungkin Menyukai</h1>
 
-          <button className="px-16 py-3 font-semibold text-white bg-emerald-600 rounded-xl">
-            View More
-          </button>
+          <Link href={'/menu'}>
+            <button className="px-16 py-3 font-semibold text-white bg-emerald-600 rounded-xl">
+              View More
+            </button>
+          </Link>
         </div>
 
         <div className="flex flex-wrap justify-center gap-6">
@@ -214,7 +236,7 @@ export const getServerSideProps: GetServerSideProps = async (
       `${process.env.NEXT_PUBLIC_SERVICE_BASE}/menus/${Number(id)}`,
     );
     resDataDetail = data;
-    console.log(data);
+    // console.log(data);
   } catch (error) {
     console.error('Error during fetch: ', error);
   }

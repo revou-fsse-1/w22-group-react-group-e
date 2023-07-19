@@ -1,14 +1,15 @@
 import React, { SyntheticEvent, useState } from 'react';
 import { useRouter } from 'next/router';
-import { setCookie } from '@/libs/cookies';
+import { deleteCookie, setCookie } from '@/libs/cookies';
+import { checkLogin } from '@/libs/checkLogin';
 
-export default function LoginModal() {
+export default function LoginModal({ loginAuthCheck }: any) {
   const [isOpen, setIsOpen] = useState(false);
   const [isRegister, setIsRegister] = useState(false);
 
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
-  const [role, setRole] = useState('');
+  // const [role, setRole] = useState('');
   const [address, setAddress] = useState('');
   const [email, setEmail] = useState('');
   const [phone, setPhone] = useState('');
@@ -17,6 +18,8 @@ export default function LoginModal() {
 
   const submitLogin = async (e: SyntheticEvent) => {
     e.preventDefault();
+
+    const checkToken = checkLogin();
 
     console.log('submitRegister called');
 
@@ -49,37 +52,26 @@ export default function LoginModal() {
           response.status,
           'Error message:',
           errorData.message,
+          alert('email or password incorrect!'),
         );
       } else {
         const data = await response.json();
         setCookie('token', data.token, 1);
         console.log('Response data: ', data.token);
         console.log('Response data: ', data);
+        alert('User logged in successfully!');
+        closeModal();
       }
     } catch (error) {
       console.error('Error during fetch: ', error);
     }
+    // closeModal();
 
-    router.reload();
+    // router.reload();
   };
 
   const submitRegister = async (e: SyntheticEvent) => {
     e.preventDefault();
-
-    console.log('submitRegister called');
-
-    console.log('Making fetch call with the following details:');
-    console.log('Endpoint:', 'http://localhost:4001/auth/register');
-    console.log('Method:', 'POST');
-    console.log('Headers:', { 'Content-Type': 'application/json' });
-    console.log('Body:', {
-      username: username,
-      password: password,
-      role: role,
-      address: address,
-      email: email,
-      phoneNumber: phone,
-    });
 
     try {
       const response = await fetch(
@@ -89,7 +81,7 @@ export default function LoginModal() {
           body: JSON.stringify({
             username: username,
             password: password,
-            role: role,
+            // role: role,
             address: address,
             email: email,
             phoneNumber: phone,
@@ -113,8 +105,14 @@ export default function LoginModal() {
     } catch (error) {
       console.error('Error during fetch: ', error);
     }
-
-    router.reload();
+    alert('User registered successfully!');
+    openModal();
+    setUsername('');
+    setPassword('');
+    // setRole("");
+    setAddress('');
+    setEmail('');
+    setPhone('');
   };
 
   const openModal = () => {
@@ -125,6 +123,7 @@ export default function LoginModal() {
   const closeModal = () => {
     setIsOpen(false);
     setIsRegister(false);
+    router.reload();
   };
 
   const register = () => {
@@ -132,15 +131,28 @@ export default function LoginModal() {
     setIsOpen(false);
   };
 
+  const logoutClick = () => {
+    deleteCookie();
+    router.reload();
+  };
+
   return (
     <div>
-      <button
-        onClick={openModal}
-        className="middle none center rounded-full bg-emerald-600 py-3 px-6 font-sans text-xs font-bold uppercase text-white shadow-md  transition-all hover:shadow-lg  focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
-      >
-        Sign in
-      </button>
-
+      {loginAuthCheck ? (
+        <button
+          onClick={logoutClick}
+          className="middle none center rounded-full bg-red-500 py-3 px-6 font-sans text-xs font-bold uppercase text-white shadow-md  transition-all hover:shadow-lg  focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
+        >
+          Logout
+        </button>
+      ) : (
+        <button
+          onClick={openModal}
+          className="middle none center rounded-full bg-emerald-600 py-3 px-6 font-sans text-xs font-bold uppercase text-white shadow-md  transition-all hover:shadow-lg  focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
+        >
+          Sign in
+        </button>
+      )}
       {/* Login */}
       {isOpen && (
         <div className="fixed inset-0 flex items-center justify-center z-50">
@@ -185,6 +197,7 @@ export default function LoginModal() {
                     id="password"
                     name="password"
                     type="password"
+                    minLength={8}
                     placeholder="****************"
                     onChange={(e) => setPassword(e.target.value)}
                     required
@@ -223,14 +236,14 @@ export default function LoginModal() {
             <div className="">
               <form onSubmit={submitRegister}>
                 <div>
-                  <label htmlFor="username">Usename</label>
+                  <label htmlFor="username">Username</label>
                   <input
                     id="username"
                     name="username"
                     value={username}
                     onChange={(e) => setUsername(e.target.value)}
                     type="text"
-                    placeholder="jhondoe@example.com"
+                    placeholder="Jhon doe"
                     required
                     className="mb-1 block p-2.5 w-full h-full  text-sm bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500  dark:focus:ring-blue-500 dark:focus:border-blue-500"
                   />
@@ -242,6 +255,7 @@ export default function LoginModal() {
                     id="password"
                     name="password"
                     type="password"
+                    minLength={8}
                     value={password}
                     placeholder="****************"
                     onChange={(e) => setPassword(e.target.value)}
@@ -250,7 +264,7 @@ export default function LoginModal() {
                   />
                 </div>
 
-                <div>
+                {/* <div>
                   <label htmlFor="role">Role</label>
                   <select
                     id="role"
@@ -264,7 +278,7 @@ export default function LoginModal() {
                     <option value="CUSTOMER">CUSTOMER</option>
                     <option value="ADMIN">ADMIN</option>
                   </select>
-                </div>
+                </div> */}
 
                 <div>
                   <label htmlFor="address">address</label>
@@ -274,7 +288,7 @@ export default function LoginModal() {
                     value={address}
                     onChange={(e) => setAddress(e.target.value)}
                     type="text"
-                    placeholder="Adress"
+                    placeholder="Address"
                     required
                     className="mb-1 block p-2.5 w-full text-sm bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500  dark:focus:ring-blue-500 dark:focus:border-blue-500"
                   />
@@ -287,7 +301,7 @@ export default function LoginModal() {
                     name="email"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
-                    type="text"
+                    type="email"
                     placeholder="jhondoe@example.com"
                     required
                     className="mb-1 block p-2.5 w-full text-sm bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500  dark:focus:ring-blue-500 dark:focus:border-blue-500"

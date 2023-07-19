@@ -1,9 +1,17 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
 import LoginModal from './LoginRegisterModal';
+import { checkLogin } from '@/libs/checkLogin';
+import CartModal from './CartModal';
 
 export default function Header() {
+  const [loginAuth, setLoginAuth] = useState(false);
+  useEffect(() => {
+    const check: boolean = checkLogin();
+    setLoginAuth(check);
+    return () => {};
+  }, []);
   const router = useRouter();
 
   return (
@@ -93,16 +101,8 @@ export default function Header() {
               About Us
             </Link>
           </li>
-          {/* <li>
-            <button
-              data-modal-target="authentication-modal"
-              data-modal-toggle="authentication-modal"
-              className="middle none center rounded-full bg-emerald-600 py-3 px-7 mx-8 font-sans text-xs font-bold uppercase text-white shadow-md  transition-all hover:shadow-lg  focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
-            >
-              Sign in
-            </button>
-          </li> */}
-          <LoginModal />
+          {loginAuth ? <CartModal /> : ''}
+          <LoginModal loginAuthCheck={loginAuth} />
         </ul>
       </div>
     </div>
