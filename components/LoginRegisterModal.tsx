@@ -1,8 +1,9 @@
 import React, { SyntheticEvent, useState } from 'react';
 import { useRouter } from 'next/router';
-import { setCookie } from '@/libs/cookies';
+import { deleteCookie, setCookie } from '@/libs/cookies';
+import { checkLogin } from '@/libs/checkLogin';
 
-export default function LoginModal() {
+export default function LoginModal({ loginAuthCheck }: any) {
   const [isOpen, setIsOpen] = useState(false);
   const [isRegister, setIsRegister] = useState(false);
 
@@ -17,6 +18,8 @@ export default function LoginModal() {
 
   const submitLogin = async (e: SyntheticEvent) => {
     e.preventDefault();
+
+    const checkToken = checkLogin();
 
     console.log('submitRegister called');
 
@@ -59,8 +62,9 @@ export default function LoginModal() {
     } catch (error) {
       console.error('Error during fetch: ', error);
     }
+    closeModal();
 
-    router.reload();
+    // router.reload();
   };
 
   const submitRegister = async (e: SyntheticEvent) => {
@@ -113,8 +117,7 @@ export default function LoginModal() {
     } catch (error) {
       console.error('Error during fetch: ', error);
     }
-
-    router.reload();
+    openModal();
   };
 
   const openModal = () => {
@@ -125,6 +128,7 @@ export default function LoginModal() {
   const closeModal = () => {
     setIsOpen(false);
     setIsRegister(false);
+    router.reload();
   };
 
   const register = () => {
@@ -132,15 +136,28 @@ export default function LoginModal() {
     setIsOpen(false);
   };
 
+  const logoutClick = () => {
+    deleteCookie();
+    router.reload();
+  };
+
   return (
     <div>
-      <button
-        onClick={openModal}
-        className="middle none center rounded-full bg-emerald-600 py-3 px-6 font-sans text-xs font-bold uppercase text-white shadow-md  transition-all hover:shadow-lg  focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
-      >
-        Sign in
-      </button>
-
+      {loginAuthCheck ? (
+        <button
+          onClick={logoutClick}
+          className="middle none center rounded-full bg-red-500 py-3 px-6 font-sans text-xs font-bold uppercase text-white shadow-md  transition-all hover:shadow-lg  focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
+        >
+          Logout
+        </button>
+      ) : (
+        <button
+          onClick={openModal}
+          className="middle none center rounded-full bg-emerald-600 py-3 px-6 font-sans text-xs font-bold uppercase text-white shadow-md  transition-all hover:shadow-lg  focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
+        >
+          Sign in
+        </button>
+      )}
       {/* Login */}
       {isOpen && (
         <div className="fixed inset-0 flex items-center justify-center z-50">
