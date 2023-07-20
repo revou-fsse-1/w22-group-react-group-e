@@ -21,13 +21,13 @@ const nextConfig = {
   },
 };
 //module.exports = {
-  //async rewrites() {
-    //return [
-      //{
-        //source: '/:path*',
-        //destination: 'https://w17-wareg.onrender.com/:path*',
-      //},
-    //];
-  //},
+//async rewrites() {
+//return [
+//{
+//source: '/:path*',
+//destination: 'https://w17-wareg.onrender.com/:path*',
+//},
+//];
+//},
 //};
 module.exports = nextConfig;

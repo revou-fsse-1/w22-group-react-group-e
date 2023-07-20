@@ -1,7 +1,6 @@
 import React from 'react';
 
 const AddToCartPage = () => {
- 
   const orderItems = [
     {
       id: '1',
@@ -56,8 +55,3 @@ const AddToCartPage = () => {
 };
 
 export default AddToCartPage;
-
-
-
-
-

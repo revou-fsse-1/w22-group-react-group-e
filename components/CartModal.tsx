@@ -1,26 +1,20 @@
-import Link from 'next/link';
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { HiShoppingCart } from 'react-icons/hi';
 import { GoTrash } from 'react-icons/go';
-import axios from 'axios';
-
-interface Order {
-  id: number;
-  name: string;
-  price: number;
-  menuImages: {
-    img1: string;
-  };
-}
+import Image from 'next/image';
+import { CartContext } from '../context/CartContext';
 
 const CartModal: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [quantity, setQuantity] = useState(1);
-  const [count, setCount] = useState(0);
-  const [orders, setOrders] = useState<Order[]>([]);
+  const {
+    cartProducts,
+    cartItems,
+    increaseQuantity,
+    decreaseQuantity,
+    removeFromCart,
+  } = useContext(CartContext);
 
   const openModal = () => {
-    getOrder();
     setIsOpen(true);
   };
 
@@ -28,34 +22,11 @@ const CartModal: React.FC = () => {
     setIsOpen(false);
   };
 
-  const addCountHandler = () => {
-    setCount(count + 1);
-  };
-  const removeCountHandler = () => {
-    if (count === 0) {
-      return;
-    }
-    setCount(count - 1);
-  };
+  const total = cartProducts.reduce(
+    (sum, { product, quantity }) => sum + product.price * quantity,
+    0,
+  );
 
-  const getOrder = async () => {
-    // try {
-    //   const res = await axios.get(
-    //     `${process.env.NEXT_PUBLIC_SERVICE_BASE}/orders`,
-    //      {
-    //         orderItems: [
-    //           {
-    //             menuId: id,
-    //             quantity: quantity,
-    //           },
-    //         ],
-    //       },
-    //   );
-    //   setOrders(res.data);
-    // } catch (error) {
-    //   console.log(error);
-    // }
-  };
   return (
     <div>
       <button onClick={openModal}>
@@ -75,32 +46,30 @@ const CartModal: React.FC = () => {
               <hr />
             </div>
 
-            {/* cart produk */}
-            <div>
-              <div className="flex justify-between p-5">
-                <img
+            {cartProducts.map(({ product, quantity }) => (
+              <div key={product.id}>
+                {/* <Image
                   className="p-2"
                   width={156}
                   height={160}
-                  src="https://awsimages.detik.net.id/community/media/visual/2021/04/22/5-makanan-enak-dari-indonesia-dan-malaysia-yang-terkenal-enak-5.jpeg?w=600&q=90"
-                  alt=""
-                />
-                <div className="p-4">
-                  <p>Mie Ayam</p>
+                  src={product.menuImages?.img1 ?? ''}
+                  alt={product.name}
+                /> */}
 
+                <div className="p-4">
+                  <p>{product.name}</p>
                   <div className="flex flex-row items-center gap-12">
                     <div className="flex flex-row items-center">
                       <button
-                        className="bg-gray-200 px-2 rounded-lg text-emerald-800 "
-                        onClick={removeCountHandler}
+                        className="bg-gray-200 px-2 rounded-lg text-emerald-800"
+                        onClick={() => decreaseQuantity(product.id)}
                       >
                         -
                       </button>
-                      <span className="py-4 px-3 rounded-lg"> {count}</span>
-
+                      <span className="py-4 px-3 rounded-lg">{quantity}</span>
                       <button
-                        className="bg-gray-200 px-2  rounded-lg text-emerald-800"
-                        onClick={addCountHandler}
+                        className="bg-gray-200 px-2 rounded-lg text-emerald-800"
+                        onClick={() => increaseQuantity(product.id)}
                       >
                         +
                       </button>
@@ -110,20 +79,18 @@ const CartModal: React.FC = () => {
 
                 <div className="p-4">
                   <div>
-                    <button>
+                    <button onClick={() => removeFromCart(product.id)}>
                       <GoTrash className="text-red-600" />
                     </button>
                   </div>
-
-                  <p>Rp. 2000</p>
+                  <p>Rp. {product.price}</p>
                 </div>
               </div>
-              <hr />
-            </div>
+            ))}
 
             <div className="p-3 flex justify-between">
               <p>Total</p>
-              <p>Rp. 2000</p>
+              <p>Rp. {total}</p>
             </div>
 
             <button
