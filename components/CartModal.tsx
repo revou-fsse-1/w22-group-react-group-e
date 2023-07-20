@@ -12,6 +12,7 @@ const CartModal: React.FC = () => {
     increaseQuantity,
     decreaseQuantity,
     removeFromCart,
+    checkout,
   } = useContext(CartContext);
 
   const openModal = () => {
@@ -95,7 +96,7 @@ const CartModal: React.FC = () => {
 
             <button
               className="bg-emerald-600  w-full text-white font-bold py-2 px-4 rounded mt-4"
-              onClick={closeModal}
+              onClick={checkout}
             >
               Checkout
             </button>

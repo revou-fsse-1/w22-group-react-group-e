@@ -2,6 +2,7 @@ import React, { createContext, useState } from 'react';
 import axios from 'axios';
 import { getCookie } from '@/libs/cookies';
 import router from 'next/router';
+import { toast } from 'react-toastify';
 
 interface Order {
   id: number;
@@ -25,16 +26,18 @@ interface CartContextProps {
   increaseQuantity: (productId: number) => void;
   decreaseQuantity: (productId: number) => void;
   addToCartServer: (product: Order) => Promise<void>;
+  checkout: () => Promise<void>;
 }
 
 export const CartContext = createContext<CartContextProps>({
   cartItems: 0,
   cartProducts: [],
-  addToCart: (product: Order, quantity: number) => {}, 
+  addToCart: (product: Order, quantity: number) => {},
   removeFromCart: (productId: number) => {},
   increaseQuantity: (productId: number) => {},
   decreaseQuantity: (productId: number) => {},
-  addToCartServer: async (product: Order) => {}, 
+  addToCartServer: async (product: Order) => {},
+  checkout: async () => {},
 });
 
 export const CartProvider: React.FC = ({
@@ -77,6 +80,56 @@ export const CartProvider: React.FC = ({
     );
   };
 
+  const checkout = async () => {
+    const token = getCookie('token');
+
+    const orderItems = cartProducts.map(({ product, quantity }) => ({
+      menuId: product.id,
+      quantity,
+    }));
+
+    try {
+      await axios.post(
+        'https://w17-wareg.onrender.com/orders',
+        { orderItems },
+        {
+          headers: {
+            'Content-Type': 'application/json; charset=utf-8',
+            Authorization: `Bearer ${token}`,
+          },
+          withCredentials: true,
+        },
+      );
+      toast.success('Order placed successfully!', {
+        position: 'top-center',
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: 'colored',
+      });
+      // alert('Order placed successfully!');
+    } catch (error) {
+      console.error(error);
+      toast.error('Failed to place order.', {
+        position: 'top-center',
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: 'colored',
+      });
+      // alert('Failed to place order.');
+    }
+
+    setCartItems(0);
+    setCartProducts([]);
+  };
+
   const addToCartServer = async (product: Order) => {
     const token = getCookie('token');
     try {
@@ -100,10 +153,30 @@ export const CartProvider: React.FC = ({
       );
 
       addToCart(product, 1);
-      alert('Item added to cart!');
+      toast.success('Item added to cart!', {
+        position: 'top-center',
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: 'colored',
+      });
+      // alert('Item added to cart!');
     } catch (error) {
       console.error(error);
-      alert('Failed to add item to cart.');
+      toast.error('Failed to add item to cart.', {
+        position: 'top-center',
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: 'colored',
+      });
+      // alert('Failed to add item to cart.');
     }
   };
 
@@ -117,6 +190,7 @@ export const CartProvider: React.FC = ({
         increaseQuantity,
         decreaseQuantity,
         addToCartServer,
+        checkout,
       }}
     >
       {children}

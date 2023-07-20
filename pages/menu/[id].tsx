@@ -8,6 +8,7 @@ import Link from 'next/link';
 import { getCookie } from '@/libs/cookies';
 import Image from 'next/image';
 import { CartContext } from '../../context/CartContext';
+import { toast } from 'react-toastify';
 
 interface ResGetProps {
   id: number;
@@ -82,7 +83,17 @@ const DetailMenu: NextComponentType<any, any, ResGetProps> = (props: any) => {
   const addToCart = () => {
     checkLogin();
     if (!checkLogin()) {
-      return alert('Please login first!');
+      toast.success('Please login first!', {
+        position: 'top-center',
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: 'colored',
+      });
+      // return alert('Please login first!');
     } else {
       const product = {
         id,
