@@ -79,39 +79,19 @@ const DetailMenu: NextComponentType<any, any, ResGetProps> = (props: any) => {
     }
     setQuantity(quantity - 1);
   };
-
-  const addToCart = async () => {
-    const token = getCookie('token');
-
+  const addToCart = () => {
     checkLogin();
     if (!checkLogin()) {
       return alert('Please login first!');
     } else {
-      try {
-        const response = await axios.post(
-          `${process.env.NEXT_PUBLIC_SERVICE_BASE}/orders`,
-          {
-            orderItems: [
-              {
-                menuId: id,
-                quantity: quantity,
-              },
-            ],
-          },
-          {
-            headers: {
-              'Content-Type': 'application/json; charset=utf-8',
-              Authorization: `Bearer ${token}`,
-            },
-            withCredentials: true,
-          },
-        );
-        incrementCartItems();
-        alert('Item added to cart!');
-      } catch (error: any) {
-        console.error('Error:', error);
-        alert('Failed to add item to cart.');
-      }
+      const product = {
+        id,
+        name,
+        price,
+        menuImages,
+      };
+      incrementCartItems(product, quantity);
+      alert('Item added to cart!');
     }
   };
 
@@ -221,7 +201,6 @@ const DetailMenu: NextComponentType<any, any, ResGetProps> = (props: any) => {
                   -
                 </button>
                 <span className="px-6 py-4 rounded-lg"> {quantity}</span>{' '}
-                {/* display quantity instead of count */}
                 <button
                   className="px-4 py-2 text-3xl bg-gray-200 rounded-lg text-emerald-600"
                   onClick={addCountHandler}
