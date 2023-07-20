@@ -2,6 +2,7 @@ import React, { SyntheticEvent, useState } from 'react';
 import { useRouter } from 'next/router';
 import { deleteCookie, setCookie } from '@/libs/cookies';
 import { checkLogin } from '@/libs/checkLogin';
+import { toast } from 'react-toastify';
 
 export default function LoginModal({ loginAuthCheck }: any) {
   const [isOpen, setIsOpen] = useState(false);
@@ -52,19 +53,40 @@ export default function LoginModal({ loginAuthCheck }: any) {
           response.status,
           'Error message:',
           errorData.message,
-          alert('email or password incorrect!'),
+          toast.error('email or password incorrect!', {
+            position: 'top-right',
+            autoClose: 3000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: 'colored',
+          }),
+          // alert('email or password incorrect!'),
         );
       } else {
         const data = await response.json();
         setCookie('token', data.token, 1);
         console.log('Response data: ', data.token);
         console.log('Response data: ', data);
-        alert('User logged in successfully!');
+        toast.success('User logged in successfully!', {
+          position: 'top-right',
+          autoClose: 3000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: 'colored',
+        });
         closeModal();
+        // alert('User logged in successfully!');
       }
     } catch (error) {
       console.error('Error during fetch: ', error);
     }
+
     // closeModal();
 
     // router.reload();
@@ -101,12 +123,23 @@ export default function LoginModal({ loginAuthCheck }: any) {
       } else {
         const data = await response.json();
         console.log('Response data: ', data);
+        toast.success('User registered successfully!', {
+          position: 'top-right',
+          autoClose: 3000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: 'colored',
+        });
+        openModal();
       }
     } catch (error) {
       console.error('Error during fetch: ', error);
     }
-    alert('User registered successfully!');
-    openModal();
+    // alert('User registered successfully!');
+    // openModal();
     setUsername('');
     setPassword('');
     // setRole("");
@@ -132,6 +165,16 @@ export default function LoginModal({ loginAuthCheck }: any) {
   };
 
   const logoutClick = () => {
+    toast.success('User logged out successfully!', {
+      position: 'top-center',
+      autoClose: 3000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: 'colored',
+    });
     deleteCookie();
     router.reload();
   };

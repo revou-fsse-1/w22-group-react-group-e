@@ -2,6 +2,7 @@ import React, { createContext, useState } from 'react';
 import axios from 'axios';
 import { getCookie } from '@/libs/cookies';
 import router from 'next/router';
+import { toast } from 'react-toastify';
 
 interface Order {
   id: number;
@@ -99,10 +100,30 @@ export const CartProvider: React.FC = ({
           withCredentials: true,
         },
       );
-      alert('Order placed successfully!');
+      toast.success('Order placed successfully!', {
+        position: 'top-center',
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: 'colored',
+      });
+      // alert('Order placed successfully!');
     } catch (error) {
       console.error(error);
-      alert('Failed to place order.');
+      toast.error('Failed to place order.', {
+        position: 'top-center',
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: 'colored',
+      });
+      // alert('Failed to place order.');
     }
 
     setCartItems(0);
@@ -132,10 +153,30 @@ export const CartProvider: React.FC = ({
       );
 
       addToCart(product, 1);
-      alert('Item added to cart!');
+      toast.success('Item added to cart!', {
+        position: 'top-center',
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: 'colored',
+      });
+      // alert('Item added to cart!');
     } catch (error) {
       console.error(error);
-      alert('Failed to add item to cart.');
+      toast.error('Failed to add item to cart.', {
+        position: 'top-center',
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: 'colored',
+      });
+      // alert('Failed to add item to cart.');
     }
   };
 
