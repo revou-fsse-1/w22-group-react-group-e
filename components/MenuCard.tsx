@@ -1,5 +1,4 @@
 import React, { useContext } from 'react';
-import Image from 'next/image';
 import Link from 'next/link';
 import StarRating from 'react-star-rating-component';
 import axios from 'axios';
@@ -26,7 +25,7 @@ const MenuCard: React.FC<MenuCardProps> = ({
   price,
   category,
   ratings,
-  menuImages,
+  menuImages
 }) => {
   const { addToCart: incrementCartItems } = useContext(CartContext);
 
@@ -68,8 +67,8 @@ const MenuCard: React.FC<MenuCardProps> = ({
 
   return (
     <div className="p-4 w-[270px] h-[320px] bg-neutral-100 rounded-xl">
-      {menuImages && menuImages.img1 ? (
-        <Image
+      { menuImages && menuImages.img1 ? (
+        <img 
           className="w-[270px] h-[160px] rounded-tl-xl rounded-tr-xl"
           src={menuImages.img1}
           alt={name}

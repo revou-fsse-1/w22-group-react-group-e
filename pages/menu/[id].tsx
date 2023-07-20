@@ -6,7 +6,7 @@ import MenuCard from '@/components/MenuCard';
 import StarRating from 'react-star-rating-component';
 import Link from 'next/link';
 import { getCookie } from '@/libs/cookies';
-import img from 'next/image';
+import Image from 'next/image';
 import { CartContext } from '../../context/CartContext';
 
 interface ResGetProps {
@@ -146,7 +146,7 @@ const DetailMenu: NextComponentType<any, any, ResGetProps> = (props: any) => {
             <img
               src={activeImg}
               alt=""
-              className="w-full h-full aspect-square object-cover rounded-xl"
+              className="object-cover w-full h-full aspect-square rounded-xl"
             />
             <div className="flex flex-row justify-between h-24">
               <img
@@ -216,15 +216,15 @@ const DetailMenu: NextComponentType<any, any, ResGetProps> = (props: any) => {
             <div className="flex flex-row items-center gap-12">
               <div className="flex flex-row items-center">
                 <button
-                  className="bg-gray-200 py-2 px-4 rounded-lg text-emerald-800 text-3xl"
+                  className="px-4 py-2 text-3xl bg-gray-200 rounded-lg text-emerald-800"
                   onClick={removeCountHandler}
                 >
                   -
                 </button>
-                <span className="py-4 px-6 rounded-lg"> {quantity}</span>{' '}
+                <span className="px-6 py-4 rounded-lg"> {quantity}</span>{' '}
                 {/* display quantity instead of count */}
                 <button
-                  className="bg-gray-200 py-2 px-4 rounded-lg text-emerald-600 text-3xl"
+                  className="px-4 py-2 text-3xl bg-gray-200 rounded-lg text-emerald-600"
                   onClick={addCountHandler}
                 >
                   +
@@ -233,7 +233,7 @@ const DetailMenu: NextComponentType<any, any, ResGetProps> = (props: any) => {
             </div>
             <button
               onClick={addToCart}
-              className="bg-emerald-600 text-white font-semibold py-3 px-16 rounded-xl h-full"
+              className="h-full px-16 py-3 font-semibold text-white bg-emerald-600 rounded-xl"
             >
               Add to Cart
             </button>
@@ -246,7 +246,7 @@ const DetailMenu: NextComponentType<any, any, ResGetProps> = (props: any) => {
           <p>{description || ''}</p>
         </div>
 
-        <div className=" my-5 flex flex-row justify-between">
+        <div className="flex flex-row justify-between my-5 ">
           <h1 className="text-4xl font-bold">Anda Mungkin Menyukai</h1>
 
           <Link href={'/menu'}>
