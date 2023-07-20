@@ -110,7 +110,10 @@ export const CartProvider: React.FC = ({
         progress: undefined,
         theme: 'colored',
       });
-      // alert('Order placed successfully!');
+      setCartItems(0);
+      setCartProducts([]);
+
+      router.push('/orders');
     } catch (error) {
       console.error(error);
       toast.error('Failed to place order.', {
@@ -123,11 +126,7 @@ export const CartProvider: React.FC = ({
         progress: undefined,
         theme: 'colored',
       });
-      // alert('Failed to place order.');
     }
-
-    setCartItems(0);
-    setCartProducts([]);
   };
 
   const addToCartServer = async (product: Order) => {
@@ -163,7 +162,6 @@ export const CartProvider: React.FC = ({
         progress: undefined,
         theme: 'colored',
       });
-      // alert('Item added to cart!');
     } catch (error) {
       console.error(error);
       toast.error('Failed to add item to cart.', {
@@ -176,7 +174,6 @@ export const CartProvider: React.FC = ({
         progress: undefined,
         theme: 'colored',
       });
-      // alert('Failed to add item to cart.');
     }
   };
 

@@ -93,10 +93,12 @@ const CartModal: React.FC = () => {
               <p>Total</p>
               <p>Rp. {total}</p>
             </div>
-
             <button
-              className="bg-emerald-600  w-full text-white font-bold py-2 px-4 rounded mt-4"
-              onClick={checkout}
+              className="bg-emerald-600 w-full text-white font-bold py-2 px-4 rounded mt-4"
+              onClick={() => {
+                checkout();
+                closeModal();
+              }}
             >
               Checkout
             </button>

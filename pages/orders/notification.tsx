@@ -3,6 +3,7 @@ import { useRouter } from 'next/router';
 import axios from 'axios';
 import StarRating from 'react-star-rating-component';
 import { getCookie } from '@/libs/cookies';
+import Image from 'next/image';
 
 const sampleOrderItems = [
   {
@@ -126,7 +127,7 @@ const NotificationPage = () => {
       {menus.map((menu) => (
         <div key={menu.id}>
           <h3>{menu.name}</h3>
-          <img src={menu.menuImage?.img1} alt={menu.name} />
+          <Image src={menu.menuImage?.img1} alt={menu.name} />
 
           <StarRating
             name={`menu-rating-${menu.id}`}
