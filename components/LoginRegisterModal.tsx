@@ -60,7 +60,7 @@ export default function LoginModal({ loginAuthCheck }: any) {
         console.log('Response data: ', data.token);
         console.log('Response data: ', data);
         alert('User logged in successfully!');
-        // closeModal();
+        closeModal();
       }
     } catch (error) {
       console.error('Error during fetch: ', error);

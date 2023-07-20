@@ -65,7 +65,6 @@ const DetailMenu: NextComponentType<any, any, ResGetProps> = (props: any) => {
 
   const [activeImg, setActiveImage] = useState(images.img1);
   const [quantity, setQuantity] = useState(1);
-  const [count, setCount] = useState(0);
   const [loading, setLoading] = useState(false);
 
   const [menus, setMenus] = useState<ResGetProps[]>([]);
@@ -90,7 +89,7 @@ const DetailMenu: NextComponentType<any, any, ResGetProps> = (props: any) => {
     } else {
       try {
         const response = await axios.post(
-          'https://w17-wareg.onrender.com/orders',
+          `${process.env.NEXT_PUBLIC_SERVICE_BASE}/orders`,
           {
             orderItems: [
               {
@@ -123,7 +122,7 @@ const DetailMenu: NextComponentType<any, any, ResGetProps> = (props: any) => {
   const fetchMenus = async () => {
     try {
       const response = await fetch(
-        `https://w17-wareg.onrender.com/menus?q=${category?.name}`,
+        `${process.env.NEXT_PUBLIC_SERVICE_BASE}/menus?q=${category?.name}`,
       );
       const data = await response.json();
       setMenus(data.menus.slice(0, 3));
