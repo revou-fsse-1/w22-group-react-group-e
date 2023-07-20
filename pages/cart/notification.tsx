@@ -44,20 +44,23 @@ const NotificationPage = () => {
   const router = useRouter();
   const [ratings, setRatings] = useState<RatingsState>({});
   const [menus, setMenus] = useState<Menu[]>([]);
-  const token = getCookie('token'); 
+  const token = getCookie('token');
 
   useEffect(() => {
     const fetchOrderItems = async () => {
       try {
         const orderId = router.query.id;
-        const response = await axios.get(`https://w17-wareg.onrender.com/${orderId}`, {
-          headers: {
-            'Content-Type': 'application/json; charset=utf-8',
-            Authorization: `Bearer ${token}`,
+        const response = await axios.get(
+          `https://w17-wareg.onrender.com/${orderId}`,
+          {
+            headers: {
+              'Content-Type': 'application/json; charset=utf-8',
+              Authorization: `Bearer ${token}`,
+            },
+            withCredentials: true,
           },
-          withCredentials: true,
-        });
-        setMenus(response.data.orderItems); 
+        );
+        setMenus(response.data.orderItems);
       } catch (error) {
         console.error('Failed to fetch order items:', error);
       }
@@ -70,7 +73,9 @@ const NotificationPage = () => {
     const fetchMenus = async () => {
       const menuIds = sampleOrderItems.map((item) => item.menuId);
       try {
-        const response = await axios.get(`https://w17-wareg.onrender.com/menus?ids=${menuIds.join(',')}`);
+        const response = await axios.get(
+          `https://w17-wareg.onrender.com/menus?ids=${menuIds.join(',')}`,
+        );
         setMenus(response.data);
       } catch (error) {
         console.error('Failed to fetch menus:', error);
@@ -78,7 +83,7 @@ const NotificationPage = () => {
     };
 
     fetchMenus();
-  }, []); 
+  }, []);
 
   const handleRatingChange = (menuId: number, newRating: number) => {
     setRatings((prevRatings) => ({
@@ -103,7 +108,7 @@ const NotificationPage = () => {
             Authorization: `Bearer ${token}`,
           },
           withCredentials: true,
-        }
+        },
       );
       setRatings({}); // Reset ratings after sending
       console.log('Ratings have been submitted successfully:', response.data);
@@ -121,7 +126,7 @@ const NotificationPage = () => {
       {menus.map((menu) => (
         <div key={menu.id}>
           <h3>{menu.name}</h3>
-          <img src={menu.menuImage?.img1} alt={menu.name} /> 
+          <img src={menu.menuImage?.img1} alt={menu.name} />
 
           <StarRating
             name={`menu-rating-${menu.id}`}
@@ -145,12 +150,3 @@ const NotificationPage = () => {
 };
 
 export default NotificationPage;
-
-
-
-
-
-
-
-
-

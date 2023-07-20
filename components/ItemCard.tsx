@@ -1,6 +1,6 @@
 import React from 'react';
 
-const ItemCard = ({ item, addToCart }: { item: any, addToCart: any }) => {
+const ItemCard = ({ item, addToCart }: { item: any; addToCart: any }) => {
   const handleAddToCart = () => {
     addToCart(item);
   };
