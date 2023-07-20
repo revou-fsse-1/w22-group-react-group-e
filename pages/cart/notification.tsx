@@ -120,7 +120,7 @@ const NotificationPage = () => {
   return (
     <div>
       <h1>Success</h1>
-      <p>Item has been added to cart.</p>
+      <p>Item has been added to order.</p>
 
       <h2>Rate the Menu</h2>
       {menus.map((menu) => (

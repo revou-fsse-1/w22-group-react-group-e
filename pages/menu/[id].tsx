@@ -166,7 +166,6 @@ const DetailMenu: NextComponentType<any, any, ResGetProps> = (props: any) => {
             <div>
               <h1 className="text-4xl font-bold">{name || ''}</h1>
             </div>
-
             <div>
               <StarRating
                 name={`rating-${id}`}
