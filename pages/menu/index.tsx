@@ -202,23 +202,24 @@ const MenuPage: React.FC = () => {
           </div>
         </div>
         <div className="bg-[url('../public/discount-form.png')] w-full h-[573px] bg-no-repeat relative">
-  <div className="w-full h-[573px] left-0 top-0 absolute">
+  <div className="w-full h-[573px] left-0 top-0">
     <div className="w-[100%] h-[100%] flex justify-center items-center">
       <div className="w-[591px] h-[312.85px] flex flex-col justify-center items-center text-center">
-        <div className="w-[591px] h-[142.24px] text-white text-5xl font-semibold capitalize">Diskon 30% dengan aplikasi Wareg</div>
-        <div className="w-[558px] h-[94.83px] text-white text-base font-normal leading-loose">Nikmati diskon hingga 30% setiap minggunya dengan menu edisi terbatas yang akan menggoda selera makanmu. Jangan sampai terlewatkan kesempatan ini! Download sekarang juga!</div>
-        <div className="w-[195px] h-[51.36px] relative mt-4">
-          <div className="w-[191px] h-[51.36px] bg-white rounded-3xl">
-          <div className="items-center justify-center text-base font-semibold text-slate-500">Download Sekarang</div>
-        </div>
+        <div className="w-[591px] h-[142.24px] text-white text-left text-5xl font-semibold capitalize">Diskon 30% dengan aplikasi Wareg</div>
+        <div className="w-[558px] h-[94.83px] text-white text-left text-base font-normal leading-loose">Nikmati diskon hingga 30% setiap minggunya dengan menu edisi terbatas yang akan menggoda selera makanmu. Jangan sampai terlewatkan kesempatan ini! Download sekarang juga!</div>
+        <div className="w-[195px] h-[51.36px] mt-4">
+          <button className="justify-start w-[191px] h-[51.36px] bg-white rounded-3xl">
+          <p className="items-center justify-center text-base font-semibold text-slate-500">Download Sekarang</p>
+        </button>
       </div>
           </div>
-      <div className=" h-[131.38px] flex justify-center items-center">
-        <div className="w-[133px] h-[131.38px] bg-white rounded-full flex justify-center items-center">
-          <div className="text-2xl font-semibold text-slate-500">up to <br/></div>
-          <div className="text-2xl font-semibold text-red-600">30%</div>
-        </div>
-      </div>
+          <div className="w-[10%] h-[25%] bg-white rounded-full flex justify-center items-center">
+  <div className="text-center">
+    <p className="text-2xl font-semibold text-slate-500">up to</p>
+    <p className="text-2xl font-semibold text-red-600">30%</p>
+  </div>
+</div>         
+        
     </div>
   </div>
 </div>

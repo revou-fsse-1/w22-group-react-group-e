@@ -79,7 +79,7 @@ const MenuCard: React.FC<MenuCardProps> = ({
         </div>
       )}
       <div className="">
-        <p className="text-[#333333] text-m font-normal leading-loose">
+        <p className="text-[#333333] text-s font-normal leading-loose">
           {category}
         </p>
         <Link href={`/menu/${id}`}>
@@ -105,7 +105,6 @@ const MenuCard: React.FC<MenuCardProps> = ({
           >
             Add to Cart
           </button>
-          <div>Cart Items: {cartItems}</div>
         </div>
       </div>
     </div>
