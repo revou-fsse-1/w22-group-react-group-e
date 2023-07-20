@@ -36,7 +36,7 @@ export default function Header() {
               viewBox="0 0 46 41"
               fill="none"
             >
-               <path
+              <path
                 d="M20.5897 1.52081L0.906135 20.9794C-0.302045 22.1738 -0.302045 24.1102 0.906135 25.3047C2.11356 26.4976 4.07232 26.4976 5.2805 25.3047L22.7765 8.0065L40.2724 25.3047C41.4806 26.4976 43.4394 26.4976 44.6468 25.3047C45.855 24.1102 45.855 22.1738 44.6468 20.9794L24.9633 1.52081C23.7558 0.326396 21.7971 0.326396 20.5897 1.52081Z"
                 fill="#548776"
               />
@@ -116,8 +116,8 @@ export default function Header() {
           {loginAuth ? <CartModal /> : ''}
           <LoginModal loginAuthCheck={loginAuth} />
         </div>
-         {/* Hamburger menu icon for mobile and tablet */}
-         <div className="cursor-pointer md:hidden" onClick={handleMenuToggle}>
+        {/* Hamburger menu icon for mobile and tablet */}
+        <div className="cursor-pointer md:hidden" onClick={handleMenuToggle}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="24"
@@ -145,37 +145,36 @@ export default function Header() {
             </button>
           </div>
           <div>
-
-          <ul className="flex flex-col gap-5 mt-8">
-            <li>
-              <Link href="/" className="text-xl font-medium">
-                Home
-              </Link>
-            </li>
-            <li>
-              <Link href="/menu" className="text-xl font-medium">
-                Menu
-              </Link>
-            </li>
-            <li>
-              <Link href="/contact" className="text-xl font-medium">
-                Contact
-              </Link>
-            </li>
-            <li>
-              <Link href="/blog" className="text-xl font-medium">
-                Blog
-              </Link>
-            </li>
-            <li>
-              <Link href="/about-us" className="text-xl font-medium">
-                About Us
-              </Link>
-            </li>
-          </ul>
-          {loginAuth && <CartModal />}
-          <LoginModal loginAuthCheck={loginAuth} />
-      </div>
+            <ul className="flex flex-col gap-5 mt-8">
+              <li>
+                <Link href="/" className="text-xl font-medium">
+                  Home
+                </Link>
+              </li>
+              <li>
+                <Link href="/menu" className="text-xl font-medium">
+                  Menu
+                </Link>
+              </li>
+              <li>
+                <Link href="/contact" className="text-xl font-medium">
+                  Contact
+                </Link>
+              </li>
+              <li>
+                <Link href="/blog" className="text-xl font-medium">
+                  Blog
+                </Link>
+              </li>
+              <li>
+                <Link href="/about-us" className="text-xl font-medium">
+                  About Us
+                </Link>
+              </li>
+            </ul>
+            {loginAuth && <CartModal />}
+            <LoginModal loginAuthCheck={loginAuth} />
+          </div>
         </div>
       </div>
       {/* Overlay */}
