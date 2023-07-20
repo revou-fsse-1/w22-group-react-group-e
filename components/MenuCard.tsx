@@ -25,7 +25,7 @@ const MenuCard: React.FC<MenuCardProps> = ({
   ratings,
   menuImages,
 }) => {
-  const { addToCartServer } = useContext(CartContext);
+  const { addToCart } = useContext(CartContext);
 
   const averageRating =
     ratings.length > 0
@@ -67,7 +67,7 @@ const MenuCard: React.FC<MenuCardProps> = ({
             Price: Rp{price.toLocaleString()}
           </p>
           <button
-            onClick={() => addToCartServer({ id, name, price, menuImages })}
+            onClick={() => addToCart({ id, name, price, menuImages }, 1)}
             className="w-[100px] h-[37px] bg-[#548776] text-white rounded-[18.50px]"
           >
             Add to Cart

@@ -24,16 +24,18 @@ interface CartContextProps {
   increaseQuantity: (productId: number) => void;
   decreaseQuantity: (productId: number) => void;
   addToCartServer: (product: Order) => Promise<void>;
+  checkout: () => Promise<void>; // Add this line
 }
 
 export const CartContext = createContext<CartContextProps>({
   cartItems: 0,
   cartProducts: [],
-  addToCart: (product: Order, quantity: number) => {}, 
+  addToCart: (product: Order, quantity: number) => {},
   removeFromCart: (productId: number) => {},
   increaseQuantity: (productId: number) => {},
   decreaseQuantity: (productId: number) => {},
-  addToCartServer: async (product: Order) => {}, 
+  addToCartServer: async (product: Order) => {},
+  checkout: async () => {}, // Add this line
 });
 
 export const CartProvider: React.FC = ({
@@ -76,6 +78,39 @@ export const CartProvider: React.FC = ({
     );
   };
 
+  const checkout = async () => {
+    const token = getCookie('token');
+    for (const { product, quantity } of cartProducts) {
+      try {
+        await axios.post(
+          'https://w17-wareg.onrender.com/orders',
+          {
+            orderItems: [
+              {
+                menuId: product.id,
+                quantity,
+              },
+            ],
+          },
+          {
+            headers: {
+              'Content-Type': 'application/json; charset=utf-8',
+              Authorization: `Bearer ${token}`,
+            },
+            withCredentials: true,
+          },
+        );
+        alert('Order placed successfully!');
+      } catch (error) {
+        console.error(error);
+        alert('Failed to place order.');
+      }
+    }
+
+    setCartItems(0);
+    setCartProducts([]);
+  };
+
   const addToCartServer = async (product: Order) => {
     const token = getCookie('token');
     try {
@@ -115,7 +150,8 @@ export const CartProvider: React.FC = ({
         removeFromCart,
         increaseQuantity,
         decreaseQuantity,
-        addToCartServer,
+        addToCartServer, 
+        checkout,
       }}
     >
       {children}
