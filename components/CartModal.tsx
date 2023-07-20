@@ -2,6 +2,7 @@ import Link from 'next/link';
 import React, { useState } from 'react';
 import { HiShoppingCart } from 'react-icons/hi';
 import { GoTrash } from 'react-icons/go';
+import axios from 'axios';
 
 interface Order {
   id: number;
@@ -16,7 +17,7 @@ const CartModal: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [quantity, setQuantity] = useState(1);
   const [count, setCount] = useState(0);
-  const [order, setOrder] = useState<Order>();
+  const [orders, setOrders] = useState<Order[]>([]);
 
   const openModal = () => {
     getOrder();
@@ -38,22 +39,22 @@ const CartModal: React.FC = () => {
   };
 
   const getOrder = async () => {
-    try {
-      const response = await fetch(
-        `https://w17-wareg.onrender.com/orders/7145d802-b729-4459-b863-620765d06320`,
-
-        {
-          method: 'GET',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-        },
-      );
-      const data = await response.json();
-      return data;
-    } catch (error) {
-      console.log(error);
-    }
+    // try {
+    //   const res = await axios.get(
+    //     `${process.env.NEXT_PUBLIC_SERVICE_BASE}/orders`,
+    //      {
+    //         orderItems: [
+    //           {
+    //             menuId: id,
+    //             quantity: quantity,
+    //           },
+    //         ],
+    //       },
+    //   );
+    //   setOrders(res.data);
+    // } catch (error) {
+    //   console.log(error);
+    // }
   };
   return (
     <div>
@@ -74,46 +75,51 @@ const CartModal: React.FC = () => {
               <hr />
             </div>
 
-            <div className="flex justify-between p-5">
-              <img
-                className="p-2"
-                width={156}
-                height={160}
-                src="https://awsimages.detik.net.id/community/media/visual/2021/04/22/5-makanan-enak-dari-indonesia-dan-malaysia-yang-terkenal-enak-5.jpeg?w=600&q=90"
-                alt=""
-              />
-              <div className="p-4">
-                <p>{order?.name}</p>
+            {/* cart produk */}
+            <div>
+              <div className="flex justify-between p-5">
+                <img
+                  className="p-2"
+                  width={156}
+                  height={160}
+                  src="https://awsimages.detik.net.id/community/media/visual/2021/04/22/5-makanan-enak-dari-indonesia-dan-malaysia-yang-terkenal-enak-5.jpeg?w=600&q=90"
+                  alt=""
+                />
+                <div className="p-4">
+                  <p>Mie Ayam</p>
 
-                <div className="flex flex-row items-center gap-12">
-                  <div className="flex flex-row items-center">
-                    <button
-                      className="bg-gray-200 px-2 rounded-lg text-emerald-800 "
-                      onClick={removeCountHandler}
-                    >
-                      -
-                    </button>
-                    <span className="py-4 px-3 rounded-lg"> {count}</span>
+                  <div className="flex flex-row items-center gap-12">
+                    <div className="flex flex-row items-center">
+                      <button
+                        className="bg-gray-200 px-2 rounded-lg text-emerald-800 "
+                        onClick={removeCountHandler}
+                      >
+                        -
+                      </button>
+                      <span className="py-4 px-3 rounded-lg"> {count}</span>
 
-                    <button
-                      className="bg-gray-200 px-2  rounded-lg text-emerald-800"
-                      onClick={addCountHandler}
-                    >
-                      +
-                    </button>
+                      <button
+                        className="bg-gray-200 px-2  rounded-lg text-emerald-800"
+                        onClick={addCountHandler}
+                      >
+                        +
+                      </button>
+                    </div>
                   </div>
                 </div>
-              </div>
 
-              <div className="p-4">
-                <button>
-                  <GoTrash className="text-red-600" />
-                </button>
+                <div className="p-4">
+                  <div>
+                    <button>
+                      <GoTrash className="text-red-600" />
+                    </button>
+                  </div>
 
-                <p>Rp. 2000</p>
+                  <p>Rp. 2000</p>
+                </div>
               </div>
+              <hr />
             </div>
-            <hr />
 
             <div className="p-3 flex justify-between">
               <p>Total</p>
