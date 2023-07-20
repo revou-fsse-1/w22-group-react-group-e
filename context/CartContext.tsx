@@ -25,7 +25,7 @@ interface CartContextProps {
   increaseQuantity: (productId: number) => void;
   decreaseQuantity: (productId: number) => void;
   addToCartServer: (product: Order) => Promise<void>;
-  checkout: () => Promise<void>; // Add this line
+  checkout: () => Promise<void>;
 }
 
 export const CartContext = createContext<CartContextProps>({
@@ -36,7 +36,7 @@ export const CartContext = createContext<CartContextProps>({
   increaseQuantity: (productId: number) => {},
   decreaseQuantity: (productId: number) => {},
   addToCartServer: async (product: Order) => {},
-  checkout: async () => {}, // Add this line
+  checkout: async () => {},
 });
 
 export const CartProvider: React.FC = ({
@@ -81,31 +81,28 @@ export const CartProvider: React.FC = ({
 
   const checkout = async () => {
     const token = getCookie('token');
-    for (const { product, quantity } of cartProducts) {
-      try {
-        await axios.post(
-          'https://w17-wareg.onrender.com/orders',
-          {
-            orderItems: [
-              {
-                menuId: product.id,
-                quantity,
-              },
-            ],
+
+    const orderItems = cartProducts.map(({ product, quantity }) => ({
+      menuId: product.id,
+      quantity,
+    }));
+
+    try {
+      await axios.post(
+        'https://w17-wareg.onrender.com/orders',
+        { orderItems },
+        {
+          headers: {
+            'Content-Type': 'application/json; charset=utf-8',
+            Authorization: `Bearer ${token}`,
           },
-          {
-            headers: {
-              'Content-Type': 'application/json; charset=utf-8',
-              Authorization: `Bearer ${token}`,
-            },
-            withCredentials: true,
-          },
-        );
-        alert('Order placed successfully!');
-      } catch (error) {
-        console.error(error);
-        alert('Failed to place order.');
-      }
+          withCredentials: true,
+        },
+      );
+      alert('Order placed successfully!');
+    } catch (error) {
+      console.error(error);
+      alert('Failed to place order.');
     }
 
     setCartItems(0);
@@ -151,7 +148,7 @@ export const CartProvider: React.FC = ({
         removeFromCart,
         increaseQuantity,
         decreaseQuantity,
-        addToCartServer, 
+        addToCartServer,
         checkout,
       }}
     >
