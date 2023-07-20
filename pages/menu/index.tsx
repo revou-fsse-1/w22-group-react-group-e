@@ -204,19 +204,19 @@ const MenuPage: React.FC = () => {
         <div className="bg-[url('../public/discount-form.png')] w-full h-[573px] bg-no-repeat relative">
   <div className="w-full h-[573px] left-0 top-0">
     <div className="w-[100%] h-[100%] flex justify-center items-center">
-      <div className="w-[591px] h-[312.85px] flex flex-col justify-center items-center text-center">
-        <div className="w-[591px] h-[142.24px] text-white text-left text-5xl font-semibold capitalize">Diskon 30% dengan aplikasi Wareg</div>
-        <div className="w-[558px] h-[94.83px] text-white text-left text-base font-normal leading-loose">Nikmati diskon hingga 30% setiap minggunya dengan menu edisi terbatas yang akan menggoda selera makanmu. Jangan sampai terlewatkan kesempatan ini! Download sekarang juga!</div>
-        <div className="w-[195px] h-[51.36px] mt-4">
-          <button className="justify-start w-[191px] h-[51.36px] bg-white rounded-3xl">
+      <div className="w-[60%] h-[80%] flex flex-col justify-between items-center text-center">
+        <div className="w-[70%] h-[40%] text-white relative text-left text-2xl md:text-5xl font-semibold capitalize">Diskon 30% dengan aplikasi Wareg</div>
+        <div className="w-[70%] h-[50%] text-white relative text-left text-base font-normal leading-loose">Nikmati diskon hingga 30% setiap minggunya dengan menu edisi terbatas yang akan menggoda selera makanmu. Jangan sampai terlewatkan kesempatan ini! Download sekarang juga!</div>
+        <div className="w-[100%] h-[30%] justify-between">
+          <button className="item-start md:w-[30%] h-[50%] w-[80%] md:mt-0 mt-6 bg-white md:rounded-3xl rounded-2xl">
           <p className="items-center justify-center text-base font-semibold text-slate-500">Download Sekarang</p>
         </button>
       </div>
           </div>
-          <div className="w-[10%] h-[25%] bg-white rounded-full flex justify-center items-center">
+          <div className="w-[15%] md:[10%] md:h-[35%] h-[15%] bg-white rounded-full flex justify-center items-center">
   <div className="text-center">
-    <p className="text-2xl font-semibold text-slate-500">up to</p>
-    <p className="text-2xl font-semibold text-red-600">30%</p>
+    <p className="text-sm font-semibold md:text-2xl text-slate-500">up to</p>
+    <p className="text-sm font-semibold text-red-600 md:text-2xl">30%</p>
   </div>
 </div>         
         
