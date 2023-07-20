@@ -12,11 +12,21 @@ export default function Header() {
     setLoginAuth(check);
     return () => {};
   }, []);
+
   const router = useRouter();
+  const [isMenuOpen, setMenuOpen] = useState(false);
+
+  const handleMenuToggle = () => {
+    setMenuOpen(!isMenuOpen);
+  };
+
+  const handleCloseMenu = () => {
+    setMenuOpen(false);
+  };
 
   return (
     <div className="bg-[#EEF6F4] py-0">
-      <div className="h-24 mx-auto px-5 flex items-center justify-between">
+      <div className="flex items-center justify-between h-24 px-5 mx-auto">
         <div className="flex flex-row mx-7">
           <div>
             <svg
@@ -26,7 +36,7 @@ export default function Header() {
               viewBox="0 0 46 41"
               fill="none"
             >
-              <path
+               <path
                 d="M20.5897 1.52081L0.906135 20.9794C-0.302045 22.1738 -0.302045 24.1102 0.906135 25.3047C2.11356 26.4976 4.07232 26.4976 5.2805 25.3047L22.7765 8.0065L40.2724 25.3047C41.4806 26.4976 43.4394 26.4976 44.6468 25.3047C45.855 24.1102 45.855 22.1738 44.6468 20.9794L24.9633 1.52081C23.7558 0.326396 21.7971 0.326396 20.5897 1.52081Z"
                 fill="#548776"
               />
@@ -40,71 +50,141 @@ export default function Header() {
             <h1 className="px-3 text-3xl font-bold">WAREG</h1>
           </div>
         </div>
-        <ul className="flex items-center gap-5 font-poppins font-normal">
-          <li>
-            <Link
-              href="/"
-              className={`transition-colors hover:border-b-2 hover:border-current hover:opacity-60 ${
-                router.pathname === '/'
-                  ? 'opacity-100 font-medium'
-                  : 'opacity-60 hover:opacity-100'
-              }`}
-            >
-              Home
-            </Link>
-          </li>
-          <li>
-            <Link
-              href="/menu"
-              className={`transition-colors hover:border-b-2 hover:border-current hover:opacity-60 ${
-                router.pathname === '/menu'
-                  ? 'opacity-100 font-medium'
-                  : 'opacity-60 hover:opacity-100'
-              }`}
-            >
-              Menu
-            </Link>
-          </li>
-          <li>
-            <Link
-              href="/contact"
-              className={`transition-colors hover:border-b-2 hover:border-current hover:opacity-60 ${
-                router.pathname === '/contact'
-                  ? 'opacity-100 font-medium'
-                  : 'opacity-60 hover:opacity-100'
-              }`}
-            >
-              Contact
-            </Link>
-          </li>
-          <li>
-            <Link
-              href="/blog"
-              className={`transition-colors hover:border-b-2 hover:border-current hover:opacity-60 ${
-                router.pathname === '/blog'
-                  ? 'opacity-100 font-medium'
-                  : 'opacity-60 hover:opacity-100'
-              }`}
-            >
-              Blog
-            </Link>
-          </li>
-          <li>
-            <Link
-              href="/about-us"
-              className={`transition-colors hover:border-b-2 hover:border-current hover:opacity-60 ${
-                router.pathname === '/about-us'
-                  ? 'opacity-100 font-medium'
-                  : 'opacity-60 hover:opacity-100'
-              }`}
-            >
-              About Us
-            </Link>
-          </li>
+        <div className="items-center hidden gap-5 font-normal md:flex font-poppins">
+          <ul className="flex items-center gap-5">
+            <li>
+              <Link
+                href="/"
+                className={`transition-colors hover:border-b-2 hover:border-current hover:opacity-60 ${
+                  router.pathname === '/'
+                    ? 'opacity-100 font-medium'
+                    : 'opacity-60 hover:opacity-100'
+                }`}
+              >
+                Home
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="/menu"
+                className={`transition-colors hover:border-b-2 hover:border-current hover:opacity-60 ${
+                  router.pathname === '/menu'
+                    ? 'opacity-100 font-medium'
+                    : 'opacity-60 hover:opacity-100'
+                }`}
+              >
+                Menu
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="/contact"
+                className={`transition-colors hover:border-b-2 hover:border-current hover:opacity-60 ${
+                  router.pathname === '/contact'
+                    ? 'opacity-100 font-medium'
+                    : 'opacity-60 hover:opacity-100'
+                }`}
+              >
+                Contact
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="/blog"
+                className={`transition-colors hover:border-b-2 hover:border-current hover:opacity-60 ${
+                  router.pathname === '/blog'
+                    ? 'opacity-100 font-medium'
+                    : 'opacity-60 hover:opacity-100'
+                }`}
+              >
+                Blog
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="/about-us"
+                className={`transition-colors hover:border-b-2 hover:border-current hover:opacity-60 ${
+                  router.pathname === '/about-us'
+                    ? 'opacity-100 font-medium'
+                    : 'opacity-60 hover:opacity-100'
+                }`}
+              >
+                About Us
+              </Link>
+            </li>
+          </ul>
           {loginAuth ? <CartModal /> : ''}
           <LoginModal loginAuthCheck={loginAuth} />
-        </ul>
+        </div>
+         {/* Hamburger menu icon for mobile and tablet */}
+         <div className="cursor-pointer md:hidden" onClick={handleMenuToggle}>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="black"
+          >
+            <path
+              fillRule="evenodd"
+              clipRule="evenodd"
+              d="M3 5H21V7H3V5ZM3 11H21V13H3V11ZM3 17H21V19H3V17Z"
+              fill="black"
+            />
+          </svg>
+        </div>
+        {/* Slider menu */}
+        <div
+          className={`${
+            isMenuOpen ? 'fixed' : 'hidden'
+          } top-0 right-0 bottom-0 w-64 bg-white z-20 p-6 shadow-lg`}
+        >
+          <div className="flex justify-end">
+            <button className="text-xl font-bold" onClick={handleCloseMenu}>
+              &times;
+            </button>
+          </div>
+          <div>
+
+          <ul className="flex flex-col gap-5 mt-8">
+            <li>
+              <Link href="/" className="text-xl font-medium">
+                Home
+              </Link>
+            </li>
+            <li>
+              <Link href="/menu" className="text-xl font-medium">
+                Menu
+              </Link>
+            </li>
+            <li>
+              <Link href="/contact" className="text-xl font-medium">
+                Contact
+              </Link>
+            </li>
+            <li>
+              <Link href="/blog" className="text-xl font-medium">
+                Blog
+              </Link>
+            </li>
+            <li>
+              <Link href="/about-us" className="text-xl font-medium">
+                About Us
+              </Link>
+            </li>
+          </ul>
+          {loginAuth && <CartModal />}
+          <LoginModal loginAuthCheck={loginAuth} />
       </div>
+        </div>
+      </div>
+      {/* Overlay */}
+      {isMenuOpen && (
+        <div
+          className="fixed top-0 bottom-0 left-0 right-0 z-10 bg-black opacity-50"
+          onClick={handleCloseMenu}
+        />
+      )}
     </div>
   );
 }

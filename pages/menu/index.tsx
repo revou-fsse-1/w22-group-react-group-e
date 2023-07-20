@@ -202,19 +202,19 @@ const MenuPage: React.FC = () => {
             </div>
           </div>
         </div>
-        <div className="bg-[url('../public/discount-form.png')] w-full h-[573px] bg-no-repeat relative">
+        <div className="bg-[url('../public/discount-form.png')] justify-center items-center w-full h-[573px] bg-cover bg-center bg-[#548776] bg-no-repeat">
           <div className="w-full h-[573px] left-0 top-0">
             <div className="w-[100%] h-[100%] flex justify-center items-center">
-              <div className="w-[60%] h-[80%] flex flex-col justify-between items-center text-center">
-                <div className="w-[70%] h-[40%] text-white relative text-left text-2xl md:text-5xl font-semibold capitalize">
+              <div className="w-[60%] h-[80%] md:w-[540px] flex flex-col justify-between items-center text-center">
+                <div className="w-[70%] h-[40%] md:w-[500px] pt-8 text-white relative text-left text-2xl md:text-5xl font-semibold capitalize">
                   Diskon 30% dengan aplikasi Wareg
                 </div>
-                <div className="w-[70%] h-[50%] text-white relative text-left text-base font-normal leading-loose">
+                <div className="w-[70%] h-[50%] md:w-[500px] text-white relative text-left text-base font-normal leading-loose">
                   Nikmati diskon hingga 30% setiap minggunya dengan menu edisi
                   terbatas yang akan menggoda selera makanmu. Jangan sampai
                   terlewatkan kesempatan ini! Download sekarang juga!
                 </div>
-                <div className="w-[100%] h-[30%] justify-between">
+                <div className="w-[100%] h-[30%] md:w-[900px] justify-between">
                   <button className="item-start md:w-[30%] h-[50%] w-[80%] md:mt-0 mt-6 bg-white md:rounded-3xl rounded-2xl">
                     <p className="items-center justify-center text-base font-semibold text-slate-500">
                       Download Sekarang
@@ -222,7 +222,7 @@ const MenuPage: React.FC = () => {
                   </button>
                 </div>
               </div>
-              <div className="w-[15%] md:w-[10%] md:h-[25%] h-[15%] bg-white rounded-full flex justify-center items-center">
+              <div className="w-[15%] md:w-[110px] md:h-[110px] h-[15%] bg-white rounded-full flex justify-center items-center">
                 <div className="text-center">
                   <p className="text-sm font-semibold md:text-2xl text-slate-500">
                     up to

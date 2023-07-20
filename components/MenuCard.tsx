@@ -67,13 +67,8 @@ const MenuCard: React.FC<MenuCardProps> = ({
             Price: Rp{price.toLocaleString()}
           </p>
           <button
-<<<<<<< HEAD
-            onClick={() => addToCartServer({ id, name, price, menuImages })}
-            className="w-[100px] h-[37px] bg-emerald-600 hover:bg-emerald-900 text-sm text-white rounded-[18.50px]"
-=======
             onClick={() => addToCart({ id, name, price, menuImages }, 1)}
             className="w-[100px] h-[37px] bg-[#548776] text-white rounded-[18.50px]"
->>>>>>> d9d6e3b3ce56779330218536fc577d3dbc2bfbcb
           >
             Add to Cart
           </button>
