@@ -20,21 +20,21 @@ interface CartProduct {
 interface CartContextProps {
   cartItems: number;
   cartProducts: CartProduct[];
-  addToCart: (product: Order) => void;
+  addToCart: (product: Order, quantity: number) => void;
   removeFromCart: (productId: number) => void;
   increaseQuantity: (productId: number) => void;
   decreaseQuantity: (productId: number) => void;
-  addToCartServer: (product: Order) => void;
+  addToCartServer: (product: Order) => Promise<void>;
 }
 
 export const CartContext = createContext<CartContextProps>({
   cartItems: 0,
   cartProducts: [],
-  addToCart: () => {},
-  removeFromCart: () => {},
-  increaseQuantity: () => {},
-  decreaseQuantity: () => {},
-  addToCartServer: () => {},
+  addToCart: (product: Order, quantity: number) => {}, 
+  removeFromCart: (productId: number) => {},
+  increaseQuantity: (productId: number) => {},
+  decreaseQuantity: (productId: number) => {},
+  addToCartServer: async (product: Order) => {}, 
 });
 
 export const CartProvider: React.FC = ({
@@ -43,12 +43,9 @@ export const CartProvider: React.FC = ({
   const [cartItems, setCartItems] = useState(0);
   const [cartProducts, setCartProducts] = useState<CartProduct[]>([]);
 
-  const addToCart = (product: Order) => {
-    setCartItems((prevCount) => prevCount + 1);
-    setCartProducts((prevProducts) => [
-      ...prevProducts,
-      { product, quantity: 1 },
-    ]);
+  const addToCart = (product: Order, quantity: number) => {
+    setCartItems((prevCount) => prevCount + quantity);
+    setCartProducts((prevProducts) => [...prevProducts, { product, quantity }]);
   };
 
   const increaseQuantity = (productId: number) => {
@@ -102,7 +99,7 @@ export const CartProvider: React.FC = ({
         },
       );
 
-      addToCart(product);
+      addToCart(product, 1);
       alert('Item added to cart!');
     } catch (error) {
       console.error(error);
