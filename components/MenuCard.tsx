@@ -1,7 +1,7 @@
-import React from 'react';
-import Image from 'next/image';
+import React, { useContext } from 'react';
 import Link from 'next/link';
 import StarRating from 'react-star-rating-component';
+import { CartContext } from '../context/CartContext';
 
 interface MenuCardProps {
   id: number;
@@ -25,33 +25,36 @@ const MenuCard: React.FC<MenuCardProps> = ({
   ratings,
   menuImages,
 }) => {
+  const { addToCart } = useContext(CartContext);
+
   const averageRating =
     ratings.length > 0
       ? ratings.reduce((sum, rating) => sum + rating, 0) / ratings.length
       : 0;
 
   return (
-    <div className="p-4 w-[270px] h-[320px] bg-neutral-100 rounded-xl">
+    <div className="w-[270px] h-[320px] bg-neutral-100 rounded-xl overflow-hidden transition shadow hover:shadow-lg">
       {menuImages && menuImages.img1 ? (
-        <Image
-          className="w-[270px] h-[160px] rounded-tl-xl rounded-tr-xl"
+        <img
+          className="object-cover w-full h-[160px] rounded-tl-xl rounded-tr-xl"
           src={menuImages.img1}
           alt={name}
         />
       ) : (
-        <div className="w-[270px] h-[160px] rounded-tl-xl rounded-tr-xl flex items-center justify-center text-gray-500">
+        <div className="object-cover w-full h-[160px] rounded-tl-xl rounded-tr-xl flex items-center justify-center text-gray-500">
           No Picture
         </div>
       )}
       <div className="">
-        <p className="text-[#333333] text-m font-normal leading-loose">
+        <p className="text-[#333333] mx-3 mt-2 text-sm font-normal leading-loose">
           {category}
         </p>
         <Link href={`/menu/${id}`}>
-          <h3 className="text-[#333333] text-l font-bold leading-loose">
+          <h3 className="text-[#333333] mx-3 text-l font-bold leading-loose">
             {name}
           </h3>
         </Link>
+        <div className='mx-3'>
         <StarRating
           name={`rating-${id}`}
           value={averageRating}
@@ -59,12 +62,16 @@ const MenuCard: React.FC<MenuCardProps> = ({
           starColor="#FFC107"
           emptyStarColor="#E2E8F0"
           editing={false}
-        />
-        <div className="flex items-center justify-between">
-          <p className="font-normal text-black text-m">
+          />
+          </div>
+        <div className="flex items-center justify-center">
+          <p className="mr-3 font-bold text-black text-m">
             Price: Rp{price.toLocaleString()}
           </p>
-          <button className="w-[100px] h-[37px] bg-[#548776] text-white rounded-[18.50px]">
+          <button
+            onClick={() => addToCart({ id, name, price, menuImages }, 1)}
+            className="ml-3 w-[100px] h-[37px] text-sm bg-emerald-600 hover:bg-emerald-900 text-white rounded-[18.50px] overflow-hidden transition shadow hover:shadow-lg"
+          >
             Add to Cart
           </button>
         </div>

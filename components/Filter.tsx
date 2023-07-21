@@ -36,7 +36,6 @@ const Filter: React.FC<FilterProps> = ({
 
   return (
     <div className="flex flex-col">
-      <h2 className="mb-4 text-2xl font-bold">Filter</h2>
       <div className="space-y-2">
         <h3 className="pt-5 text-xs font-bold uppercase text-zinc-800">
           Search:
@@ -49,7 +48,7 @@ const Filter: React.FC<FilterProps> = ({
         />
       </div>
       <div className="space-y-2">
-        <h3 className="text-lg font-semibold">Sort by Rating:</h3>
+        <h3 className="pt-5 text-xs font-bold uppercase text-zinc-800">Sort by Rating:</h3>
         <select
           className="block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500"
           value={selectedRating !== null ? selectedRating.toString() : ''}

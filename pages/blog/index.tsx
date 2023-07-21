@@ -5,6 +5,7 @@ import { GetStaticProps } from 'next';
 import { SanityDocument } from '@sanity/client';
 import { urlForImage } from '../../sanity/lib/image';
 import Link from 'next/link';
+import Image from 'next/image';
 export const getStaticProps: GetStaticProps = async () => {
   const client = getClient();
   const postsQuery = groq`*[_type == "post"]{
@@ -34,10 +35,10 @@ export default function BlogPage({ data }: { data: SanityDocument[] }) {
             key={post._id}
             className="justify-center m-3 w-[400px] overflow-hidden transition rounded-lg shadow hover:shadow-lg"
           >
-            <img
+            <Image
               alt={post.mainImage.alt}
               src={urlForImage(post.mainImage).url()}
-              className="object-cover w-full h-[217px]"
+              className="object-cover w-full h-[217px]" width="400" height="217"
             />
             <div className="w-full p-4 bg-white sm:p-6">
               <p className="items-center inline text-xs text-center text-gray-500">
