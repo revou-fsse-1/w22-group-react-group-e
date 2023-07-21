@@ -83,7 +83,7 @@ const DetailMenu: NextComponentType<any, any, ResGetProps> = (props: any) => {
   const addToCart = () => {
     checkLogin();
     if (!checkLogin()) {
-      toast.success('Please login first!', {
+      toast.error('Please login first!', {
         position: 'top-center',
         autoClose: 3000,
         hideProgressBar: false,
@@ -102,7 +102,17 @@ const DetailMenu: NextComponentType<any, any, ResGetProps> = (props: any) => {
         menuImages,
       };
       incrementCartItems(product, quantity);
-      alert('Item added to cart!');
+      toast.success('Item added to cart!', {
+        position: 'top-center',
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: 'colored',
+      });
+      // alert('Item added to cart!');
     }
   };
 
@@ -129,54 +139,47 @@ const DetailMenu: NextComponentType<any, any, ResGetProps> = (props: any) => {
       : 0;
 
   return (
-    <div>
-      <div className="max-w-5xl py-8 mx-auto">
-        <div className="flex flex-col justify-between gap-16 lg:flex-row lg:items-center">
-          <div className="flex flex-col gap-6 lg:w-2/4">
+    <div className="max-w-7xl mx-auto p-8">
+      <div className="flex flex-col justify-between lg:flex-row gap-16 lg:items-center">
+        <div className="flex flex-col gap-3 lg:w-2/4">
+          <img
+            src={activeImg}
+            alt=""
+            className="lg:w-full lg:h-full  aspect-square object-cover rounded-xl"
+          />
+
+          <div className="grid grid-cols-4  gap-4">
             <img
-              src={activeImg}
+              src={images.img1}
               alt=""
-              className="object-cover w-full h-full aspect-square rounded-xl"
+              className="object-fill w-20 h-20 lg:w-36 lg:h-36 rounded-md cursor-pointer"
+              onClick={() => setActiveImage(images.img1)}
             />
-            <div className="flex flex-row justify-between h-24">
-              <img
-                src={images.img1}
-                alt=""
-                width={500}
-                height={300}
-                className="w-24 h-24 rounded-md cursor-pointer"
-                onClick={() => setActiveImage(images.img1)}
-              />
-              <img
-                src={images.img2}
-                alt=""
-                width={500}
-                height={300}
-                className="w-24 h-24 rounded-md cursor-pointer"
-                onClick={() => setActiveImage(images.img2)}
-              />
-              <img
-                src={images.img3}
-                alt=""
-                width={500}
-                height={300}
-                className="w-24 h-24 rounded-md cursor-pointer"
-                onClick={() => setActiveImage(images.img3)}
-              />
-              <img
-                src={images.img4}
-                alt=""
-                width={500}
-                height={300}
-                className="w-24 h-24 rounded-md cursor-pointer"
-                onClick={() => setActiveImage(images.img4)}
-              />
-            </div>
+            <img
+              src={images.img2}
+              alt=""
+              className="object-fill w-20 h-20 lg:w-36 lg:h-36 rounded-md cursor-pointer"
+              onClick={() => setActiveImage(images.img2)}
+            />
+
+            <img
+              src={images.img3}
+              alt=""
+              className="object-fill w-20 h-20 lg:w-36 lg:h-36 rounded-md cursor-pointer"
+              onClick={() => setActiveImage(images.img3)}
+            />
+            <img
+              src={images.img4}
+              alt=""
+              className="object-fill w-20 h-20 lg:w-36 lg:h-36 rounded-md cursor-pointer"
+              onClick={() => setActiveImage(images.img4)}
+            />
           </div>
-          <div className="flex flex-col gap-4 lg:w-2/4">
-            <div>
-              <h1 className="text-4xl font-bold">{name || ''}</h1>
-            </div>
+        </div>
+        {/* ABOUT */}
+        <div className="flex flex-col gap-4 lg:w-2/4">
+          <div>
+            <h1 className="text-3xl font-bold">{name || ''}</h1>
             <div>
               <StarRating
                 name={`rating-${id}`}
@@ -187,78 +190,210 @@ const DetailMenu: NextComponentType<any, any, ResGetProps> = (props: any) => {
                 editing={false}
               />
             </div>
+          </div>
 
-            <h6 className="text-2xl font-semibold text-emerald-600">
-              Rp. {price || ''}
-            </h6>
-            <div className="flex flex-row gap-2">
-              <p>Category : </p>
-              <p className="font-bold">{category?.name || ''}</p>
-            </div>
+          <h6 className="text-2xl text-emerald-600  font-semibold">
+            {' '}
+            Rp. {price || ''}
+          </h6>
+          <div className="flex flex-row gap-2">
+            <p>Category : </p>
+            <p className="font-bold">{category?.name || ''}</p>
+          </div>
 
-            <div className="flex flex-row gap-2">
-              <p>Calories :</p>
-              <p className="font-bold">{calories || ''}</p>
-            </div>
-            <p className="text-gray-700">{description || ''}</p>
-
-            <div className="flex flex-row items-center gap-12">
-              <div className="flex flex-row items-center">
-                <button
-                  className="px-4 py-2 text-3xl bg-gray-200 rounded-lg text-emerald-800"
-                  onClick={removeCountHandler}
-                >
-                  -
-                </button>
-                <span className="px-6 py-4 rounded-lg"> {quantity}</span>{' '}
-                <button
-                  className="px-4 py-2 text-3xl bg-gray-200 rounded-lg text-emerald-600"
-                  onClick={addCountHandler}
-                >
-                  +
-                </button>
-              </div>
+          <div className="flex flex-row gap-2">
+            <p>Calories :</p>
+            <p className="font-bold">{calories || ''}</p>
+          </div>
+          <p className="text-gray-700">{description}</p>
+          <div className="flex flex-row items-center gap-12">
+            <div className="flex flex-row items-center">
+              <button
+                onClick={removeCountHandler}
+                className="bg-gray-200 py-1 px-2  lg:py-2 lg:px-5 rounded-lg text-emerald-800 lg:text-3xl"
+              >
+                -
+              </button>
+              <span className="py-1 px-2 lg:py-4 lg:px-6 rounded-lg">
+                {quantity}
+              </span>
+              <button
+                onClick={addCountHandler}
+                className="bg-gray-200 py-1 px-2 lg:py-2 lg:px-4 rounded-lg text-emerald-800 lg:text-3xl"
+              >
+                +
+              </button>
             </div>
             <button
               onClick={addToCart}
-              className="h-full px-16 py-3 font-semibold text-white bg-emerald-600 rounded-xl"
+              className="bg-emerald-600  text-white font-semibold py-1 px-5 lg:py-3 lg:px-16 rounded-xl h-full"
             >
               Add to Cart
             </button>
           </div>
         </div>
-        <div>
-          <div className="py-5">
-            <h1 className="text-4xl font-bold">Deskripsi</h1>
-          </div>
-          <p>{description || ''}</p>
+      </div>
+      <div>
+        <div className="py-5">
+          <h1 className="text-3xl font-bold">Deskripsi</h1>
         </div>
+        <p>{description || ''}</p>
+      </div>
 
-        <div className="flex flex-row justify-between my-5 ">
-          <h1 className="text-4xl font-bold">Anda Mungkin Menyukai</h1>
+      <div className="flex flex-row justify-between my-5 ">
+        <h1 className="text-lh lg:text-3xl font-bold">Anda Mungkin Menyukai</h1>
 
-          <Link href={'/menu'}>
-            <button className="px-16 py-3 font-semibold text-white bg-emerald-600 rounded-xl">
-              View More
-            </button>
-          </Link>
-        </div>
-
-        <div className="flex flex-wrap justify-center gap-6">
-          {menus.map((menu) => (
-            <MenuCard
-              key={menu.id}
-              id={menu.id}
-              name={menu.name}
-              price={menu.price}
-              category={menu.category.name}
-              ratings={menu.ratings.map((rating) => rating.rating)}
-              menuImages={menu.menuImages}
-            />
-          ))}
-        </div>
+        <Link href={'/menu'}>
+          <button className="text-sm px-5 py-2 lg:px-16 lg:py-3 lg:text-lg font-semibold text-white bg-emerald-600 rounded-xl">
+            View More
+          </button>
+        </Link>
+      </div>
+      <div className="flex flex-wrap justify-center gap-6">
+        {menus.map((menu) => (
+          <MenuCard
+            key={menu.id}
+            id={menu.id}
+            name={menu.name}
+            price={menu.price}
+            category={menu.category.name}
+            ratings={menu.ratings.map((rating) => rating.rating)}
+            menuImages={menu.menuImages}
+          />
+        ))}
       </div>
     </div>
+
+    // <div>
+    //   <div className="max-w-5xl py-8 mx-auto">
+    //     <div className="flex flex-col justify-between gap-16 lg:flex-row lg:items-center">
+    //       <div className="flex flex-col gap-6 lg:w-2/4">
+    //         <img
+    //           src={activeImg}
+    //           alt=""
+    //           className="object-cover w-full h-full aspect-square rounded-xl"
+    //         />
+    //         <div className="flex flex-row justify-between h-24">
+    //           <img
+    //             src={images.img1}
+    //             alt=""
+    //             width={500}
+    //             height={300}
+    //             className="w-24 h-24 rounded-md cursor-pointer"
+    //             onClick={() => setActiveImage(images.img1)}
+    //           />
+    //           <img
+    //             src={images.img2}
+    //             alt=""
+    //             width={500}
+    //             height={300}
+    //             className="w-24 h-24 rounded-md cursor-pointer"
+    //             onClick={() => setActiveImage(images.img2)}
+    //           />
+    //           <img
+    //             src={images.img3}
+    //             alt=""
+    //             width={500}
+    //             height={300}
+    //             className="w-24 h-24 rounded-md cursor-pointer"
+    //             onClick={() => setActiveImage(images.img3)}
+    //           />
+    //           <img
+    //             src={images.img4}
+    //             alt=""
+    //             width={500}
+    //             height={300}
+    //             className="w-24 h-24 rounded-md cursor-pointer"
+    //             onClick={() => setActiveImage(images.img4)}
+    //           />
+    //         </div>
+    //       </div>
+    //       <div className="flex flex-col gap-4 lg:w-2/4">
+    //         <div>
+    //           <h1 className="text-4xl font-bold">{name || ''}</h1>
+    //         </div>
+    //         <div>
+    //           <StarRating
+    //             name={`rating-${id}`}
+    //             value={averageRating}
+    //             starCount={5}
+    //             starColor="#FFC107"
+    //             emptyStarColor="#E2E8F0"
+    //             editing={false}
+    //           />
+    //         </div>
+
+    //         <h6 className="text-2xl font-semibold text-emerald-600">
+    //           Rp. {price || ''}
+    //         </h6>
+    //         <div className="flex flex-row gap-2">
+    //           <p>Category : </p>
+    //           <p className="font-bold">{category?.name || ''}</p>
+    //         </div>
+
+    //         <div className="flex flex-row gap-2">
+    //           <p>Calories :</p>
+    //           <p className="font-bold">{calories || ''}</p>
+    //         </div>
+    //         <p className="text-gray-700">{description || ''}</p>
+
+    //         <div className="flex flex-row items-center gap-12">
+    //           <div className="flex flex-row items-center">
+    //             <button
+    //               className="px-4 py-2 text-3xl bg-gray-200 rounded-lg text-emerald-800"
+    //               onClick={removeCountHandler}
+    //             >
+    //               -
+    //             </button>
+    //             <span className="px-6 py-4 rounded-lg"> {quantity}</span>{' '}
+    //             <button
+    //               className="px-4 py-2 text-3xl bg-gray-200 rounded-lg text-emerald-600"
+    //               onClick={addCountHandler}
+    //             >
+    //               +
+    //             </button>
+    //           </div>
+    //         </div>
+    //         <button
+    //           onClick={addToCart}
+    //           className="h-full px-16 py-3 font-semibold text-white bg-emerald-600 rounded-xl"
+    //         >
+    //           Add to Cart
+    //         </button>
+    //       </div>
+    //     </div>
+    //     <div>
+    //       <div className="py-5">
+    //         <h1 className="text-4xl font-bold">Deskripsi</h1>
+    //       </div>
+    //       <p>{description || ''}</p>
+    //     </div>
+
+    //     <div className="flex flex-row justify-between my-5 ">
+    //       <h1 className="text-4xl font-bold">Anda Mungkin Menyukai</h1>
+
+    //       <Link href={'/menu'}>
+    //         <button className="px-16 py-3 font-semibold text-white bg-emerald-600 rounded-xl">
+    //           View More
+    //         </button>
+    //       </Link>
+    //     </div>
+
+    //     <div className="flex flex-wrap justify-center gap-6">
+    //       {menus.map((menu) => (
+    //         <MenuCard
+    //           key={menu.id}
+    //           id={menu.id}
+    //           name={menu.name}
+    //           price={menu.price}
+    //           category={menu.category.name}
+    //           ratings={menu.ratings.map((rating) => rating.rating)}
+    //           menuImages={menu.menuImages}
+    //         />
+    //       ))}
+    //     </div>
+    //   </div>
+    // </div>
   );
 };
 
