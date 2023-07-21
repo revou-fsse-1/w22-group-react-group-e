@@ -142,33 +142,33 @@ const DetailMenu: NextComponentType<any, any, ResGetProps> = (props: any) => {
     <div className="max-w-7xl mx-auto p-8">
       <div className="flex flex-col justify-between lg:flex-row gap-16 lg:items-center">
         <div className="flex flex-col gap-3 lg:w-2/4">
-          <img
+          <Image
             src={activeImg}
             alt=""
             className="lg:w-full lg:h-full  aspect-square object-cover rounded-xl"
           />
 
           <div className="grid grid-cols-4  gap-4">
-            <img
+            <Image
               src={images.img1}
               alt=""
               className="object-fill w-20 h-20 lg:w-36 lg:h-36 rounded-md cursor-pointer"
               onClick={() => setActiveImage(images.img1)}
             />
-            <img
+            <Image
               src={images.img2}
               alt=""
               className="object-fill w-20 h-20 lg:w-36 lg:h-36 rounded-md cursor-pointer"
               onClick={() => setActiveImage(images.img2)}
             />
 
-            <img
+            <Image
               src={images.img3}
               alt=""
               className="object-fill w-20 h-20 lg:w-36 lg:h-36 rounded-md cursor-pointer"
               onClick={() => setActiveImage(images.img3)}
             />
-            <img
+            <Image
               src={images.img4}
               alt=""
               className="object-fill w-20 h-20 lg:w-36 lg:h-36 rounded-md cursor-pointer"
