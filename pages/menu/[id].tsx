@@ -83,7 +83,7 @@ const DetailMenu: NextComponentType<any, any, ResGetProps> = (props: any) => {
   const addToCart = () => {
     checkLogin();
     if (!checkLogin()) {
-      toast.success('Please login first!', {
+      toast.error('Please login first!', {
         position: 'top-center',
         autoClose: 3000,
         hideProgressBar: false,
@@ -102,7 +102,17 @@ const DetailMenu: NextComponentType<any, any, ResGetProps> = (props: any) => {
         menuImages,
       };
       incrementCartItems(product, quantity);
-      alert('Item added to cart!');
+      toast.success('Item added to cart!', {
+        position: 'top-center',
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: 'colored',
+      });
+      // alert('Item added to cart!');
     }
   };
 
