@@ -106,7 +106,7 @@ const WeeklyMenu: React.FC = () => {
           <h2 className="mb-4 text-xl font-bold">Menu Minggu Ini</h2>
           <Slider
             {...settings}
-            className="md:mx-[-8rem] justify-center item-center grid md:grid-cols-1 md:gap-6 space-y-0 lg:gap-24 lg:grid-cols-3"
+            className="md:mx-[-8rem] m-10 justify-center item-center grid md:grid-cols-1 md:gap-6 space-y-0 lg:gap-24 lg:grid-cols-3"
           >
             {menus.map((menu) => (
               <div key={menu.id} className="p-1 md:mx-4">

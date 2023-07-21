@@ -25,7 +25,7 @@ export default function Header() {
   };
 
   return (
-    <div className="bg-[#EEF6F4] py-0">
+    <div className="bg-[#EEF6F4]">
       <div className="flex items-center justify-between h-24 px-5 mx-auto">
         <div className="flex flex-row mx-7">
           <div>
