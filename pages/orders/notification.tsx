@@ -36,13 +36,16 @@ const NotificationPage: React.FC = () => {
     const fetchPreviousRatings = async () => {
       try {
         const token = getCookie('token');
-        const response = await axios.get('https://w17-wareg.onrender.com/menus', {
-          headers: {
-            'Content-Type': 'application/json; charset=utf-8',
-            Authorization: `Bearer ${token}`,
+        const response = await axios.get(
+          'https://w17-wareg.onrender.com/menus',
+          {
+            headers: {
+              'Content-Type': 'application/json; charset=utf-8',
+              Authorization: `Bearer ${token}`,
+            },
+            withCredentials: true,
           },
-          withCredentials: true,
-        });
+        );
 
         const menuData: MenuData[] = response.data.menus;
         const ratingsMap: { [menuId: number]: number } = {};
@@ -169,5 +172,3 @@ const NotificationPage: React.FC = () => {
 };
 
 export default NotificationPage;
-
-

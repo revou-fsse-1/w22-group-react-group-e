@@ -54,16 +54,16 @@ const MenuCard: React.FC<MenuCardProps> = ({
             {name}
           </h3>
         </Link>
-        <div className='mx-3'>
-        <StarRating
-          name={`rating-${id}`}
-          value={averageRating}
-          starCount={5}
-          starColor="#FFC107"
-          emptyStarColor="#E2E8F0"
-          editing={false}
+        <div className="mx-3">
+          <StarRating
+            name={`rating-${id}`}
+            value={averageRating}
+            starCount={5}
+            starColor="#FFC107"
+            emptyStarColor="#E2E8F0"
+            editing={false}
           />
-          </div>
+        </div>
         <div className="flex items-center justify-center">
           <p className="mr-3 font-bold text-black text-m">
             Price: Rp{price.toLocaleString()}

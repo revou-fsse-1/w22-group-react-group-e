@@ -87,10 +87,10 @@ const WeeklyMenu: React.FC = () => {
     prevArrow: <PrevArrow />,
     responsive: [
       {
-        breakpoint: 768, 
+        breakpoint: 768,
         settings: {
-          slidesToShow: 1, 
-          slidesToScroll: 1, 
+          slidesToShow: 1,
+          slidesToScroll: 1,
         },
       },
     ],

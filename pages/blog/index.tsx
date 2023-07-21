@@ -24,21 +24,23 @@ export const getStaticProps: GetStaticProps = async () => {
 export default function BlogPage({ data }: { data: SanityDocument[] }) {
   return (
     <div>
-      <div className="bg-[#EEF6F4]">
+      <div className="bg-[#EEF6F4] content-center">
         <h1 className="text-emerald-950 text-[50px] px-5 pb-[40px] font-bold leading-[80px]">
           Artikel
         </h1>
       </div>
-      <div className="item-center p-8 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3 py-[87px]">
+      <div className="item-center content-center p-6 justify-center md:p-8 grid grid-cols-1 gap-0 sm:gap-5 sm:grid-cols-2 lg:grid-cols-3 py-[87px]">
         {data.map((post: SanityDocument) => (
           <article
             key={post._id}
-            className="justify-center m-3 w-[400px] overflow-hidden transition rounded-lg shadow hover:shadow-lg"
+            className="justify-center m-2 sm:w-[400px] w-[350px] overflow-hidden transition rounded-lg shadow hover:shadow-lg"
           >
             <Image
               alt={post.mainImage.alt}
               src={urlForImage(post.mainImage).url()}
-              className="object-cover w-full h-[217px]" width="400" height="217"
+              className="object-cover w-full h-[217px]"
+              width="400"
+              height="217"
             />
             <div className="w-full p-4 bg-white sm:p-6">
               <p className="items-center inline text-xs text-center text-gray-500">
