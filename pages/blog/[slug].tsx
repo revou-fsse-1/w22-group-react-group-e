@@ -3,6 +3,7 @@ import { getClient } from '../../sanity/lib/getClient';
 import { GetStaticPaths, GetStaticProps } from 'next';
 import { SanityDocument } from '@sanity/client';
 import { urlForImage } from '../../sanity/lib/image';
+import Image from 'next/image';
 export const getStaticPaths: GetStaticPaths = async () => {
   const client = getClient();
   const slugsQuery = groq`*[_type == "post" && defined(slug.current)].slug.current`;
@@ -38,9 +39,11 @@ export default function BlogPostPage({ data }: { data: SanityDocument }) {
       </h1>
       {mainImage && (
         <div className="flex justify-center">
-          <img
+          <Image
             src={urlForImage(mainImage).url()}
             alt={mainImage?.alt}
+            width="500"
+            height="300"
             className="w-[500px] h-auto m-10"
           />
         </div>
