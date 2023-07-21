@@ -144,13 +144,13 @@ const MenuPage: React.FC = () => {
     <>
       <div>
         <div className="bg-[#EEF6F4]">
-          <h1 className="text-emerald-950 text-[50px] px-5 pb-[40px] font-bold leading-[80px]">
+          <h1 className="text-emerald-950 text-[50px] p-6 pb-[40px] font-bold leading-[80px]">
             Menu
           </h1>
         </div>
-        <div className="flex p-8">
-          <div className="w-2/5 p-4">
-            <div className="bg-[#F6F6F6] p-8 rounded-xl">
+        <div className="flex p-0 py-2 md:p-8">
+          <div className="w-2/5 p-1 md:p-4">
+            <div className="bg-[#F6F6F6] p-1 md:p-8 rounded-xl">
               <Filter
                 onFilterByQuery={handleFilterByQuery}
                 categories={[
@@ -215,19 +215,19 @@ const MenuPage: React.FC = () => {
                   terlewatkan kesempatan ini! Download sekarang juga!
                 </div>
                 <div className="w-[100%] h-[30%] md:w-[900px] justify-between">
-                  <button className="item-start md:w-[30%] h-[50%] w-[80%] md:mt-0 mt-6 bg-white md:rounded-3xl rounded-2xl">
+                  <button className="item-start md:w-[30%] h-[50%] w-[80%] md:mt-0 sm:mt-6 mt-8 bg-white md:rounded-3xl rounded-2xl">
                     <p className="items-center justify-center text-base font-semibold text-slate-500">
                       Download Sekarang
                     </p>
                   </button>
                 </div>
               </div>
-              <div className="w-[15%] md:w-[110px] md:h-[110px] h-[15%] bg-white rounded-full flex justify-center items-center">
+              <div className="sm:w-[15%] md:w-[110px] w-[18%] h-[12%] md:h-[110px] sm:h-[15%] bg-white rounded-full flex justify-center items-center">
                 <div className="text-center">
                   <p className="text-sm font-semibold md:text-2xl text-slate-500">
                     up to
                   </p>
-                  <p className="text-sm font-semibold text-red-600 md:text-2xl">
+                  <p className="text-sm text-red-600 font-semibsold md:text-2xl">
                     30%
                   </p>
                 </div>

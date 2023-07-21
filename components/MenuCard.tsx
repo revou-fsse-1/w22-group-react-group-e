@@ -2,6 +2,9 @@ import React, { useContext } from 'react';
 import Link from 'next/link';
 import StarRating from 'react-star-rating-component';
 import { CartContext } from '../context/CartContext';
+import { Toast } from 'react-toastify/dist/components';
+import { toast } from 'react-toastify';
+import { checkLogin } from '@/libs/checkLogin';
 
 interface MenuCardProps {
   id: number;
@@ -25,13 +28,11 @@ const MenuCard: React.FC<MenuCardProps> = ({
   ratings,
   menuImages,
 }) => {
-  const { addToCart } = useContext(CartContext);
-
+  const { addToCartServer } = useContext(CartContext);
   const averageRating =
     ratings.length > 0
       ? ratings.reduce((sum, rating) => sum + rating, 0) / ratings.length
       : 0;
-
   return (
     <div className="w-[270px] h-[320px] bg-neutral-100 rounded-xl overflow-hidden transition shadow hover:shadow-lg">
       {menuImages && menuImages.img1 ? (
@@ -69,7 +70,7 @@ const MenuCard: React.FC<MenuCardProps> = ({
             Price: Rp{price.toLocaleString()}
           </p>
           <button
-            onClick={() => addToCart({ id, name, price, menuImages }, 1)}
+            onClick={() => addToCartServer({ id, name, price, menuImages })}
             className="ml-3 w-[100px] h-[37px] text-sm bg-emerald-600 hover:bg-emerald-900 text-white rounded-[18.50px] overflow-hidden transition shadow hover:shadow-lg"
           >
             Add to Cart
