@@ -20,19 +20,6 @@ export default function LoginModal({ loginAuthCheck }: any) {
   const submitLogin = async (e: SyntheticEvent) => {
     e.preventDefault();
 
-    const checkToken = checkLogin();
-
-    console.log('submitRegister called');
-
-    console.log('Making fetch call with the following details:');
-    console.log('Endpoint:', 'http://localhost:4001/auth/login');
-    console.log('Method:', 'POST');
-    console.log('Headers:', { 'Content-Type': 'application/json' });
-    console.log('Body:', {
-      password: password,
-      email: email,
-    });
-
     try {
       const response = await fetch(
         `${process.env.NEXT_PUBLIC_SERVICE_BASE}/auth/login`,
@@ -48,28 +35,20 @@ export default function LoginModal({ loginAuthCheck }: any) {
 
       if (!response.ok) {
         const errorData = await response.json();
-        console.error(
-          'HTTP error',
-          response.status,
-          'Error message:',
-          errorData.message,
-          toast.error('email or password incorrect!', {
-            position: 'top-right',
-            autoClose: 3000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-            theme: 'colored',
-          }),
-          // alert('email or password incorrect!'),
-        );
+        toast.error('email or password incorrect!', {
+          position: 'top-right',
+          autoClose: 3000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: 'colored',
+        });
       } else {
         const data = await response.json();
         setCookie('token', data.token, 1);
-        console.log('Response data: ', data.token);
-        console.log('Response data: ', data);
+        setCookie('userId', data.user.id, 1); // Assuming the user's ID is in data.user.id
         toast.success('User logged in successfully!', {
           position: 'top-right',
           autoClose: 3000,
@@ -86,10 +65,6 @@ export default function LoginModal({ loginAuthCheck }: any) {
     } catch (error) {
       console.error('Error during fetch: ', error);
     }
-
-    // closeModal();
-
-    // router.reload();
   };
 
   const submitRegister = async (e: SyntheticEvent) => {

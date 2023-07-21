@@ -161,7 +161,6 @@ const DetailMenu: NextComponentType<any, any, ResGetProps> = (props: any) => {
               className="object-fill w-20 h-20 lg:w-36 lg:h-36 rounded-md cursor-pointer"
               onClick={() => setActiveImage(images.img2)}
             />
-
             <Image
               src={images.img3}
               alt=""

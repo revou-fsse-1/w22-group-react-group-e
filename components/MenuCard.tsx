@@ -5,6 +5,7 @@ import { CartContext } from '../context/CartContext';
 import { Toast } from 'react-toastify/dist/components';
 import { toast } from 'react-toastify';
 import { checkLogin } from '@/libs/checkLogin';
+
 interface MenuCardProps {
   id: number;
   name: string;
@@ -28,7 +29,6 @@ const MenuCard: React.FC<MenuCardProps> = ({
   menuImages,
 }) => {
   const { addToCartServer } = useContext(CartContext);
-  
   const averageRating =
     ratings.length > 0
       ? ratings.reduce((sum, rating) => sum + rating, 0) / ratings.length
