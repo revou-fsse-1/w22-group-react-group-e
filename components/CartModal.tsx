@@ -46,10 +46,10 @@ const CartModal: React.FC = () => {
             <div>
               <hr />
             </div>
-
-            {cartProducts.map(({ product, quantity }) => (
-              <div key={product.id}>
-                {/* <Image
+            <div className="overflow-y-scroll h-40">
+              {cartProducts.map(({ product, quantity }) => (
+                <div key={product.id}>
+                  {/* <Image
                   className="p-2"
                   width={156}
                   height={160}
@@ -57,37 +57,38 @@ const CartModal: React.FC = () => {
                   alt={product.name}
                 /> */}
 
-                <div className="p-4">
-                  <p>{product.name}</p>
-                  <div className="flex flex-row items-center gap-12">
-                    <div className="flex flex-row items-center">
-                      <button
-                        className="bg-gray-200 px-2 rounded-lg text-emerald-800"
-                        onClick={() => decreaseQuantity(product.id)}
-                      >
-                        -
-                      </button>
-                      <span className="py-4 px-3 rounded-lg">{quantity}</span>
-                      <button
-                        className="bg-gray-200 px-2 rounded-lg text-emerald-800"
-                        onClick={() => increaseQuantity(product.id)}
-                      >
-                        +
-                      </button>
+                  <div className="p-4">
+                    <p>{product.name}</p>
+                    <div className="flex flex-row items-center gap-12">
+                      <div className="flex flex-row items-center">
+                        <button
+                          className="bg-gray-200 px-2 rounded-lg text-emerald-800"
+                          onClick={() => decreaseQuantity(product.id)}
+                        >
+                          -
+                        </button>
+                        <span className="py-4 px-3 rounded-lg">{quantity}</span>
+                        <button
+                          className="bg-gray-200 px-2 rounded-lg text-emerald-800"
+                          onClick={() => increaseQuantity(product.id)}
+                        >
+                          +
+                        </button>
+                      </div>
                     </div>
                   </div>
-                </div>
 
-                <div className="p-4">
-                  <div>
-                    <button onClick={() => removeFromCart(product.id)}>
-                      <GoTrash className="text-red-600" />
-                    </button>
+                  <div className="p-4">
+                    <div>
+                      <button onClick={() => removeFromCart(product.id)}>
+                        <GoTrash className="text-red-600" />
+                      </button>
+                    </div>
+                    <p>Rp. {product.price}</p>
                   </div>
-                  <p>Rp. {product.price}</p>
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
 
             <div className="p-3 flex justify-between">
               <p>Total</p>
