@@ -1,5 +1,9 @@
 # Website API - Group Project Team E - Wareg
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> e402574462b7c0c2d560e1da91766269a0a19285
 ## Table of Content
 
 - [About the Project](#about-the-project)
@@ -26,6 +30,7 @@ In today's fast-paced world, finding time for nutritious home-cooked meals can b
 
 ### Team
 
+<<<<<<< HEAD
 | Name         | Role                                   |
 | :----------- | :------------------------------------- |
 | Okky Anggoro | Frontend Developer & UI UX             |
@@ -37,11 +42,40 @@ In today's fast-paced world, finding time for nutritious home-cooked meals can b
 **Live:**
 
 - <http://api.wareg.site>
+=======
+| Name         | Role                                 |
+| :----------- | :----------------------------------- |
+| Okky Anggoro | Frontend Developer & UI UX           |
+| Mesel Ghea   | Frontend Developer & Backend Developer |
+| Nofrialdi    | Frontend Developer & Infra Engineer |
+
+### Links
+ **Live:**
+
+
+  - <http://api.wareg.site>
+  - <https://w17-our-backend-group-e-production-57d7.up.railway.app/>
+  - <https://our-backend-warteg.nofri.xyz/>
+ 
+
+**Docker:**
+
+  - <https://hub.docker.com/r/nofrialdi/our-backend-warteg/tags>
+  - <https://asia-southeast2-docker.pkg.dev/our-backend-warteg/docker/our-backend-warteg>
+
+ **Repo :** <https://github.com/revou-fsse-1/w17-our-backend-group-e>
+
+ **Status :** <https://our-backend-group-e.betteruptime.com/>
+
+
+
+>>>>>>> e402574462b7c0c2d560e1da91766269a0a19285
 
 ### Tech Stack
 
 The table below gives an overview of the technologies used in this project, as well as places to learn more about them.
 
+<<<<<<< HEAD
 | Name           | Links                                                                                                                                                                                                                                          |
 | -------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Next.js        | [Website](https://nextjs.org/) - [Docs](https://nextjs.org/docs) - [Learn Next.js](https://nextjs.org/learn) - [GitHub](https://github.com/vercel/next.js) - [Wikipedia](https://en.wikipedia.org/wiki/Next.js)                                |
@@ -56,6 +90,23 @@ The table below gives an overview of the technologies used in this project, as w
 | pnpm           | [Website](https://pnpm.io/) - [Docs](https://pnpm.io/motivation) - [GitHub](https://github.com/pnpm/pnpm)                                                                                                                                      |
 | GitHub Actions | [Website](https://github.com/features/actions) - [Docs](https://docs.github.com/en/actions) - [Workflow syntax](https://docs.github.com/en/actions/reference/workflow-syntax-for-github-actions)                                               |
 | Vercel         | [Website](https://vercel.com/) - [Docs](https://vercel.com/docs) - [CLI Docs](https://vercel.com/docs/cli)                                                                                                                                     |
+=======
+| Name            | Links                                                                                                                                                                                                           |
+| --------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Next.js         | [Website](https://nextjs.org/) - [Docs](https://nextjs.org/docs) - [Learn Next.js](https://nextjs.org/learn) - [GitHub](https://github.com/vercel/next.js) - [Wikipedia](https://en.wikipedia.org/wiki/Next.js) |
+| React           | [Website](https://reactjs.org/) - [Docs](https://reactjs.org/docs/getting-started.html) - [GitHub](https://github.com/facebook/react) - [Wikipedia](<https://en.wikipedia.org/wiki/React_(JavaScript_library)>) |
+| TypeScript      | [Website](https://www.typescriptlang.org/) - [Docs](https://www.typescriptlang.org/docs/) - [GitHub](https://github.com/microsoft/TypeScript) - [Wikipedia](https://en.wikipedia.org/wiki/TypeScript)           |
+| Tailwind CSS    | [Website](https://tailwindcss.com/) - [Docs](https://tailwindcss.com/docs) - [GitHub](https://github.com/tailwindlabs/tailwindcss)   [Docs](https://tanstack.com/query/latest/docs/react/overview) - [GitHub](https://github.com/tanstack/query)                                                      |
+| React Icons     | [Website](https://react-icons.github.io/react-icons/) - [GitHub](https://github.com/react-icons/react-icons)                                                                                                    |
+| ESLint          | [Website](https://eslint.org/) - [Configuration](https://eslint.org/docs/user-guide/configuring/) - [Rules](https://eslint.org/docs/rules/) - [GitHub](https://github.com/eslint/eslint)                        |
+| Prettier        | [Website](https://prettier.io/) - [Docs](https://prettier.io/docs/en/index.html) - [Options](https://prettier.io/docs/en/options.html) - [GitHub](https://github.com/prettier/prettier)                         |
+| Husky           | [Website](https://typicode.github.io/husky/) - [Docs](https://typicode.github.io/husky/) - [GitHub](https://github.com/typicode/husky)                                                                          |
+| lint-staged     | [Website](https://github.com/okonet/lint-staged) - [GitHub](https://github.com/okonet/lint-staged)                                                                                                              |
+| pnpm            | [Website](https://pnpm.io/) - [Docs](https://pnpm.io/motivation) - [GitHub](https://github.com/pnpm/pnpm)                                                                                                       |
+| GitHub Actions  | [Website](https://github.com/features/actions) - [Docs](https://docs.github.com/en/actions) - [Workflow syntax](https://docs.github.com/en/actions/reference/workflow-syntax-for-github-actions)                |
+| Vercel          | [Website](https://vercel.com/) - [Docs](https://vercel.com/docs) - [CLI Docs](https://vercel.com/docs/cli)                                                                                                      |
+
+>>>>>>> e402574462b7c0c2d560e1da91766269a0a19285
 
 To get started, run:
 
@@ -79,8 +130,10 @@ Each script is run using `pnpm <script-name>`. For example: `pnpm dev`.
 | `lint`          | Runs [ESLint](https://eslint.org/) to catch linting errors in the source code.                                                                                                                                                                  |
 | `format`        | Formats all source code in the project.                                                                                                                                                                                                         |
 | `format:check`  | Checks the formatting of all code in the project.                                                                                                                                                                                               |
-| `deploy:vercel` | Deploy a preview deployment to Vercel                                                                                                                                                                                                           |
+| `deploy:vercel` | Deploy a preview deployment to Vercel                                                                                                                                                                                      
+### What to improve
 
+<<<<<<< HEAD
 ### What to improve
 
 While our project has been a solid learning exercise and created a functional Web service, there are always ways to enhance and expand. Here are some areas for improvement:
@@ -90,6 +143,16 @@ While our project has been a solid learning exercise and created a functional We
 - **Automated Tests**: The implementation of automated testing would be beneficial. This would allow us to catch and resolve potential issues before they reach our users, and make our development process more efficient.
 - **Google Auth**: Integrating Google authentication can significantly improve the user experience. This feature simplifies the sign-in process, making it more user-friendly, and adds an extra layer of security.
 
+=======
+While our project has been a solid learning exercise and created a functional Web service, there are always ways to enhance and expand. Here are some areas for improvement:
+
+- **Firebase Integration**: Although we planned to use Firebase for some authentication features, we have not fully implemented it yet. Completing this integration could provide a more seamless and secure authentication experience.
+- **Responsivenes**: While our application layouts work well on small screens, they can be further optimized for larger screens. For instance, on wide screens, we could make better use of the available space by implementing a grid layout or multi-column layouts.
+- **Automated Tests**: The implementation of automated testing would be beneficial. This would allow us to catch and resolve potential issues before they reach our users, and make our development process more efficient.
+- **Google Auth**: Integrating Google authentication can significantly improve the user experience. This feature simplifies the sign-in process, making it more user-friendly, and adds an extra layer of security.
+                 
+
+>>>>>>> e402574462b7c0c2d560e1da91766269a0a19285
 ## Author
 
 - **Okky Anggoro**
@@ -97,4 +160,8 @@ While our project has been a solid learning exercise and created a functional We
 - **Mesel Ghea**
   <a href="https://github.com/meselghea" target="blank"><img align="center" src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white" alt="okky-anggoro" height="30" width="100" /></a>
 - **Nofrialdi**
+<<<<<<< HEAD
   <a href="https://github.com/nofrialdi" target="blank"><img align="center" src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white" alt="okky-anggoro" height="30" width="100" /></a>
+=======
+  <a href="https://github.com/nofrialdi" target="blank"><img align="center" src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white" alt="okky-anggoro" height="30" width="100" /></a>
+>>>>>>> e402574462b7c0c2d560e1da91766269a0a19285
