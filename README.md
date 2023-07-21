@@ -1,6 +1,5 @@
 # Website API - Group Project Team E - Wareg
 
-This is our assignment for Week 23
 
 ## Table of Content
 
@@ -8,11 +7,8 @@ This is our assignment for Week 23
   - [Team](#Team)
   - [Links](#Links)
   - [Features](#Features)
-  - [Api Endpoint](#api-endpoints)
   - [API Documentation](#API-Documentation)
 - [Our process](#Our-process)
-  - [Database Diagram](#database-diagram)
-  - [Architecture Diagram](#architecture-diagram)
   - [Tech Stack](#tech-stack)
   - [What We learned](#what-we-learned)
   - [What to improve](#what-to-improve)
@@ -33,7 +29,7 @@ In today's fast-paced world, finding time for nutritious home-cooked meals can b
 
 | Name         | Role                                 |
 | :----------- | :----------------------------------- |
-| Okky Anggoro | Lead Frontend Developer & UI UX           |
+| Okky Anggoro | Frontend Developer & UI UX           |
 | Mesel Ghea   | Frontend Developer & Backend Developer |
 | Nofrialdi    | Frontend Developer & Infra Engineer |
 
@@ -100,5 +96,22 @@ Each script is run using `pnpm <script-name>`. For example: `pnpm dev`.
 | `lint`          | Runs [ESLint](https://eslint.org/) to catch linting errors in the source code.                                                                                                                                                                  |
 | `format`        | Formats all source code in the project.                                                                                                                                                                                                         |
 | `format:check`  | Checks the formatting of all code in the project.                                                                                                                                                                                               |
-| `deploy:vercel` | Deploy a preview deployment to Vercel                                                                                                                                                                                                           |
+| `deploy:vercel` | Deploy a preview deployment to Vercel                                                                                                                                                                                      
+### What to improve
 
+While our project has been a solid learning exercise and created a functional Web service, there are always ways to enhance and expand. Here are some areas for improvement:
+
+- **Firebase Integration**: Although we planned to use Firebase for some authentication features, we have not fully implemented it yet. Completing this integration could provide a more seamless and secure authentication experience.
+- **Responsivenes**: While our application layouts work well on small screens, they can be further optimized for larger screens. For instance, on wide screens, we could make better use of the available space by implementing a grid layout or multi-column layouts.
+- **Automated Tests**: The implementation of automated testing would be beneficial. This would allow us to catch and resolve potential issues before they reach our users, and make our development process more efficient.
+- **Google Auth**: Integrating Google authentication can significantly improve the user experience. This feature simplifies the sign-in process, making it more user-friendly, and adds an extra layer of security.
+                 
+
+## Author
+
+- **Okky Anggoro**
+  <a href="https://github.com/anggr" target="blank"><img align="center" src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white" alt="okky-anggoro" height="30" width="100" /></a>
+- **Mesel Ghea**
+  <a href="https://github.com/meselghea" target="blank"><img align="center" src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white" alt="okky-anggoro" height="30" width="100" /></a>
+- **Nofrialdi**
+  <a href="https://github.com/nofrialdi" target="blank"><img align="center" src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white" alt="okky-anggoro" height="30" width="100" /></a>
