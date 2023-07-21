@@ -117,7 +117,10 @@ export default function Header() {
           <LoginModal loginAuthCheck={loginAuth} />
         </div>
         {/* Hamburger menu icon for mobile and tablet */}
-        <div className="z-40 cursor-pointer md:hidden" onClick={handleMenuToggle}>
+        <div
+          className="z-40 cursor-pointer md:hidden"
+          onClick={handleMenuToggle}
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="24"

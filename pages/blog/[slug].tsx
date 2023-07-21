@@ -41,7 +41,9 @@ export default function BlogPostPage({ data }: { data: SanityDocument }) {
         <div className="flex justify-center">
           <Image
             src={urlForImage(mainImage).url()}
-            alt={mainImage?.alt} width="500" height="300"
+            alt={mainImage?.alt}
+            width="500"
+            height="300"
             className="w-[500px] h-auto m-10"
           />
         </div>

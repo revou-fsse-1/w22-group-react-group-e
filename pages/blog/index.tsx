@@ -38,7 +38,9 @@ export default function BlogPage({ data }: { data: SanityDocument[] }) {
             <Image
               alt={post.mainImage.alt}
               src={urlForImage(post.mainImage).url()}
-              className="object-cover w-full h-[217px]" width="400" height="217"
+              className="object-cover w-full h-[217px]"
+              width="400"
+              height="217"
             />
             <div className="w-full p-4 bg-white sm:p-6">
               <p className="items-center inline text-xs text-center text-gray-500">
