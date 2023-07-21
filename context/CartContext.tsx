@@ -13,7 +13,7 @@ interface Order {
   };
 }
 
-interface CartProduct {
+export interface CartProduct {
   product: Order;
   quantity: number;
 }

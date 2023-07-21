@@ -4,7 +4,7 @@ import Link from 'next/link';
 export default function AboutUs() {
   return (
     <div>
-      <div className="h-1/2 mx-auto">
+      <div className="mx-auto h-1/2">
         <div className="relative flex flex-col items-center justify-center min-h-screen bg-white bg-cover min-w-screen">
           <div className="flex flex-col items-center justify-center p-10 mx-auto lg:flex-row lg:max-w-7xl lg:p-0 ">
             <div className="relative px-5 rounded-lg md:w-2/3 lg:w-1/2 group xl:px-0">
@@ -22,8 +22,8 @@ export default function AboutUs() {
               </div>
             </div>
 
-            <div className="container relative z-20 flex flex-col w-full px-5 pb-1 pr-12 mb-20 text-2xl lg:mr-10  lg:w-1/2 sm:px-0 md:px-10 sm:items-center lg:items-start lg:mb-0 ">
-              <h2 className="font-poppins text-emerald-600 text-lg ">
+            <div className="container relative z-20 flex flex-col w-full px-5 pb-1 pr-12 mb-20 text-2xl lg:mr-10 lg:w-1/2 sm:px-0 md:px-10 sm:items-center lg:items-start lg:mb-0 ">
+              <h2 className="text-lg font-poppins text-emerald-600 ">
                 Tentang Kami
               </h2>
               <h1
@@ -35,7 +35,7 @@ export default function AboutUs() {
 
               <p
                 style={{ lineHeight: '1.6' }}
-                className="relative z-20 block mt-6 text-base text-gray-500 xl:text-xl sm:text-center lg:text-left mb-4 "
+                className="relative z-20 block mt-6 mb-4 text-base text-gray-500 xl:text-xl sm:text-center lg:text-left "
               >
                 Wareg adalah sebuah restoran yang menyajikan masakan rumahan
                 dengan harga terjangkau. Kami bertekad untuk memberikan
@@ -44,7 +44,7 @@ export default function AboutUs() {
               <div className="relative flex mt-4">
                 <Link
                   href="#_"
-                  className="flex items-center self-start justify-center px-5 py-3 mt-5 text-base font-medium leading-tight text-white transition duration-150 ease-in-out bg-emerald-600 border border-transparent rounded-full shadow hover:bg-emerald-500 focus:outline-none focus:shadow-outline-purple md:py-4 md:text-lg xl:text-xl md:px-10 text-white-500"
+                  className="flex items-center self-start justify-center px-5 py-3 mt-5 text-base font-medium leading-tight text-white transition duration-150 ease-in-out border border-transparent rounded-full shadow bg-emerald-600 hover:bg-emerald-500 focus:outline-none focus:shadow-outline-purple md:py-4 md:text-lg xl:text-xl md:px-10 text-white-500"
                 >
                   Selengkapnya
                   <svg

@@ -117,7 +117,7 @@ export default function Header() {
           <LoginModal loginAuthCheck={loginAuth} />
         </div>
         {/* Hamburger menu icon for mobile and tablet */}
-        <div className="cursor-pointer md:hidden" onClick={handleMenuToggle}>
+        <div className="z-40 cursor-pointer md:hidden" onClick={handleMenuToggle}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="24"
@@ -137,7 +137,7 @@ export default function Header() {
         <div
           className={`${
             isMenuOpen ? 'fixed' : 'hidden'
-          } top-0 right-0 bottom-0 w-64 bg-white z-20 p-6 shadow-lg`}
+          } top-0 right-0 bottom-0 w-64 bg-white z-50 p-6 shadow-lg`}
         >
           <div className="flex justify-end">
             <button className="text-xl font-bold" onClick={handleCloseMenu}>

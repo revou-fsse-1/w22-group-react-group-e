@@ -1,108 +1,91 @@
-import React, { useState, useEffect } from 'react';
-import { useRouter } from 'next/router';
+import React, { useContext, useEffect, useState } from 'react';
 import axios from 'axios';
-import StarRating from 'react-star-rating-component';
+import { CartContext, CartProduct } from '@/context/CartContext';
 import { getCookie } from '@/libs/cookies';
-import Image from 'next/image';
+import { toast } from 'react-toastify';
 
-const sampleOrderItems = [
-  {
-    id: '1',
-    menuId: 1,
-    orderId: '123',
-    menu: {
-      id: 1,
-      name: 'Menu 1',
-      price: 10,
-    },
-    quantity: 2,
-  },
-  {
-    id: '2',
-    menuId: 2,
-    orderId: '123',
-    menu: {
-      id: 2,
-      name: 'Menu 2',
-      price: 15,
-    },
-    quantity: 1,
-  },
-];
-
-interface Menu {
+interface MenuData {
   id: number;
   name: string;
-  menuImage: {
+  price: number;
+  categoryId: string;
+  userId: number;
+  createdAt: string;
+  updatedAt: string;
+  calories: string;
+  description: string;
+  category: {
+    name: string;
+  };
+  ratings: {
+    rating: number;
+  }[];
+  menuImages: {
     img1: string;
+    img2: string;
+    img3: string;
+    img4: string;
   };
 }
-interface RatingsState {
-  [menuId: number]: number;
-}
 
-const NotificationPage = () => {
-  const router = useRouter();
-  const [ratings, setRatings] = useState<RatingsState>({});
-  const [menus, setMenus] = useState<Menu[]>([]);
-  const token = getCookie('token');
+const NotificationPage: React.FC = () => {
+  const { cartProducts } = useContext(CartContext);
+  const [ratings, setRatings] = useState<{ [menuId: number]: number }>({});
 
   useEffect(() => {
-    const fetchOrderItems = async () => {
+    const fetchPreviousRatings = async () => {
       try {
-        const orderId = router.query.id;
-        const response = await axios.get(
-          `https://w17-wareg.onrender.com/${orderId}`,
-          {
-            headers: {
-              'Content-Type': 'application/json; charset=utf-8',
-              Authorization: `Bearer ${token}`,
-            },
-            withCredentials: true,
+        const token = getCookie('token');
+        const response = await axios.get('https://w17-wareg.onrender.com/menus', {
+          headers: {
+            'Content-Type': 'application/json; charset=utf-8',
+            Authorization: `Bearer ${token}`,
           },
-        );
-        setMenus(response.data.orderItems);
+          withCredentials: true,
+        });
+
+        const menuData: MenuData[] = response.data.menus;
+        const ratingsMap: { [menuId: number]: number } = {};
+        menuData.forEach((menu) => {
+          const { id, ratings } = menu;
+          // Check if the menu has ratings and provide a default value (e.g., 0) if it does not have ratings
+          ratingsMap[id] = ratings.length > 0 ? ratings[0].rating : 0;
+        });
+
+        setRatings(ratingsMap);
       } catch (error) {
-        console.error('Failed to fetch order items:', error);
+        console.error(error);
+        toast.error('Failed to fetch previous ratings.', {
+          position: 'top-center',
+          autoClose: 3000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: 'colored',
+        });
       }
     };
 
-    fetchOrderItems();
-  }, [router.query.id, token]);
-
-  useEffect(() => {
-    const fetchMenus = async () => {
-      const menuIds = sampleOrderItems.map((item) => item.menuId);
-      try {
-        const response = await axios.get(
-          `https://w17-wareg.onrender.com/menus?ids=${menuIds.join(',')}`,
-        );
-        setMenus(response.data);
-      } catch (error) {
-        console.error('Failed to fetch menus:', error);
-      }
-    };
-
-    fetchMenus();
+    fetchPreviousRatings();
   }, []);
 
   const handleRatingChange = (menuId: number, newRating: number) => {
-    setRatings((prevRatings) => ({
-      ...prevRatings,
-      [menuId]: newRating,
-    }));
+    setRatings((prevRatings) => ({ ...prevRatings, [menuId]: newRating }));
   };
 
   const handleSubmitRatings = async () => {
     try {
-      const ratingData = Object.entries(ratings).map(([menuId, rating]) => ({
-        menuId,
+      const token = getCookie('token');
+      const ratingsData = Object.entries(ratings).map(([menuId, rating]) => ({
+        menuId: parseInt(menuId),
         rating,
       }));
 
-      const response = await axios.post(
-        'https://w17-wareg.onrender.com/api/ratings',
-        ratingData,
+      await axios.post(
+        'https://w17-wareg.onrender.com/menus/rating',
+        { ratings: ratingsData },
         {
           headers: {
             'Content-Type': 'application/json; charset=utf-8',
@@ -111,43 +94,80 @@ const NotificationPage = () => {
           withCredentials: true,
         },
       );
-      setRatings({}); // Reset ratings after sending
-      console.log('Ratings have been submitted successfully:', response.data);
+
+      setRatings({});
+      toast.success('Ratings submitted successfully!', {
+        position: 'top-center',
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: 'colored',
+      });
     } catch (error) {
-      console.error('Failed to submit ratings:', error);
+      console.error(error);
+      toast.error('Failed to submit ratings.', {
+        position: 'top-center',
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: 'colored',
+      });
     }
   };
 
   return (
-    <div>
-      <h1>Success</h1>
-      <p>Item has been added to order.</p>
-
-      <h2>Rate the Menu</h2>
-      {menus.map((menu) => (
-        <div key={menu.id}>
-          <h3>{menu.name}</h3>
-          <Image src={menu.menuImage?.img1} alt={menu.name} />
-
-          <StarRating
-            name={`menu-rating-${menu.id}`}
-            value={ratings[menu.id] || 0}
-            onStarClick={(newRating) => handleRatingChange(menu.id, newRating)}
-          />
-        </div>
-      ))}
-
-      <button onClick={handleSubmitRatings}>Submit Ratings</button>
-
+    <div className="container mx-auto mt-8">
+      <h1 className="mb-4 text-3xl font-semibold">Notification Page</h1>
+      <div className="grid grid-cols-2 gap-4">
+        {cartProducts.map((cartProduct: CartProduct) => (
+          <div key={cartProduct.product.id} className="p-4 border">
+            <img
+              src={cartProduct.product.menuImages.img1}
+              alt={cartProduct.product.name}
+              className="object-cover w-32 h-32 mb-4"
+            />
+            <h2 className="mb-2 text-xl font-semibold">
+              {cartProduct.product.name}
+            </h2>
+            <p className="text-gray-500">${cartProduct.product.price}</p>
+            <div className="flex items-center mt-2">
+              <label className="mr-2">Rating:</label>
+              <select
+                value={ratings[cartProduct.product.id] || 0}
+                onChange={(e) =>
+                  handleRatingChange(
+                    cartProduct.product.id,
+                    parseInt(e.target.value),
+                  )
+                }
+              >
+                <option value={0}>Select rating</option>
+                <option value={1}>1</option>
+                <option value={2}>2</option>
+                <option value={3}>3</option>
+                <option value={4}>4</option>
+                <option value={5}>5</option>
+              </select>
+            </div>
+          </div>
+        ))}
+      </div>
       <button
-        onClick={() => {
-          router.back();
-        }}
+        className="px-4 py-2 mt-4 text-white bg-blue-500 rounded hover:bg-blue-600"
+        onClick={handleSubmitRatings}
       >
-        Back
+        Submit Ratings
       </button>
     </div>
   );
 };
 
 export default NotificationPage;
+
+
