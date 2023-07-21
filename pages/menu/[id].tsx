@@ -203,15 +203,15 @@ const DetailMenu: NextComponentType<any, any, ResGetProps> = (props: any) => {
                   +
                 </button>
               </div>
-            <div>
-            <AddToCartButton
-              menuId={id}
-              quantity={count}
-              addToCart={addToCart}
-            />
+              <div>
+                <AddToCartButton
+                  menuId={id}
+                  quantity={count}
+                  addToCart={addToCart}
+                />
+              </div>
+            </div>
           </div>
-            </div>
-            </div>
         </div>
         <div>
           <div className="py-5">
@@ -268,5 +268,3 @@ export const getServerSideProps: GetServerSideProps = async (
 };
 
 export default DetailMenu;
-
-
