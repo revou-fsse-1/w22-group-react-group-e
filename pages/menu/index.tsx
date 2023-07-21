@@ -144,7 +144,7 @@ const MenuPage: React.FC = () => {
     <>
       <div>
         <div className="bg-[#EEF6F4]">
-          <h1 className="text-emerald-950 text-[50px] px-0 md:px-5 pb-[40px] font-bold leading-[80px]">
+          <h1 className="text-emerald-950 text-[50px] p-6 pb-[40px] font-bold leading-[80px]">
             Menu
           </h1>
         </div>
