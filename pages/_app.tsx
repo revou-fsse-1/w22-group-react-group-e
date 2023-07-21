@@ -5,14 +5,14 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
-import { CartProvider } from '../context/CartContext';
+import { ContextCartProvider } from '@/context/CartContext';
 import 'react-toastify/dist/ReactToastify.css';
 import { ToastContainer } from 'react-toastify';
 
-const App = ({ Component, pageProps }: AppProps) => {
+const App: React.FC<AppProps> = ({ Component, pageProps }) => {
   const [queryClient] = React.useState(() => new QueryClient());
   return (
-    <CartProvider>
+    <ContextCartProvider>
       <QueryClientProvider client={queryClient}>
         <ReactQueryDevtools />
         <Header />
@@ -20,7 +20,7 @@ const App = ({ Component, pageProps }: AppProps) => {
         <Footer />
         <ToastContainer />
       </QueryClientProvider>
-    </CartProvider>
+    </ContextCartProvider>
   );
 };
 
