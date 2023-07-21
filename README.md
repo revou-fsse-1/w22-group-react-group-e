@@ -1,9 +1,6 @@
 # Website API - Group Project Team E - Wareg
 
-<<<<<<< HEAD
-=======
 
->>>>>>> e402574462b7c0c2d560e1da91766269a0a19285
 ## Table of Content
 
 - [About the Project](#about-the-project)
@@ -41,8 +38,8 @@ In today's fast-paced world, finding time for nutritious home-cooked meals can b
 
 **Live:**
 
-- <http://api.wareg.site>
-=======
+- <[http://api.wareg.site](https://w23-vercel-cub24rt71-anggr.vercel.app/)>
+
 | Name         | Role                                 |
 | :----------- | :----------------------------------- |
 | Okky Anggoro | Frontend Developer & UI UX           |
