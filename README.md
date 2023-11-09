@@ -130,7 +130,7 @@ Each script is run using `pnpm <script-name>`. For example: `pnpm dev`.
 | `deploy:vercel` | Deploy a preview deployment to Vercel                                                                                                                                                                                      
 ### What to improve
 
-<<<<<<< HEAD
+
 ### What to improve
 
 While our project has been a solid learning exercise and created a functional Web service, there are always ways to enhance and expand. Here are some areas for improvement:
@@ -140,7 +140,6 @@ While our project has been a solid learning exercise and created a functional We
 - **Automated Tests**: The implementation of automated testing would be beneficial. This would allow us to catch and resolve potential issues before they reach our users, and make our development process more efficient.
 - **Google Auth**: Integrating Google authentication can significantly improve the user experience. This feature simplifies the sign-in process, making it more user-friendly, and adds an extra layer of security.
 
-=======
 While our project has been a solid learning exercise and created a functional Web service, there are always ways to enhance and expand. Here are some areas for improvement:
 
 - **Firebase Integration**: Although we planned to use Firebase for some authentication features, we have not fully implemented it yet. Completing this integration could provide a more seamless and secure authentication experience.
@@ -149,7 +148,6 @@ While our project has been a solid learning exercise and created a functional We
 - **Google Auth**: Integrating Google authentication can significantly improve the user experience. This feature simplifies the sign-in process, making it more user-friendly, and adds an extra layer of security.
                  
 
->>>>>>> e402574462b7c0c2d560e1da91766269a0a19285
 ## Author
 
 - **Okky Anggoro**
@@ -157,8 +155,4 @@ While our project has been a solid learning exercise and created a functional We
 - **Mesel Ghea**
   <a href="https://github.com/meselghea" target="blank"><img align="center" src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white" alt="okky-anggoro" height="30" width="100" /></a>
 - **Nofrialdi**
-<<<<<<< HEAD
   <a href="https://github.com/nofrialdi" target="blank"><img align="center" src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white" alt="okky-anggoro" height="30" width="100" /></a>
-=======
-  <a href="https://github.com/nofrialdi" target="blank"><img align="center" src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white" alt="okky-anggoro" height="30" width="100" /></a>
->>>>>>> e402574462b7c0c2d560e1da91766269a0a19285
